@@ -1,0 +1,58 @@
+# 학습/이력 타임라인. 항목을 추가하려면 블록을 복사하고 id(고유)와 order를 지정하세요.
+# order 오름차순으로 위→아래 정렬됩니다. 현재 진행 중인 항목에만 state: current 를 둡니다.
+- id: "cnn-project"
+  order: 1
+  date: "2024.11 — present"
+  state: "current"
+  title: "CNN 이미지 분류 프로젝트 진행"
+  org: "Self-project · PyTorch"
+  desc: "딥러닝 첫 프로젝트. 아키텍처 비교와 실험 로그를 중심으로 학습."
+  tags: ["pytorch", "cnn", "transfer-learning"]
+
+- id: "churn-project"
+  order: 2
+  date: "2024.08 — 2024.10"
+  title: "고객 이탈 예측 프로젝트 완료"
+  org: "Self-project · End-to-end"
+  desc: "문제 정의부터 SHAP 해석까지 전 과정을 단독 수행. AUC 0.84 달성."
+  tags: ["classification", "xgboost", "shap"]
+
+- id: "bootcamp"
+  order: 3
+  date: "2024.06 — 2024.09"
+  title: "데이터 분석 부트캠프 수료"
+  org: "Bootcamp · Korea"
+  desc: "통계, SQL, Python, 머신러닝 파이프라인 집중 학습. 팀 프로젝트 2건 수행."
+  tags: ["statistics", "sql", "ml-pipeline"]
+
+- id: "adsp"
+  order: 4
+  date: "2024.03 — 2024.05"
+  title: "ADsP (데이터 분석 준전문가) 취득"
+  org: "Certification · KDD"
+  desc: "데이터 이해, 분석 기획, 데이터 시각화 기반 정리."
+  tags: ["certification"]
+
+- id: "self-study"
+  order: 5
+  date: "2023.09 — 2024.02"
+  title: "SQL / Pandas 자기주도 학습"
+  org: "Self-study"
+  desc: "HackerRank, LeetCode 기반 SQL 훈련. Pandas로 EDA 노트 30+ 정리."
+  tags: ["sql", "pandas", "notes"]
+
+- id: "graduation"
+  order: 6
+  date: "2023.03 — 2023.08"
+  title: "OO대학교 OO학과 졸업"
+  org: "Education · Bachelor"
+  desc: "통계/수학 기반 과목 중심 이수. 졸업 논문에서 데이터 기반 가설 검증 경험."
+  tags: ["statistics", "thesis"]
+
+- id: "upcoming"
+  order: 7
+  date: "next · planned"
+  title: "시계열 예측 & NLP 분류 프로젝트"
+  org: "Upcoming"
+  desc: "2025년 상반기 중 시계열/추천/NLP 사례를 순차적으로 추가 예정."
+  tags: ["forecasting", "nlp", "recsys"]

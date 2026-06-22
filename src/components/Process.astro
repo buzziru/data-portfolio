@@ -1,0 +1,38 @@
+---
+const steps = [
+  { num: '01', label: 'DEFINE', title: '문제 정의', desc: '질문, 성공 기준, 범위를 한 문장으로.' },
+  { num: '02', label: 'COLLECT', title: '데이터 수집/이해', desc: '출처, 단위, 기간, 한계 확인.' },
+  { num: '03', label: 'EDA', title: '탐색적 분석', desc: '분포, 관계, 이상치 해석.' },
+  { num: '04', label: 'FEATURE', title: '피처 엔지니어링', desc: '인코딩, 변환, 파생 변수 설계.' },
+  { num: '05', label: 'MODEL', title: '모델링', desc: 'baseline → 개선 모델 비교.' },
+  { num: '06', label: 'EVAL', title: '평가', desc: '지표, 분할, 누수 점검.' },
+  { num: '07', label: 'INTERPRET', title: '해석', desc: '왜 그런 결과인지 설명.' },
+  { num: '08', label: 'DOCUMENT', title: '기록/개선', desc: '노트화, 다음 실험 설계.' },
+];
+---
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num"><span class="hash">§</span> 04</div>
+      <div>
+        <span class="sec-kicker">Analysis process</span>
+        <h2 class="sec-title">여덟 단계의 루틴 — 반복할수록 또렷해집니다.</h2>
+        <p class="sec-desc">한 프로젝트를 이 여덟 단계로 풀고, 각 단계의 산출물을 노트에 남깁니다. 단계는 순차적이지 않고 자주 되돌아갑니다.</p>
+      </div>
+    </div>
+
+    <div class="process-flow reveal">
+      <div class="process-track">
+        {steps.map((s) => (
+          <div class="pstep">
+            <div class="pstep-node serif">{s.num}</div>
+            <div class="pstep-label mono">{s.label}</div>
+            <div class="pstep-title">{s.title}</div>
+            <div class="pstep-desc">{s.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

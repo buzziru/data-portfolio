@@ -1,0 +1,56 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('projects');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+
+const STATUS_LABEL: Record<string, string> = {
+  completed: 'Completed',
+  progress: 'In Progress',
+  planned: 'Planned',
+};
+---
+
+<BaseLayout title={`${d.title} — Research Notebook`} description={d.summary}>
+  <main class="detail-main">
+    <div class="wrap wrap-narrow">
+      <a class="detail-back" href="/#projects">← 프로젝트 목록으로</a>
+
+      <div class="detail-head">
+        <div class="detail-kicker">CASE {String(d.order).padStart(2, '0')} · {d.thumb}</div>
+        <h1 class="detail-title">{d.title}</h1>
+        <span class={`status-pill status-${d.status} mono`} style="position:static;display:inline-block;margin-bottom:16px;">{STATUS_LABEL[d.status]}</span>
+        <p class="detail-summary">{d.summary}</p>
+
+        <dl class="detail-meta">
+          <dt>Domain</dt><dd>{d.domain}</dd>
+          <dt>Role</dt><dd>{d.role}</dd>
+          <dt>Methods</dt><dd>{d.methods.join(' · ')}</dd>
+          <dt>Tools</dt><dd>{d.tools.join(', ')}</dd>
+          <dt>Key Metric</dt><dd>{d.keyMetric}</dd>
+        </dl>
+
+        {(d.github || d.demo) && (
+          <div class="detail-actions">
+            {d.github && <a class="btn btn-ghost" href={d.github} target="_blank" rel="noopener">GitHub ↗</a>}
+            {d.demo && <a class="btn btn-primary" href={d.demo} target="_blank" rel="noopener">Live Demo ↗</a>}
+          </div>
+        )}
+      </div>
+
+      <article class="detail-body">
+        <Content />
+      </article>
+    </div>
+  </main>
+</BaseLayout>

@@ -1,0 +1,64 @@
+# 기술 스택. 그룹을 추가하려면 블록을 복사하고 id(고유)와 order를 지정하세요.
+# pills.level 은 using | learning | next 중 하나여야 합니다(범례와 연결).
+- id: "programming"
+  order: 1
+  title: "Programming"
+  tag: "/ foundation"
+  pills:
+    - { name: "Python", level: "using", tip: "주 언어 · 분석/ML 모두 사용" }
+    - { name: "SQL", level: "using", tip: "집계, 조인, 윈도우 함수" }
+    - { name: "Git / GitHub", level: "learning", tip: "협업과 버전 관리 기본" }
+    - { name: "Bash / CLI", level: "next", tip: "자동화 확장 예정" }
+
+- id: "data-analysis"
+  order: 2
+  title: "Data Analysis"
+  tag: "/ daily tools"
+  pills:
+    - { name: "Pandas", level: "using", tip: "데이터 전처리 메인 도구" }
+    - { name: "NumPy", level: "using", tip: "수치 연산 기본" }
+    - { name: "Matplotlib", level: "using", tip: "기본 시각화" }
+    - { name: "Seaborn", level: "using", tip: "통계 시각화" }
+    - { name: "Plotly", level: "learning", tip: "인터랙티브 시각화 학습 중" }
+
+- id: "machine-learning"
+  order: 3
+  title: "Machine Learning"
+  tag: "/ applied"
+  pills:
+    - { name: "Scikit-learn", level: "using", tip: "분류/회귀/평가 기본" }
+    - { name: "Feature Engineering", level: "using", tip: "인코딩·스케일링·파생" }
+    - { name: "Model Evaluation", level: "using", tip: "CV·지표 설계·누수 점검" }
+    - { name: "XGBoost / LightGBM", level: "learning", tip: "트리 앙상블 실습 중" }
+    - { name: "SHAP", level: "learning", tip: "모델 해석 연습 중" }
+
+- id: "deep-learning"
+  order: 4
+  title: "Deep Learning"
+  tag: "/ expanding"
+  pills:
+    - { name: "PyTorch", level: "learning", tip: "CNN 실습 진행 중" }
+    - { name: "CNN", level: "learning", tip: "이미지 분류 프로젝트 진행" }
+    - { name: "RNN / LSTM", level: "next", tip: "시계열 학습 예정" }
+    - { name: "Transformer", level: "next", tip: "NLP 이후 학습 예정" }
+    - { name: "HuggingFace", level: "next", tip: "사전학습모델 활용 예정" }
+
+- id: "tools-workflow"
+  order: 5
+  title: "Tools & Workflow"
+  tag: "/ environment"
+  pills:
+    - { name: "Jupyter Notebook", level: "using", tip: "분석 메인 환경" }
+    - { name: "VS Code", level: "using", tip: "코드 작성/버전관리" }
+    - { name: "GitHub", level: "learning", tip: "실험 기록 공개 중" }
+    - { name: "Docker", level: "next", tip: "환경 재현성 확보 예정" }
+
+- id: "communication"
+  order: 6
+  title: "Communication"
+  tag: "/ outputs"
+  pills:
+    - { name: "Reports", level: "using", tip: "한글/Markdown 리포트 작성" }
+    - { name: "Visualization", level: "using", tip: "동료가 이해할 수 있는 차트" }
+    - { name: "Experiment Notes", level: "using", tip: "실험 로그 표로 정리" }
+    - { name: "Notion / Obsidian", level: "learning", tip: "학습 노트 관리" }

@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Summary from '../components/Summary.astro';
+import Strengths from '../components/Strengths.astro';
+import Process from '../components/Process.astro';
+import Skills from '../components/Skills.astro';
+import Timeline from '../components/Timeline.astro';
+import Contact from '../components/Contact.astro';
+import ProjectsSection from '../components/ProjectsSection';
+
+const entries = await getCollection('projects');
+const projects = entries
+  .map((e) => ({ slug: e.id, ...e.data }))
+  .sort((a, b) => a.order - b.order);
+---
+
+<BaseLayout>
+  <Hero />
+  <Summary />
+  <Strengths />
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-num"><span class="hash">§</span> 03</div>
+        <div>
+          <span class="sec-kicker">Projects / Case studies</span>
+          <h2 class="sec-title">작은 프로젝트를 쌓아가는 보관소.</h2>
+          <p class="sec-desc">각 카드의 "Case Study 보기"를 누르면 상세 케이스스터디(문제 → 데이터 → 접근 → 모델 → 결과 → 학습 → 개선)로 이동합니다. 완성도보다 성장 궤적을 봐 주세요.</p>
+        </div>
+      </div>
+
+      <ProjectsSection client:visible projects={projects} />
+
+      <div class="margin-note reveal" style="margin-top:36px;">
+        ※ 프로젝트는 지속적으로 추가/갱신됩니다. 완성된 사례는 GitHub와 노션 노트로 연결됩니다.
+      </div>
+    </div>
+  </section>
+
+  <Process />
+  <Skills />
+  <Timeline />
+  <Contact />
+</BaseLayout>

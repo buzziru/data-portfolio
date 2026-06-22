@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+
+// 데이터는 src/data/timeline.yaml 에서 관리합니다.
+const entries = await getCollection('timeline');
+const items = entries.map((e) => e.data).sort((a, b) => a.order - b.order);
+---
+
+<section id="timeline">
+  <div class="wrap wrap-narrow">
+    <div class="sec-head">
+      <div class="sec-num"><span class="hash">§</span> 06</div>
+      <div>
+        <span class="sec-kicker">Resume / education / learning log</span>
+        <h2 class="sec-title">학습과 프로젝트의 궤적.</h2>
+        <p class="sec-desc">단순 이력 나열이 아니라, 무엇을 배우고 무엇을 만들었는지의 흐름을 봐 주세요.</p>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      {items.map((it) => (
+        <div class="tl-item" data-state={it.state}>
+          <div class="tl-date mono">{it.date}</div>
+          <div class="tl-title">{it.title}</div>
+          <div class="tl-org mono">{it.org}</div>
+          <div class="tl-desc">{it.desc}</div>
+          <div class="tl-tags">{it.tags.map((t) => <span>{t}</span>)}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+
+// 데이터는 src/data/skills.yaml 에서 관리합니다.
+const entries = await getCollection('skills');
+const groups = entries.map((e) => e.data).sort((a, b) => a.order - b.order);
+---
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num"><span class="hash">§</span> 05</div>
+      <div>
+        <span class="sec-kicker">Technical stack</span>
+        <h2 class="sec-title">사용 중인 것, 배우는 것, 다음 것.</h2>
+        <p class="sec-desc">능력 막대기 대신, 현재 상태를 솔직하게 표시합니다. <strong>Using</strong> · <strong>Learning</strong> · <strong>Next Focus</strong>.</p>
+      </div>
+    </div>
+
+    <div class="skill-grid">
+      {groups.map((g) => (
+        <div class="skill-group reveal">
+          <div class="skill-group-head">
+            <h3 class="skill-group-title">{g.title}</h3>
+            <span class="skill-group-tag mono">{g.tag}</span>
+          </div>
+          <div class="skill-list">
+            {g.pills.map((p) => (
+              <span class="skill-pill mono" data-level={p.level}>{p.name}<span class="tip">{p.tip}</span></span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="skill-legend reveal">
+      <span><span class="legend-dot using"></span> Using · 실무/프로젝트에서 사용 중</span>
+      <span><span class="legend-dot learning"></span> Learning · 학습 및 실습 단계</span>
+      <span><span class="legend-dot next"></span> Next Focus · 다음 학습 예정</span>
+    </div>
+  </div>
+</section>

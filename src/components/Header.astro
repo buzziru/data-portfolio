@@ -1,0 +1,28 @@
+---
+// Nav links are absolute (/#id) so they also work from project detail pages.
+const links = [
+  { href: '/#summary', label: '01 · 소개' },
+  { href: '/#strengths', label: '02 · 역량' },
+  { href: '/#projects', label: '03 · 프로젝트' },
+  { href: '/#process', label: '04 · 분석 과정' },
+  { href: '/#skills', label: '05 · 기술 스택' },
+  { href: '/#timeline', label: '06 · 학습 기록' },
+  { href: '/#contact', label: '07 · 연락' },
+];
+---
+
+<header class="top">
+  <div class="top-inner">
+    <a class="brand" href="/" style="text-decoration:none;color:inherit;">
+      <div class="brand-mark serif">D</div>
+      <div>
+        <div class="brand-name">Research Notebook</div>
+        <div class="brand-sub mono">/ DATA ANALYST PORTFOLIO</div>
+      </div>
+    </a>
+    <nav class="top-nav" aria-label="Primary">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+    <div class="top-meta mono">v0.3 · last update 2024.11</div>
+  </div>
+</header>
