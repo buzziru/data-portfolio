@@ -1,64 +1,58 @@
-# 기술 스택. 그룹을 추가하려면 블록을 복사하고 id(고유)와 order를 지정하세요.
-# pills.level 은 using | learning | next 중 하나여야 합니다(범례와 연결).
-- id: "programming"
+# 기술 스택. pills.level 은 using | learning | next 중 하나.
+- id: "lang-tools"
   order: 1
-  title: "Programming"
+  title: "언어 · 도구"
   tag: "/ foundation"
   pills:
-    - { name: "Python", level: "using", tip: "주 언어 · 분석/ML 모두 사용" }
-    - { name: "SQL", level: "using", tip: "집계, 조인, 윈도우 함수" }
-    - { name: "Git / GitHub", level: "learning", tip: "협업과 버전 관리 기본" }
-    - { name: "Bash / CLI", level: "next", tip: "자동화 확장 예정" }
+    - { name: "Python", level: "using", tip: "주 언어 · 분석/ML/DL 전 영역" }
+    - { name: "SQL", level: "using", tip: "AWS RDS, MariaDB · 복잡 조회 및 DB 설계" }
+    - { name: "Git / GitHub", level: "using", tip: "버전 관리 · 실험 이력 공개" }
+    - { name: "Hydra", level: "using", tip: "설정 선언 기반 실험 관리" }
+    - { name: "uv", level: "using", tip: "Python 패키지·환경 관리" }
 
-- id: "data-analysis"
+- id: "ml"
   order: 2
-  title: "Data Analysis"
-  tag: "/ daily tools"
-  pills:
-    - { name: "Pandas", level: "using", tip: "데이터 전처리 메인 도구" }
-    - { name: "NumPy", level: "using", tip: "수치 연산 기본" }
-    - { name: "Matplotlib", level: "using", tip: "기본 시각화" }
-    - { name: "Seaborn", level: "using", tip: "통계 시각화" }
-    - { name: "Plotly", level: "learning", tip: "인터랙티브 시각화 학습 중" }
-
-- id: "machine-learning"
-  order: 3
   title: "Machine Learning"
   tag: "/ applied"
   pills:
-    - { name: "Scikit-learn", level: "using", tip: "분류/회귀/평가 기본" }
-    - { name: "Feature Engineering", level: "using", tip: "인코딩·스케일링·파생" }
-    - { name: "Model Evaluation", level: "using", tip: "CV·지표 설계·누수 점검" }
-    - { name: "XGBoost / LightGBM", level: "learning", tip: "트리 앙상블 실습 중" }
-    - { name: "SHAP", level: "learning", tip: "모델 해석 연습 중" }
+    - { name: "LightGBM", level: "using", tip: "Kaggle · 탭형 데이터 메인 모델" }
+    - { name: "XGBoost", level: "using", tip: "분류/회귀 앙상블 실전 사용" }
+    - { name: "CatBoost", level: "using", tip: "범주형 처리 · 은행 이탈 예측" }
+    - { name: "scikit-learn", level: "using", tip: "기본 파이프라인 · CV · 평가" }
+    - { name: "OOF 스태킹", level: "using", tip: "Out-of-Fold 메타러너 앙상블" }
+    - { name: "RealMLP / TabM", level: "learning", tip: "신규 탭형 딥러닝 모델 탐색 중" }
 
-- id: "deep-learning"
+- id: "dl"
+  order: 3
+  title: "딥러닝"
+  tag: "/ computer vision"
+  pills:
+    - { name: "PyTorch", level: "using", tip: "CV 프로젝트 · 멀티태스크 학습" }
+    - { name: "PyTorch Lightning", level: "using", tip: "재현 가능한 실험 구조 설계" }
+    - { name: "ResNeSt", level: "using", tip: "식물 병해 진단 · KD 티처 모델" }
+    - { name: "ConvNeXt", level: "using", tip: "식물 병해 진단 · KD 스튜던트" }
+    - { name: "CNN", level: "using", tip: "얼굴 인식 · 이미지 분류" }
+    - { name: "지식 증류 (KD)", level: "using", tip: "이종 Teacher→Student · T=1.25" }
+    - { name: "RetinaFace", level: "using", tip: "얼굴 검출 · 멀티태스크 파이프라인" }
+
+- id: "mlops"
   order: 4
-  title: "Deep Learning"
-  tag: "/ expanding"
+  title: "MLOps · 인프라"
+  tag: "/ experiment ops"
   pills:
-    - { name: "PyTorch", level: "learning", tip: "CNN 실습 진행 중" }
-    - { name: "CNN", level: "learning", tip: "이미지 분류 프로젝트 진행" }
-    - { name: "RNN / LSTM", level: "next", tip: "시계열 학습 예정" }
-    - { name: "Transformer", level: "next", tip: "NLP 이후 학습 예정" }
-    - { name: "HuggingFace", level: "next", tip: "사전학습모델 활용 예정" }
+    - { name: "W&B", level: "using", tip: "실험 트래킹 · 모델 비교" }
+    - { name: "ONNX", level: "using", tip: "모델 경량화 · 추론 최적화" }
+    - { name: "AWS RDS", level: "using", tip: "관계형 DB 설계 · SQL 분석" }
+    - { name: "Claude Code", level: "using", tip: "6 에이전트 아키텍처 설계·운영" }
+    - { name: "Kaggle / Colab GPU", level: "using", tip: "헤드리스 비동기 GPU 오프로드" }
 
-- id: "tools-workflow"
+- id: "analysis-viz"
   order: 5
-  title: "Tools & Workflow"
-  tag: "/ environment"
-  pills:
-    - { name: "Jupyter Notebook", level: "using", tip: "분석 메인 환경" }
-    - { name: "VS Code", level: "using", tip: "코드 작성/버전관리" }
-    - { name: "GitHub", level: "learning", tip: "실험 기록 공개 중" }
-    - { name: "Docker", level: "next", tip: "환경 재현성 확보 예정" }
-
-- id: "communication"
-  order: 6
-  title: "Communication"
+  title: "분석 · 시각화"
   tag: "/ outputs"
   pills:
-    - { name: "Reports", level: "using", tip: "한글/Markdown 리포트 작성" }
-    - { name: "Visualization", level: "using", tip: "동료가 이해할 수 있는 차트" }
-    - { name: "Experiment Notes", level: "using", tip: "실험 로그 표로 정리" }
-    - { name: "Notion / Obsidian", level: "learning", tip: "학습 노트 관리" }
+    - { name: "Streamlit", level: "using", tip: "ML 데모 · 대시보드 배포" }
+    - { name: "Gradio", level: "using", tip: "빠른 모델 인터페이스 구축" }
+    - { name: "Tableau", level: "using", tip: "데이터 시각화 · 대시보드" }
+    - { name: "RFM 분석", level: "using", tip: "고객 세분화 · 이커머스 프로젝트" }
+    - { name: "코호트 분석", level: "using", tip: "이커머스 재방문·리텐션 분석" }
