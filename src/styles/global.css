@@ -46,6 +46,7 @@ body{
   font-size:15px;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
+  word-break:keep-all;
 }
 
 /* Radial purple glow behind entire page top */
@@ -139,9 +140,8 @@ section:first-of-type{border-top:none}
 
 /* ── Hero ── */
 .hero{padding:96px 0 80px;border-top:none;position:relative;}
-.hero-grid{
-  display:grid;grid-template-columns:1.15fr 1fr;gap:60px;align-items:center;
-}
+.hero-grid{max-width:760px;}
+.hero-text{}
 .hero-tag{
   display:inline-flex;align-items:center;gap:8px;
   font-family:var(--font-mono);font-size:11px;
@@ -231,7 +231,6 @@ h1.hero-title em{
 }
 
 @media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr;gap:40px;}
   h1.hero-title{font-size:32px;}
 }
 

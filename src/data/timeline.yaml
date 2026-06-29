@@ -1,28 +1,28 @@
 # 학습/이력 타임라인. order 오름차순 = 위→아래. state: current 는 진행 중인 항목에만.
 - id: "ml-harness"
   order: 1
-  date: "2024 — 현재"
+  date: "2026.06"
   state: "current"
   title: "ML 하니스 구축 · Kaggle 상위 4.9%"
   org: "agentic-kaggle-tabular-template · 개인"
   desc: "단발성 Kaggle 코드를 6 에이전트 역할 분리, 3환경 자동 실행, 가드레일을 갖춘 재사용 가능한 ML 하니스로 일반화. ROC-AUC 0.95460 (148/3,023팀)."
   tags: ["kaggle", "mlops", "agentic", "lightgbm"]
 
-- id: "markcloud"
-  order: 2
-  date: "2024.06 — 2024.10"
-  title: "데이터 분석가 · 마크 클라우드"
-  org: "상표 빅데이터 사업 / 특허 기술 연계 분류 모델"
-  desc: "상표 빅데이터 사업 참여 및 특허 기술 연계 분류 모델 개발."
-  tags: ["nlp", "classification", "business"]
-
 - id: "plant-pathology"
-  order: 3
+  order: 2
   date: "2026.01"
   title: "식물 잎 병해 진단 · Kaggle 18위 상당"
   org: "Plant-Pathology-2020 · FGVC7 · 개인"
   desc: "이종 지식 증류(ConvNeXt→ResNeSt, T=1.25) · pHash 누출 진단 · ROC-AUC 0.977."
   tags: ["pytorch-lightning", "knowledge-distillation", "kaggle"]
+
+- id: "markcloud"
+  order: 3
+  date: "2024.06 — 2024.10"
+  title: "데이터 분석가 · 마크 클라우드"
+  org: "상표 빅데이터 사업 / 특허 기술 연계 분류 모델"
+  desc: "상표 빅데이터 사업 참여 및 특허 기술 연계 분류 모델 개발."
+  tags: ["nlp", "classification", "business"]
 
 - id: "face-rec"
   order: 4
@@ -32,32 +32,8 @@
   desc: "RetinaFace 검출 + InceptionResNetv1 전이학습 · 나이 MAE 4.66, 성별 Acc 89.4%, 감정 Acc 67.8%."
   tags: ["pytorch", "cv", "multitask", "teamlead"]
 
-- id: "bank-churn"
-  order: 5
-  date: "2024.01"
-  title: "은행 고객 이탈 예측 · Recall 0.78"
-  org: "ML_Team_Project · 팀리드"
-  desc: "대회 지표(AUROC) 대신 비용 구조에 맞춰 Recall 중심으로 문제 재정의. CatBoost · Recall 0.78."
-  tags: ["classification", "catboost", "teamlead"]
-
-- id: "ecommerce"
-  order: 6
-  date: "2024.03 — 2024.04"
-  title: "이커머스 고객 세분화 · AWS RDS 설계"
-  org: "ML_COMMERCE · Dacon"
-  desc: "AWS RDS 5테이블 DB 직접 설계 → SQL + RFM·클러스터링·코호트 세분화 → 1,468명 분석. 재방문 85.8%↓ 확인."
-  tags: ["sql", "rfm", "cohort", "aws-rds"]
-
-- id: "subway"
-  order: 7
-  date: "2023.09"
-  title: "지하철 이용인원 예측 · 350만 행 구축"
-  org: "공공데이터 수집 · 팀리드"
-  desc: "지하철·기후·부동산·버스 4개 영역 공공데이터 직접 수집·통합. 역·시간대 키로 50개 변수 구축 후 회귀 5종 비교."
-  tags: ["public-data", "regression", "lightgbm", "teamlead"]
-
 - id: "grad-school"
-  order: 8
+  order: 5
   date: "2014.08 — 2016.08"
   title: "성균관대 일반대학원 석사 (경제학)"
   org: "논문 · '정부의 연구 용역에 대한 최적 보상 체계'"
@@ -65,7 +41,7 @@
   tags: ["economics", "research", "thesis"]
 
 - id: "hana-bank"
-  order: 9
+  order: 6
   date: "2012.07 — 2013.04"
   title: "하나은행 · 여신 업무"
   org: "신천역(잠실새내) 지점 계장"
@@ -73,7 +49,7 @@
   tags: ["finance", "banking"]
 
 - id: "undergrad"
-  order: 10
+  order: 7
   date: "2005.03 — 2012.08"
   title: "한국외대 경제학과"
   org: "학사 · Economics"
