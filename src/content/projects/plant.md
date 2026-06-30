@@ -10,8 +10,10 @@ tools: [PyTorch Lightning, ResNeSt, ConvNeXt, timm, W&B, ONNX, Streamlit]
 keyMetric: ROC-AUC 0.977 · Kaggle 18위 상당
 date: "2026.01"
 thumb: plant
+image: /projects/plant-demo.jpg
 github: https://github.com/buzziru/Plant-Pathology-2020
-demo: https://kaggle-plant.streamlit.app
+demo: https://ingyoun-plant-pathology-demo.static.hf.space
+demoNote: 샘플 잎 이미지를 누르면 4개 병해 클래스 확률이 즉시 표시됩니다. 직접 이미지를 올리면 ResNeSt101e 모델(ONNX)이 실시간으로 추론합니다.
 ---
 
 ## Problem
@@ -46,6 +48,6 @@ Plant Pathology 2020 (Kaggle FGVC7) · 이미지 분류 · 4클래스 · 학습 
 - 이종 증류는 구조가 다른 Teacher/Student 간에도 soft label 전달이 유효하다.
 - 1위 솔루션을 역추적해 재구현하는 과정이 모델 설계 직관을 키우는 가장 빠른 방법이었다.
 
-## Next Improvements
+## Deployment
 
-ONNX 경량화 배포 완료 · Streamlit 데모 운영 중 · 증류 온도 탐색 자동화 예정.
+ONNX 경량화 배포 완료 · 정적 인터랙티브 데모 운영 중(Hugging Face).

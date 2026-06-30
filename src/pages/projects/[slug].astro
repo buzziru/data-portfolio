@@ -67,7 +67,7 @@ const STATUS_LABEL: Record<string, string> = {
             <span class="detail-demo-kicker mono">LIVE DEMO</span>
             <a class="detail-demo-ext mono" href={d.demo} target="_blank" rel="noopener">새 탭에서 열기 ↗</a>
           </div>
-          <p class="detail-demo-note">브라우저 안에서 ONNX 모델이 직접 추론합니다 — 서버 없음. 고객 정보를 입력하면 이탈 확률을 즉시 예측합니다.</p>
+          <p class="detail-demo-note">{d.demoNote ?? '브라우저 안에서 ONNX 모델이 직접 추론합니다 — 서버 없음. 고객 정보를 입력하면 이탈 확률을 즉시 예측합니다.'}</p>
           <div class="detail-demo-frame">
             <iframe id="demo-frame" src={d.demo} title={`${d.title} 인터랙티브 데모`} loading="lazy"></iframe>
           </div>
@@ -82,7 +82,7 @@ const STATUS_LABEL: Record<string, string> = {
       window.addEventListener('message', (e) => {
         if (e.origin !== demoOrigin) return;
         const data = e.data;
-        if (data && data.type === 'churn-demo-height' && typeof data.height === 'number') {
+        if (data && typeof data.type === 'string' && data.type.endsWith('-demo-height') && typeof data.height === 'number') {
           const frame = document.getElementById('demo-frame');
           if (frame) frame.style.height = Math.ceil(data.height) + 'px';
         }

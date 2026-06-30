@@ -21,6 +21,7 @@ const projects = defineCollection({
     image: z.string().optional(), // 상세 헤더용 실제 스크린샷 (있으면 thumb SVG 대신 사용)
     github: z.string().url().optional(),
     demo: z.string().url().optional(),
+    demoNote: z.string().optional(), // 임베드 데모 안내 문구 (없으면 기본 문구 사용)
   }),
 });
 

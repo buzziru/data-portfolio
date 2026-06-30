@@ -76,6 +76,7 @@ Token map (CSS custom properties → Linear spec):
 ## Editing notes
 
 - Content is Korean; preserve language and tone.
+- **Korean line breaking** — never let an 어절(word) split mid-character. The site sets `word-break:keep-all` globally on `body` (`global.css`), so in-site content breaks only at spaces; keep that. For multi-clause copy (안내 문구 등), break at meaning-unit boundaries (절·문장 단위) with an explicit `<br>` rather than relying on reflow — e.g. a sentence describing one action stays on one line. Standalone embedded pages (HF demo iframes) don't inherit `global.css`, so set `word-break:keep-all` on their text elements explicitly.
 - Placeholders to replace before real deployment: the resume link points to `/resume.pdf` (add the PDF to `public/`); `https://github.com` links, `hello@example.com`, and the `OO대학교 OO학과` timeline entry are stubs; the dummy projects' `github` values are placeholders.
 - Version/date strings (`v0.3`, `last update 2024.11`) live in `Header.astro`, `Contact.astro`, `Footer.astro`, and the project-count text in `ProjectsSection.tsx` — update them together.
 - `legacy/index.html` is the pre-migration reference only; it is not part of the build. Delete it once the new site is confirmed.
