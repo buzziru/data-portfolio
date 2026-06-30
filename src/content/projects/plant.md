@@ -30,7 +30,7 @@ Plant Pathology 2020 (Kaggle FGVC7) · 이미지 분류 · 4클래스 · 학습 
 2. **라벨 노이즈 교정**: 누출 이미지 기반 라벨 재검토
 3. **이종 지식 증류**: ConvNeXt(Teacher) → ResNeSt(Student), 온도 T=1.25
 4. **Top-k(3) 앙상블**: 최종 제출 앙상블
-5. **재사용 가능한 Lightning 구조 설계**: 어댑터 패턴 기반 ML 하니스와 연계
+5. **재사용 가능한 Lightning 구조 설계**: 학습 로직을 모듈 단위로 분리해 재사용성 확보
 
 ## Model / Analysis
 
@@ -40,7 +40,7 @@ Plant Pathology 2020 (Kaggle FGVC7) · 이미지 분류 · 4클래스 · 학습 
 
 - ROC-AUC 0.977
 - Kaggle 리더보드 18위 상당
-- 재사용 가능한 PyTorch Lightning 구조 → ML 하니스에 패턴 흡수
+- 재사용 가능한 PyTorch Lightning 구조 설계
 
 ## What I Learned
 

@@ -45,6 +45,6 @@ class_weight 기반 CatBoost가 SMOTE + 다른 모델 대비 Recall에서 일관
 - SMOTE는 정보량 없이 샘플만 늘리는 경우가 있어 class_weight가 더 효과적일 때가 많다.
 - 팀리드 경험: 분석 방향 설정과 발표 자료 구성을 주도했다.
 
-## Next Improvements
+## Deployment
 
-비용 기반 threshold 최적화 · SHAP으로 이탈 요인 해석 · 시계열 피처 강화.
+CatBoost 모델을 ONNX로 변환해 브라우저에서 직접 추론하는 정적 데모 배포 — 서버 없이 고객 정보를 입력하면 이탈 확률을 즉시 예측.
