@@ -8,6 +8,7 @@ role: 팀 3인 · 팀장 · 나이 회귀·멀티태스크 결합·Streamlit 담
 methods: [RetinaFace, InceptionResNetv1 전이학습, CNN, 멀티태스크 학습]
 tools: [Python, PyTorch, RetinaFace, InceptionResNetv1, Streamlit]
 keyMetric: 나이 MAE 4.66 · 성별 Acc 89.4% · 감정 Acc 67.8%
+date: "2024"
 thumb: cnn
 github: https://github.com/buzziru/DL_FACE_REC
 ---
@@ -18,7 +19,7 @@ github: https://github.com/buzziru/DL_FACE_REC
 
 ## Data
 
-- **성별/나이**: AI허브 안면 에이징 76.84GB · 1인당 유아~현재 ~50장 수집 · 저연령(0~19세) 편중 약 75%
+- **성별/나이**: AI허브 안면 에이징 76.84GB · 1인당 유아\~현재 약 50장 수집 · 저연령(0\~19세) 편중 약 75%
 - **감정**: FER-2013 감정 7클래스 · 'disgust' 클래스 희소
 - 총 학습 이미지: 40,150장(나이/성별) + 28,709장(감정)
 

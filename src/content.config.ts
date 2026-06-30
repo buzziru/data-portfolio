@@ -16,6 +16,7 @@ const projects = defineCollection({
     methods: z.array(z.string()),
     tools: z.array(z.string()),
     keyMetric: z.string(),
+    date: z.string().optional(),
     thumb: z.string(), // ProjectThumb SVG key (churn|cnn|forecast|nlp|recsys|…)
     github: z.string().url().optional(),
     demo: z.string().url().optional(),

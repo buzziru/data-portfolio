@@ -1,5 +1,5 @@
 ---
-title: ML 하니스 — 재사용 가능한 Agentic ML 파이프라인
+title: ML 하니스 — Agentic ML 파이프라인
 status: completed
 order: 1
 summary: 단발성 Kaggle 코드를 6 에이전트 역할 분리, 3환경 자동 실행, 가드레일을 갖춘 재사용 가능한 ML 하니스로 일반화한 프로젝트.
@@ -8,6 +8,7 @@ role: 개인 · 설계·운영 전담
 methods: [OOF 스태킹, 앙상블, Agentic Workflow, 4단계 증류 파이프라인]
 tools: [Python, LightGBM, XGBoost, CatBoost, Claude Code, W&B, Hydra]
 keyMetric: ROC-AUC 0.95460 · 상위 4.9% (148/3,023팀)
+date: "2026.06"
 thumb: harness
 github: https://github.com/buzziru/agentic-kaggle-tabular-template
 ---

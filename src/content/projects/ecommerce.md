@@ -1,5 +1,5 @@
 ---
-title: 이커머스 고객 세분화 — AWS RDS 설계·SQL·RFM
+title: 이커머스 고객 세분화 — SQL·RFM 분석
 status: completed
 order: 5
 summary: AWS RDS 5테이블 관계형 DB를 직접 설계해 SQL로 고객을 세분화. RFM·클러스터링·코호트 분석으로 1,468명 구조화.

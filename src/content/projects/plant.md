@@ -8,6 +8,7 @@ role: 개인 · 설계·구현 전담
 methods: [이종 지식 증류(KD), pHash 누출 진단, Top-k 앙상블, PyTorch Lightning]
 tools: [PyTorch Lightning, ResNeSt, ConvNeXt, timm, W&B, ONNX, Streamlit]
 keyMetric: ROC-AUC 0.977 · Kaggle 18위 상당
+date: "2026.01"
 thumb: plant
 github: https://github.com/buzziru/Plant-Pathology-2020
 demo: https://kaggle-plant.streamlit.app

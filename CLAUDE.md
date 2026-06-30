@@ -16,9 +16,39 @@ npm run preview   # serve the production build at http://localhost:4321
 
 There is no test suite or separate lint step; `astro build` type-checks `.astro`/`.ts(x)` and validates content-collection frontmatter against the Zod schema, so a clean build is the verification gate. Fonts load from CDNs (Pretendard, JetBrains Mono, Fraunces) — previewing needs a network connection for correct typography.
 
+## Design System
+
+This site follows the **Linear design language** documented in `source/DESIGN-linear.app.md`. All visual decisions must conform to these principles:
+
+- **Canvas**: `#010102` — near-pure black as the base surface. Never use `#000000`.
+- **Surface ladder**: `#0f1011` → `#141516` → `#18191a` for cards, panels, lifted tiles. Never skip levels.
+- **Accent**: `#5e6ad2` lavender-blue — used only for brand mark, primary CTA, focus rings, link emphasis. Never as a section background or decorative fill. Hover: `#828fff`.
+- **Hairline borders**: `#23252a` (1px) for cards and dividers. `#34343a` for stronger borders.
+- **Text**: `#f7f8f8` (primary) · `#d0d6e0` (muted) · `#8a8f98` (subtle) · `#62666d` (tertiary).
+- **Typography**: negative letter-spacing on display type (−0.035em at heading sizes); body at weight 400; display/heading at weight 500–600. Never 700+ on display.
+- **No atmospheric gradients, no spotlight cards, no second chromatic accent.**
+- **Border radius**: buttons `8px`, cards `12px`, screenshot panels `16px`, pills `9999px`.
+- **Depth via surface lift + hairline border** — not drop shadows.
+
+Token map (CSS custom properties → Linear spec):
+
+| CSS var | Value | Linear token |
+|---|---|---|
+| `--bg` | `#010102` | canvas |
+| `--bg-surface` | `#0f1011` | surface-1 |
+| `--bg-elevated` | `#141516` | surface-2 |
+| `--bg-deep` | `#18191a` | surface-3 |
+| `--border` | `#23252a` | hairline |
+| `--border-mid` | `#34343a` | hairline-strong |
+| `--fg` | `#f7f8f8` | ink |
+| `--fg-2` | `#d0d6e0` | ink-muted |
+| `--fg-muted` | `#8a8f98` | ink-subtle |
+| `--accent` | `#5e6ad2` | primary |
+| `--accent-light` | `#828fff` | primary-hover |
+
 ## Architecture
 
-- **Design system** — All theming lives in `src/styles/global.css` via `:root` custom properties (`--paper`, `--ink`, `--accent`, … — a paper research-notebook palette). Change colors there, never at call sites. Recurring utility classes: `.wrap`/`.wrap-narrow` (containers), `.mono`/`.serif` (fonts), `.reveal` (scroll-in hook). This file is the full ported stylesheet plus added `.proj-links` and `.detail-*` rules.
+- **Design system** — All theming lives in `src/styles/global.css` via `:root` custom properties. Change tokens there, never at call sites. Recurring utility classes: `.wrap`/`.wrap-narrow` (containers), `.mono`/`.serif` (fonts), `.reveal` (scroll-in hook).
 
 - **Layout & shell** — `src/layouts/BaseLayout.astro` owns `<html>`/`<head>` (fonts, meta, `global.css` import), renders shared `Header`/`Footer`, and loads the `reveal.ts` scroll script. Every page wraps its content in `BaseLayout` and may pass `title`/`description` props. `Header.astro` nav links are absolute (`/#summary`) so they work from detail pages too — keep nav links and the section `id`s in `index.astro` in sync.
 

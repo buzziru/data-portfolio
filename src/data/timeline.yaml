@@ -1,55 +1,30 @@
-# 학습/이력 타임라인. order 오름차순 = 위→아래. state: current 는 진행 중인 항목에만.
-- id: "ml-harness"
-  order: 1
-  date: "2026.06"
-  state: "current"
-  title: "ML 하니스 구축 · Kaggle 상위 4.9%"
-  org: "agentic-kaggle-tabular-template · 개인"
-  desc: "단발성 Kaggle 코드를 6 에이전트 역할 분리, 3환경 자동 실행, 가드레일을 갖춘 재사용 가능한 ML 하니스로 일반화. ROC-AUC 0.95460 (148/3,023팀)."
-  tags: ["kaggle", "mlops", "agentic", "lightgbm"]
-
-- id: "plant-pathology"
-  order: 2
-  date: "2026.01"
-  title: "식물 잎 병해 진단 · Kaggle 18위 상당"
-  org: "Plant-Pathology-2020 · FGVC7 · 개인"
-  desc: "이종 지식 증류(ConvNeXt→ResNeSt, T=1.25) · pHash 누출 진단 · ROC-AUC 0.977."
-  tags: ["pytorch-lightning", "knowledge-distillation", "kaggle"]
-
+# 경력/학력/자격 타임라인. order 오름차순 = 위→아래. state: current 는 진행 중인 항목에만.
 - id: "markcloud"
-  order: 3
+  order: 1
   date: "2024.06 — 2024.10"
   title: "데이터 분석가 · 마크클라우드 (AI팀 주임)"
   org: "특허청 발주 사업 2건 단독 담당"
   desc: "특허 문헌 자동 분류 모델 개발(제안서 작성·수주 포함): 주요 5개국 특허문헌 API 수집·가공 후 LLM 베이스 파인튜닝·인스트럭션 튜닝 수행. 상표 거절사유 분석: 비정형 행정 문서(API·HWP·PDF) 정제 파이프라인 구성 및 RAG 기반 자동화 프로토타입 중간 보고 반영."
   tags: ["llm", "finetuning", "rag", "nlp", "classification"]
 
-- id: "face-rec"
-  order: 4
-  date: "2024"
-  title: "얼굴 나이·성별·감정 멀티태스크 추정"
-  org: "DL_FACE_REC · 팀 3인 · 팀장"
-  desc: "RetinaFace 검출 + InceptionResNetv1 전이학습 · 나이 MAE 4.66, 성별 Acc 89.4%, 감정 Acc 67.8%."
-  tags: ["pytorch", "cv", "multitask", "teamlead"]
-
-- id: "zerobase"
-  order: 5
-  date: "2023.10 — 2024.04"
-  title: "데이터 분석 스쿨 · 제로베이스"
-  org: "교육 이수"
-  desc: "SQL, Git, Tableau, ML/DL 실전 프로젝트 중심 데이터 분석 역량 강화."
-  tags: ["education", "ml", "sql"]
-
 - id: "naver-bootcamp"
-  order: 6
+  order: 2
   date: "2024.01 — 2024.02"
   title: "AI 엔지니어 역량 · 네이버 부트캠프"
   org: "교육 이수"
   desc: "머신러닝 및 딥러닝 알고리즘의 이해 및 구현."
   tags: ["education", "dl", "ml"]
 
+- id: "zerobase"
+  order: 3
+  date: "2023.10 — 2024.04"
+  title: "데이터 분석 스쿨 · 제로베이스"
+  org: "교육 이수"
+  desc: "SQL, Git, Tableau, ML/DL 실전 프로젝트 중심 데이터 분석 역량 강화."
+  tags: ["education", "ml", "sql"]
+
 - id: "sqld"
-  order: 7
+  order: 4
   date: "2023.10"
   title: "SQL개발자 (SQLD) 취득"
   org: "한국데이터베이스진흥센터 · 자격증"
@@ -57,7 +32,7 @@
   tags: ["certification", "sql"]
 
 - id: "megastudy"
-  order: 8
+  order: 5
   date: "2023.06 — 2023.09"
   title: "Python 및 머신러닝 · 메가스터디"
   org: "교육 이수"
@@ -65,7 +40,7 @@
   tags: ["education", "python", "ml"]
 
 - id: "grad-school"
-  order: 9
+  order: 6
   date: "2014.08 — 2016.08"
   title: "성균관대 일반대학원 석사 (경제학)"
   org: "논문 · '정부의 연구 용역에 대한 최적 보상 체계'"
@@ -73,7 +48,7 @@
   tags: ["economics", "research", "thesis"]
 
 - id: "hana-bank"
-  order: 10
+  order: 7
   date: "2012.07 — 2013.04"
   title: "하나은행 · 여신 업무"
   org: "신천역(잠실새내) 지점 계장"
@@ -81,7 +56,7 @@
   tags: ["finance", "banking"]
 
 - id: "undergrad"
-  order: 11
+  order: 8
   date: "2005.03 — 2012.08"
   title: "한국외대 경제학과"
   org: "학사 · Economics"
