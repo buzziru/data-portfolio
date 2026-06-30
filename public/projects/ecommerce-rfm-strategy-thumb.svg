@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif">
+  <rect width="760" height="420" fill="#0f1011"/>
+
+  <!-- top 64px kept clear for the card's CASE label + status pill overlay -->
+
+  <!-- Loyal Champion : ▲▲▲ -->
+  <g transform="translate(0,64)">
+    <rect x="20" y="0" width="720" height="60" rx="12" fill="#141516" stroke="#23252a"/>
+    <rect x="36" y="16" width="3" height="28" rx="1.5" fill="#5e6ad2"/>
+    <text x="56" y="37" font-size="19" font-weight="600" fill="#f7f8f8">Loyal Champion</text>
+    <g font-family="'JetBrains Mono', Consolas, monospace" font-size="16" fill="#8a8f98">
+      <text x="440" y="37">R</text><polygon points="470,24 463,36 477,36" fill="#4cc38a"/>
+      <text x="520" y="37">F</text><polygon points="550,24 543,36 557,36" fill="#4cc38a"/>
+      <text x="600" y="37">M</text><polygon points="630,24 623,36 637,36" fill="#4cc38a"/>
+    </g>
+  </g>
+
+  <!-- Potential Loyalist : ▼▲▲ -->
+  <g transform="translate(0,140)">
+    <rect x="20" y="0" width="720" height="60" rx="12" fill="#141516" stroke="#23252a"/>
+    <rect x="36" y="16" width="3" height="28" rx="1.5" fill="#5e6ad2"/>
+    <text x="56" y="37" font-size="19" font-weight="600" fill="#f7f8f8">Potential Loyalist</text>
+    <g font-family="'JetBrains Mono', Consolas, monospace" font-size="16" fill="#8a8f98">
+      <text x="440" y="37">R</text><polygon points="470,36 463,24 477,24" fill="#e5484d"/>
+      <text x="520" y="37">F</text><polygon points="550,24 543,36 557,36" fill="#4cc38a"/>
+      <text x="600" y="37">M</text><polygon points="630,24 623,36 637,36" fill="#4cc38a"/>
+    </g>
+  </g>
+
+  <!-- Promising Newcomer : ▲▼▲ -->
+  <g transform="translate(0,216)">
+    <rect x="20" y="0" width="720" height="60" rx="12" fill="#141516" stroke="#23252a"/>
+    <rect x="36" y="16" width="3" height="28" rx="1.5" fill="#5e6ad2"/>
+    <text x="56" y="37" font-size="19" font-weight="600" fill="#f7f8f8">Promising Newcomer</text>
+    <g font-family="'JetBrains Mono', Consolas, monospace" font-size="16" fill="#8a8f98">
+      <text x="440" y="37">R</text><polygon points="470,24 463,36 477,36" fill="#4cc38a"/>
+      <text x="520" y="37">F</text><polygon points="550,36 543,24 557,24" fill="#e5484d"/>
+      <text x="600" y="37">M</text><polygon points="630,24 623,36 637,36" fill="#4cc38a"/>
+    </g>
+  </g>
+
+  <!-- Bargain Lover : ▲▲▼ -->
+  <g transform="translate(0,292)">
+    <rect x="20" y="0" width="720" height="60" rx="12" fill="#141516" stroke="#23252a"/>
+    <rect x="36" y="16" width="3" height="28" rx="1.5" fill="#5e6ad2"/>
+    <text x="56" y="37" font-size="19" font-weight="600" fill="#f7f8f8">Bargain Lover</text>
+    <g font-family="'JetBrains Mono', Consolas, monospace" font-size="16" fill="#8a8f98">
+      <text x="440" y="37">R</text><polygon points="470,24 463,36 477,36" fill="#4cc38a"/>
+      <text x="520" y="37">F</text><polygon points="550,24 543,36 557,36" fill="#4cc38a"/>
+      <text x="600" y="37">M</text><polygon points="630,36 623,24 637,24" fill="#e5484d"/>
+    </g>
+  </g>
+</svg>

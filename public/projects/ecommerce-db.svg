@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1220 668" font-family="Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif">
+  <rect width="1220" height="668" fill="#0f1011"/>
+
+  <text x="64" y="34" font-family="'JetBrains Mono', Consolas, monospace" font-size="12" letter-spacing="2" fill="#62666d">AWS RDS · RELATIONAL SCHEMA</text>
+  <text x="64" y="72" font-size="28" font-weight="600" letter-spacing="-0.5" fill="#f7f8f8">5테이블 관계형 DB 설계</text>
+
+  <g transform="translate(0,28)">
+    <!-- Relationship connectors -->
+    <g fill="none" stroke="#34343a" stroke-width="1.5">
+      <path d="M64,132 L44,132 L44,348 L64,348"/>
+      <path d="M856,132 L824,132 L824,432 L364,432"/>
+      <path d="M856,160 L840,160 L840,518 L460,518"/>
+      <path d="M460,160 L412,160 L412,460 L364,460"/>
+      <path d="M364,404 L836,404 L836,348 L856,348"/>
+    </g>
+    <g fill="#5e6ad2">
+      <circle cx="64" cy="132" r="3.5"/><circle cx="64" cy="348" r="3.5"/>
+      <circle cx="856" cy="132" r="3.5"/><circle cx="364" cy="432" r="3.5"/>
+      <circle cx="856" cy="160" r="3.5"/><circle cx="460" cy="518" r="3.5"/>
+      <circle cx="460" cy="160" r="3.5"/><circle cx="364" cy="460" r="3.5"/>
+      <circle cx="364" cy="404" r="3.5"/><circle cx="856" cy="348" r="3.5"/>
+    </g>
+
+    <!-- ===== customer ===== -->
+    <g>
+      <rect x="64" y="84" width="300" height="146" rx="10" fill="#141516" stroke="#23252a"/>
+      <text x="80" y="106" font-size="14" font-weight="600" fill="#f7f8f8">customer</text>
+      <line x1="64" y1="118" x2="364" y2="118" stroke="#23252a"/>
+      <g font-size="13">
+        <circle cx="76" cy="132" r="3" fill="#5e6ad2"/><text x="88" y="136.5" font-weight="600" fill="#f7f8f8">CustomerID</text>
+        <text x="80" y="164.5" fill="#d0d6e0">Gender</text>
+        <text x="80" y="192.5" fill="#d0d6e0">Region</text>
+        <text x="80" y="220.5" fill="#d0d6e0">SubscriptionPeriod</text>
+      </g>
+      <g font-family="'JetBrains Mono', Consolas, monospace" font-size="12" fill="#62666d" text-anchor="end">
+        <text x="350" y="136.5">varchar(20)</text>
+        <text x="350" y="164.5">char(3)</text>
+        <text x="350" y="192.5">varchar(50)</text>
+        <text x="350" y="220.5">smallint</text>
+      </g>
+    </g>
+
+    <!-- ===== sales ===== -->
+    <g>
+      <rect x="64" y="300" width="300" height="286" rx="10" fill="#141516" stroke="#23252a"/>
+      <text x="80" y="322" font-size="14" font-weight="600" fill="#f7f8f8">sales</text>
+      <line x1="64" y1="334" x2="364" y2="334" stroke="#23252a"/>
+      <g font-size="13">
+        <circle cx="76" cy="348" r="3" fill="none" stroke="#62666d"/><text x="88" y="352.5" fill="#d0d6e0">CustomerID</text>
+        <circle cx="76" cy="376" r="3" fill="#5e6ad2"/><text x="88" y="380.5" font-weight="600" fill="#f7f8f8">TransactionID</text>
+        <text x="80" y="408.5" fill="#d0d6e0">TransactionDate</text>
+        <circle cx="76" cy="432" r="3" fill="none" stroke="#62666d"/><text x="88" y="436.5" fill="#d0d6e0">ProductID</text>
+        <text x="80" y="464.5" fill="#d0d6e0">ProductCategory</text>
+        <text x="80" y="492.5" fill="#d0d6e0">Quantity</text>
+        <text x="80" y="520.5" fill="#d0d6e0">AverageAmount</text>
+        <text x="80" y="548.5" fill="#d0d6e0">ShippingFee</text>
+        <text x="80" y="576.5" fill="#d0d6e0">CouponStatus</text>
+      </g>
+      <g font-family="'JetBrains Mono', Consolas, monospace" font-size="12" fill="#62666d" text-anchor="end">
+        <text x="350" y="352.5">varchar(20)</text>
+        <text x="350" y="380.5">varchar(20)</text>
+        <text x="350" y="408.5">date</text>
+        <text x="350" y="436.5">varchar(20)</text>
+        <text x="350" y="464.5">varchar(50)</text>
+        <text x="350" y="492.5">int</text>
+        <text x="350" y="520.5">decimal(10,2)</text>
+        <text x="350" y="548.5">decimal(10,2)</text>
+        <text x="350" y="576.5">varchar(10)</text>
+      </g>
+    </g>
+
+    <!-- ===== discount ===== -->
+    <g>
+      <rect x="460" y="84" width="300" height="146" rx="10" fill="#141516" stroke="#23252a"/>
+      <text x="476" y="106" font-size="14" font-weight="600" fill="#f7f8f8">discount</text>
+      <line x1="460" y1="118" x2="760" y2="118" stroke="#23252a"/>
+      <g font-size="13" fill="#d0d6e0">
+        <text x="476" y="136.5">Month</text>
+        <text x="476" y="164.5">ProductCategory</text>
+        <text x="476" y="192.5">Coupon</text>
+        <text x="476" y="220.5">Discount</text>
+      </g>
+      <g font-family="'JetBrains Mono', Consolas, monospace" font-size="12" fill="#62666d" text-anchor="end">
+        <text x="746" y="136.5">varchar(3)</text>
+        <text x="746" y="164.5">varchar(50)</text>
+        <text x="746" y="192.5">varchar(20)</text>
+        <text x="746" y="220.5">int</text>
+      </g>
+    </g>
+
+    <!-- ===== tax ===== -->
+    <g>
+      <rect x="460" y="470" width="300" height="90" rx="10" fill="#141516" stroke="#23252a"/>
+      <text x="476" y="492" font-size="14" font-weight="600" fill="#f7f8f8">tax</text>
+      <line x1="460" y1="504" x2="760" y2="504" stroke="#23252a"/>
+      <g font-size="13">
+        <circle cx="472" cy="518" r="3" fill="#5e6ad2"/><text x="484" y="522.5" font-weight="600" fill="#f7f8f8">ProductCategory</text>
+        <text x="476" y="550.5" fill="#d0d6e0">Tax</text>
+      </g>
+      <g font-family="'JetBrains Mono', Consolas, monospace" font-size="12" fill="#62666d" text-anchor="end">
+        <text x="746" y="522.5">varchar(50)</text>
+        <text x="746" y="550.5">decimal(5,2)</text>
+      </g>
+    </g>
+
+    <!-- ===== product ===== -->
+    <g>
+      <rect x="856" y="84" width="300" height="90" rx="10" fill="#141516" stroke="#23252a"/>
+      <text x="872" y="106" font-size="14" font-weight="600" fill="#f7f8f8">product</text>
+      <line x1="856" y1="118" x2="1156" y2="118" stroke="#23252a"/>
+      <g font-size="13">
+        <circle cx="868" cy="132" r="3" fill="#5e6ad2"/><text x="880" y="136.5" font-weight="600" fill="#f7f8f8">ProductID</text>
+        <text x="872" y="164.5" fill="#d0d6e0">ProductCategory</text>
+      </g>
+      <g font-family="'JetBrains Mono', Consolas, monospace" font-size="12" fill="#62666d" text-anchor="end">
+        <text x="1142" y="136.5">varchar(20)</text>
+        <text x="1142" y="164.5">varchar(50)</text>
+      </g>
+    </g>
+
+    <!-- ===== marketing ===== -->
+    <g>
+      <rect x="856" y="300" width="300" height="118" rx="10" fill="#141516" stroke="#23252a"/>
+      <text x="872" y="322" font-size="14" font-weight="600" fill="#f7f8f8">marketing</text>
+      <line x1="856" y1="334" x2="1156" y2="334" stroke="#23252a"/>
+      <g font-size="13" fill="#d0d6e0">
+        <text x="872" y="352.5">Date</text>
+        <text x="872" y="380.5">OfflineCost</text>
+        <text x="872" y="408.5">OnlineCost</text>
+      </g>
+      <g font-family="'JetBrains Mono', Consolas, monospace" font-size="12" fill="#62666d" text-anchor="end">
+        <text x="1142" y="352.5">date</text>
+        <text x="1142" y="380.5">decimal(10,2)</text>
+        <text x="1142" y="408.5">decimal(10,2)</text>
+      </g>
+    </g>
+  </g>
+</svg>

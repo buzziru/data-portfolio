@@ -15,6 +15,9 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
 
+// harness 제목만 "ML 하니스 —" / "Agentic ML 파이프라인" 두 줄로 표시
+const titleHtml = entry.id === 'harness' ? d.title.replace(' — ', ' —<br>') : null;
+
 const STATUS_LABEL: Record<string, string> = {
   completed: 'Completed',
   progress: 'In Progress',
@@ -30,7 +33,7 @@ const STATUS_LABEL: Record<string, string> = {
       <div class="detail-head-grid">
         <div class="detail-head-left">
           <div class="detail-kicker">CASE {String(d.order).padStart(2, '0')} · {d.domain}</div>
-          <h1 class="detail-title">{d.title}</h1>
+          {titleHtml ? <h1 class="detail-title" set:html={titleHtml} /> : <h1 class="detail-title">{d.title}</h1>}
           <span class={`status-pill status-${d.status} mono`} style="position:static;display:inline-block;margin-bottom:16px;">{STATUS_LABEL[d.status]}</span>
           <p class="detail-summary">{d.summary}</p>
           <p class="detail-metric mono">{d.keyMetric}</p>
@@ -62,7 +65,7 @@ const STATUS_LABEL: Record<string, string> = {
       </article>
 
       {d.demo && (
-        <section class="detail-demo">
+        <section class={`detail-demo${d.demoWide ? ' detail-demo--wide' : ''}`}>
           <div class="detail-demo-head">
             <span class="detail-demo-kicker mono">LIVE DEMO</span>
             <a class="detail-demo-ext mono" href={d.demo} target="_blank" rel="noopener">새 탭에서 열기 ↗</a>

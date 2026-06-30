@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" font-family="Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif">
+  <rect width="1200" height="440" fill="#0f1011"/>
+
+  <text x="48" y="34" font-family="'JetBrains Mono', Consolas, monospace" font-size="12" letter-spacing="2" fill="#62666d">RFM · SEGMENT STRATEGY</text>
+  <text x="48" y="72" font-size="28" font-weight="600" letter-spacing="-0.5" fill="#f7f8f8">RFM 핵심 그룹별 마케팅 전략</text>
+
+  <!-- Row 1 — Loyal Champion : R▲ F▲ M▲ -->
+  <g transform="translate(0,104)">
+    <rect x="48" y="0" width="1104" height="72" rx="12" fill="#141516" stroke="#23252a"/>
+    <rect x="64" y="22" width="3" height="28" rx="1.5" fill="#5e6ad2"/>
+    <text x="84" y="42" font-size="20" font-weight="600" fill="#f7f8f8">Loyal Champion</text>
+    <g font-family="'JetBrains Mono', Consolas, monospace" font-size="16" fill="#8a8f98">
+      <text x="440" y="42">R</text><polygon points="470,29 463,41 477,41" fill="#4cc38a"/>
+      <text x="540" y="42">F</text><polygon points="570,29 563,41 577,41" fill="#4cc38a"/>
+      <text x="640" y="42">M</text><polygon points="670,29 663,41 677,41" fill="#4cc38a"/>
+    </g>
+    <text x="720" y="42" font-size="15" fill="#d0d6e0">우수고객 차별화 서비스 · VVIP 전용 마케팅</text>
+  </g>
+
+  <!-- Row 2 — Potential Loyalist : R▼ F▲ M▲ -->
+  <g transform="translate(0,184)">
+    <rect x="48" y="0" width="1104" height="72" rx="12" fill="#141516" stroke="#23252a"/>
+    <rect x="64" y="22" width="3" height="28" rx="1.5" fill="#5e6ad2"/>
+    <text x="84" y="42" font-size="20" font-weight="600" fill="#f7f8f8">Potential Loyalist</text>
+    <g font-family="'JetBrains Mono', Consolas, monospace" font-size="16" fill="#8a8f98">
+      <text x="440" y="42">R</text><polygon points="470,41 463,29 477,29" fill="#e5484d"/>
+      <text x="540" y="42">F</text><polygon points="570,29 563,41 577,41" fill="#4cc38a"/>
+      <text x="640" y="42">M</text><polygon points="670,29 663,41 677,41" fill="#4cc38a"/>
+    </g>
+    <text x="720" y="42" font-size="15" fill="#d0d6e0">재구매 유도 캠페인 · 구매 주기 검토</text>
+  </g>
+
+  <!-- Row 3 — Promising Newcomer : R▲ F▼ M▲ -->
+  <g transform="translate(0,264)">
+    <rect x="48" y="0" width="1104" height="72" rx="12" fill="#141516" stroke="#23252a"/>
+    <rect x="64" y="22" width="3" height="28" rx="1.5" fill="#5e6ad2"/>
+    <text x="84" y="42" font-size="20" font-weight="600" fill="#f7f8f8">Promising Newcomer</text>
+    <g font-family="'JetBrains Mono', Consolas, monospace" font-size="16" fill="#8a8f98">
+      <text x="440" y="42">R</text><polygon points="470,29 463,41 477,41" fill="#4cc38a"/>
+      <text x="540" y="42">F</text><polygon points="570,41 563,29 577,29" fill="#e5484d"/>
+      <text x="640" y="42">M</text><polygon points="670,29 663,41 677,41" fill="#4cc38a"/>
+    </g>
+    <text x="720" y="42" font-size="15" fill="#d0d6e0">제품 연관성 분석 기반 추천 · 구매확률 높은 상품 제안</text>
+  </g>
+
+  <!-- Row 4 — Bargain Lover : R▲ F▲ M▼ -->
+  <g transform="translate(0,344)">
+    <rect x="48" y="0" width="1104" height="72" rx="12" fill="#141516" stroke="#23252a"/>
+    <rect x="64" y="22" width="3" height="28" rx="1.5" fill="#5e6ad2"/>
+    <text x="84" y="42" font-size="20" font-weight="600" fill="#f7f8f8">Bargain Lover</text>
+    <g font-family="'JetBrains Mono', Consolas, monospace" font-size="16" fill="#8a8f98">
+      <text x="440" y="42">R</text><polygon points="470,29 463,41 477,41" fill="#4cc38a"/>
+      <text x="540" y="42">F</text><polygon points="570,29 563,41 577,41" fill="#4cc38a"/>
+      <text x="640" y="42">M</text><polygon points="670,41 663,29 677,29" fill="#e5484d"/>
+    </g>
+    <text x="720" y="42" font-size="15" fill="#d0d6e0">구매 금액 증대 마케팅 · 고가 제품 구매 혜택</text>
+  </g>
+</svg>

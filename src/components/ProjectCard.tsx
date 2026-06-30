@@ -14,6 +14,7 @@ export interface Project {
   date?: string;
   thumb: string;
   image?: string;
+  thumbImage?: string;
   github?: string;
   demo?: string;
 }
@@ -25,14 +26,15 @@ const STATUS_LABEL: Record<Project['status'], string> = {
 };
 
 export default function ProjectCard({ project }: { project: Project }) {
-  const { slug, title, status, order, summary, domain, keyMetric, date, thumb, image, github } = project;
+  const { slug, title, status, order, summary, domain, keyMetric, date, thumb, image, thumbImage, github } = project;
+  const cardImage = thumbImage ?? image;
 
   return (
     <article className="proj-card" data-status={status}>
       <div className="proj-thumb">
         <span className="proj-thumb-label mono">CASE {String(order).padStart(2, '0')} · {domain}</span>
         <span className={`status-pill status-${status} mono`}>{STATUS_LABEL[status]}</span>
-        {image ? <img className="proj-thumb-img" src={image} alt={`${title} 데모`} loading="lazy" /> : <ProjectThumb thumb={thumb} />}
+        {cardImage ? <img className="proj-thumb-img" src={cardImage} alt={`${title} 썸네일`} loading="lazy" /> : <ProjectThumb thumb={thumb} />}
       </div>
       <div className="proj-body">
         <h3 className="proj-title">{title}</h3>

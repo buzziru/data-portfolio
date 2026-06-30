@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" font-family="Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif">
+  <rect width="1200" height="460" fill="#0f1011"/>
+
+  <text x="48" y="34" font-family="'JetBrains Mono', Consolas, monospace" font-size="12" letter-spacing="2" fill="#62666d">RFM · CORE SEGMENTS</text>
+  <text x="48" y="72" font-size="28" font-weight="600" letter-spacing="-0.5" fill="#f7f8f8">RFM에 따른 핵심 고객 분류</text>
+
+  <!-- Column headers -->
+  <g font-size="14" font-weight="600" fill="#f7f8f8" text-anchor="middle">
+    <rect x="300" y="110" width="200" height="56" rx="8" fill="#18191a" stroke="#23252a"/><text x="400" y="144">Loyal Champions</text>
+    <rect x="516" y="110" width="200" height="56" rx="8" fill="#18191a" stroke="#23252a"/><text x="616" y="144">Potential Loyalist</text>
+    <rect x="732" y="110" width="200" height="56" rx="8" fill="#18191a" stroke="#23252a"/><text x="832" y="144">Promising Newcomers</text>
+    <rect x="948" y="110" width="200" height="56" rx="8" fill="#18191a" stroke="#23252a"/><text x="1048" y="144">Bargain Lovers</text>
+  </g>
+
+  <!-- Row: Recency  ▲ ▼ ▲ ▲ -->
+  <g>
+    <rect x="48" y="178" width="240" height="76" rx="8" fill="#141516" stroke="#23252a"/>
+    <rect x="62" y="206" width="3" height="20" rx="1.5" fill="#5e6ad2"/>
+    <text x="80" y="222" font-size="16" font-weight="500" fill="#d0d6e0">Recency</text>
+    <rect x="300" y="178" width="200" height="76" rx="8" fill="#131415" stroke="#23252a"/><polygon points="400,205 389,224 411,224" fill="#4cc38a"/>
+    <rect x="516" y="178" width="200" height="76" rx="8" fill="#131415" stroke="#23252a"/><polygon points="616,224 605,205 627,205" fill="#e5484d"/>
+    <rect x="732" y="178" width="200" height="76" rx="8" fill="#131415" stroke="#23252a"/><polygon points="832,205 821,224 843,224" fill="#4cc38a"/>
+    <rect x="948" y="178" width="200" height="76" rx="8" fill="#131415" stroke="#23252a"/><polygon points="1048,205 1037,224 1059,224" fill="#4cc38a"/>
+  </g>
+
+  <!-- Row: Frequency  ▲ ▲ ▼ ▲ -->
+  <g>
+    <rect x="48" y="262" width="240" height="76" rx="8" fill="#141516" stroke="#23252a"/>
+    <rect x="62" y="290" width="3" height="20" rx="1.5" fill="#5e6ad2"/>
+    <text x="80" y="306" font-size="16" font-weight="500" fill="#d0d6e0">Frequency</text>
+    <rect x="300" y="262" width="200" height="76" rx="8" fill="#131415" stroke="#23252a"/><polygon points="400,289 389,308 411,308" fill="#4cc38a"/>
+    <rect x="516" y="262" width="200" height="76" rx="8" fill="#131415" stroke="#23252a"/><polygon points="616,289 605,308 627,308" fill="#4cc38a"/>
+    <rect x="732" y="262" width="200" height="76" rx="8" fill="#131415" stroke="#23252a"/><polygon points="832,308 821,289 843,289" fill="#e5484d"/>
+    <rect x="948" y="262" width="200" height="76" rx="8" fill="#131415" stroke="#23252a"/><polygon points="1048,289 1037,308 1059,308" fill="#4cc38a"/>
+  </g>
+
+  <!-- Row: Monetary Value  ▲ ▲ ▲ ▼ -->
+  <g>
+    <rect x="48" y="346" width="240" height="76" rx="8" fill="#141516" stroke="#23252a"/>
+    <rect x="62" y="374" width="3" height="20" rx="1.5" fill="#5e6ad2"/>
+    <text x="80" y="390" font-size="16" font-weight="500" fill="#d0d6e0">Monetary Value</text>
+    <rect x="300" y="346" width="200" height="76" rx="8" fill="#131415" stroke="#23252a"/><polygon points="400,373 389,392 411,392" fill="#4cc38a"/>
+    <rect x="516" y="346" width="200" height="76" rx="8" fill="#131415" stroke="#23252a"/><polygon points="616,373 605,392 627,392" fill="#4cc38a"/>
+    <rect x="732" y="346" width="200" height="76" rx="8" fill="#131415" stroke="#23252a"/><polygon points="832,373 821,392 843,392" fill="#4cc38a"/>
+    <rect x="948" y="346" width="200" height="76" rx="8" fill="#131415" stroke="#23252a"/><polygon points="1048,392 1037,373 1059,373" fill="#e5484d"/>
+  </g>
+</svg>

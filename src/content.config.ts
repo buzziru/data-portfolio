@@ -19,9 +19,11 @@ const projects = defineCollection({
     date: z.string().optional(),
     thumb: z.string(), // ProjectThumb SVG key (churn|cnn|forecast|nlp|recsys|…)
     image: z.string().optional(), // 상세 헤더용 실제 스크린샷 (있으면 thumb SVG 대신 사용)
+    thumbImage: z.string().optional(), // 카드 썸네일 전용 이미지 (없으면 image 사용)
     github: z.string().url().optional(),
     demo: z.string().url().optional(),
     demoNote: z.string().optional(), // 임베드 데모 안내 문구 (없으면 기본 문구 사용)
+    demoWide: z.boolean().optional(), // 대시보드형 데모 — 임베드 프레임을 넓게(콘텐츠 폭) 표시
   }),
 });
 
