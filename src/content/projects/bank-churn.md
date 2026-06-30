@@ -9,7 +9,9 @@ methods: [Logistic Regression, XGBoost, CatBoost, class_weight 불균형 처리]
 tools: [Python, scikit-learn, XGBoost, CatBoost, Streamlit]
 keyMetric: Recall 0.78 (이탈 고객 78% 포착)
 thumb: churn
+image: /projects/bank-churn-demo.png
 github: https://github.com/buzziru/ML_Team_Project
+demo: https://ingyoun-bank-churn.static.hf.space/
 ---
 
 ## Problem

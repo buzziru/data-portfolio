@@ -18,6 +18,7 @@ const projects = defineCollection({
     keyMetric: z.string(),
     date: z.string().optional(),
     thumb: z.string(), // ProjectThumb SVG key (churn|cnn|forecast|nlp|recsys|…)
+    image: z.string().optional(), // 상세 헤더용 실제 스크린샷 (있으면 thumb SVG 대신 사용)
     github: z.string().url().optional(),
     demo: z.string().url().optional(),
   }),
