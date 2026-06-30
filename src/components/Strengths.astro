@@ -7,8 +7,8 @@
       <div class="sec-num"><span class="hash">§</span> 02</div>
       <div>
         <span class="sec-kicker">Core strengths</span>
-        <h2 class="sec-title">네 가지 역량 — 작지만 탄탄하게.</h2>
-        <p class="sec-desc">화려한 스킬보다 실무에서 즉시 작동하는 기본기 위주로 정리했습니다. 각 항목은 프로젝트와 학습 기록에서 검증됩니다.</p>
+        <h2 class="sec-title">프로젝트가 증명하는 네 가지 역량.</h2>
+        <p class="sec-desc">각 역량은 구체적인 프로젝트 결과로 뒷받침됩니다. 소개(01)와 겹치지 않도록, 실제 작업에서 반복적으로 드러난 기술적 능력에 집중했습니다.</p>
       </div>
     </div>
 
@@ -17,55 +17,58 @@
         <span class="strength-num mono">/ 01</span>
         <div class="strength-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <circle cx="12" cy="12" r="9"></circle>
-            <path d="M12 3v18M3 12h18"></path>
-            <circle cx="12" cy="12" r="3.5" fill="currentColor" stroke="none"></circle>
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="M21 21l-4.35-4.35"></path>
+            <path d="M11 8v6M8 11h6"></path>
           </svg>
         </div>
-        <h3 class="strength-title">Problem Framing</h3>
-        <p class="strength-body">도구를 먼저 고르지 않습니다. 비즈니스 질문과 사용자 상황을 먼저 풀어 적고, 데이터로 대답 가능한 형태로 문제를 재구성합니다.</p>
-        <div class="strength-keys"><span>problem-statement</span><span>success-criteria</span><span>scope</span></div>
+        <h3 class="strength-title">데이터 진단</h3>
+        <p class="strength-body">모델 전에 데이터 문제를 먼저 찾습니다. pHash·CNN 임베딩으로 train/test 유출을 직접 진단해 폴드를 재구성했고, 연령 분포 편중이 MAE 집계를 왜곡한다는 것을 지표 분리로 드러냈습니다.</p>
+        <div class="strength-keys"><span>data-leakage</span><span>label-noise</span><span>distribution-analysis</span></div>
       </article>
 
       <article class="strength-card reveal">
         <span class="strength-num mono">/ 02</span>
         <div class="strength-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <rect x="3" y="13" width="4" height="8"></rect>
-            <rect x="10" y="8" width="4" height="13"></rect>
-            <rect x="17" y="4" width="4" height="17"></rect>
+            <circle cx="12" cy="4" r="2"></circle>
+            <circle cx="5" cy="20" r="2"></circle>
+            <circle cx="19" cy="20" r="2"></circle>
+            <path d="M12 6v5M12 11l-5.5 7M12 11l5.5 7"></path>
           </svg>
         </div>
-        <h3 class="strength-title">Data Analysis Process</h3>
-        <p class="strength-body">정제 · 탐색 · 시각화 · 해석의 사이클을 익숙하게 반복합니다. 이상치와 결측을 단순히 지우지 않고, 의미를 먼저 읽으려 합니다.</p>
-        <div class="strength-keys"><span>cleaning</span><span>EDA</span><span>visualization</span><span>interpretation</span></div>
+        <h3 class="strength-title">앙상블 · 증류 모델링</h3>
+        <p class="strength-body">단일 모델 튜닝이 아닌 조합 전략으로 정량 성과를 냅니다. OOF 스태킹으로 Kaggle 상위 4.9%, 이종 지식 증류(ConvNeXt→ResNeSt, T=1.25)로 ROC-AUC 0.977을 달성했습니다.</p>
+        <div class="strength-keys"><span>oof-stacking</span><span>knowledge-distillation</span><span>transfer-learning</span></div>
       </article>
 
       <article class="strength-card reveal">
         <span class="strength-num mono">/ 03</span>
         <div class="strength-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <path d="M4 19h16M7 19V9M12 19V5M17 19v-7"></path>
-            <path d="M4 5l5 4 5-3 6 5" stroke-dasharray="2 2"></path>
+            <ellipse cx="12" cy="7" rx="8" ry="3"></ellipse>
+            <path d="M4 7v5c0 1.657 3.582 3 8 3s8-1.343 8-3V7"></path>
+            <path d="M4 12v5c0 1.657 3.582 3 8 3s8-1.343 8-3v-5"></path>
           </svg>
         </div>
-        <h3 class="strength-title">Machine Learning Practice</h3>
-        <p class="strength-body">피처 엔지니어링, 모델 학습, 평가 지표 설계, 실험 비교까지 전 과정을 직접 다뤄봅니다. 한 모델을 깊이 보는 연습을 우선합니다.</p>
-        <div class="strength-keys"><span>feature-engineering</span><span>cv</span><span>metrics</span><span>experiment-log</span></div>
+        <h3 class="strength-title">SQL · 데이터 엔지니어링</h3>
+        <p class="strength-body">모델 전 단계를 직접 처리합니다. AWS RDS 5테이블 관계형 DB를 직접 설계해 SQL로 조회했고, 공공데이터 4개 영역을 수집·통합해 350만 행·50개 변수 데이터셋을 구축했습니다.</p>
+        <div class="strength-keys"><span>db-design</span><span>sql</span><span>data-pipeline</span></div>
       </article>
 
       <article class="strength-card reveal">
         <span class="strength-num mono">/ 04</span>
         <div class="strength-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <path d="M5 4h11l3 3v13H5z"></path>
-            <path d="M16 4v3h3"></path>
-            <path d="M8 12h8M8 16h6"></path>
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
           </svg>
         </div>
-        <h3 class="strength-title">Fast Learning &amp; Documentation</h3>
-        <p class="strength-body">새로운 개념을 노트로 정리하고, 재현 가능한 코드로 옮깁니다. 동료가 읽을 수 있다는 가정 하에 기록을 남깁니다.</p>
-        <div class="strength-keys"><span>notes</span><span>reproducible</span><span>communication</span></div>
+        <h3 class="strength-title">팀 리드 · 커뮤니케이션</h3>
+        <p class="strength-body">세 번의 팀리드에서 방향 설정·역할 분리·발표를 주도했습니다. 분석 결과를 Streamlit 대시보드와 발표 자료로 구성해 동료와 의사결정자가 읽을 수 있는 형태로 전달합니다.</p>
+        <div class="strength-keys"><span>team-lead</span><span>presentation</span><span>dashboard</span></div>
       </article>
     </div>
   </div>

@@ -19,10 +19,10 @@
 - id: "markcloud"
   order: 3
   date: "2024.06 — 2024.10"
-  title: "데이터 분석가 · 마크 클라우드"
-  org: "상표 빅데이터 사업 / 특허 기술 연계 분류 모델"
-  desc: "상표 빅데이터 사업 참여 및 특허 기술 연계 분류 모델 개발."
-  tags: ["nlp", "classification", "business"]
+  title: "데이터 분석가 · 마크클라우드 (AI팀 주임)"
+  org: "특허청 발주 사업 2건 단독 담당"
+  desc: "특허 문헌 자동 분류 모델 개발(제안서 작성·수주 포함): 주요 5개국 특허문헌 API 수집·가공 후 LLM 베이스 파인튜닝·인스트럭션 튜닝 수행. 상표 거절사유 분석: 비정형 행정 문서(API·HWP·PDF) 정제 파이프라인 구성 및 RAG 기반 자동화 프로토타입 중간 보고 반영."
+  tags: ["llm", "finetuning", "rag", "nlp", "classification"]
 
 - id: "face-rec"
   order: 4
@@ -32,8 +32,40 @@
   desc: "RetinaFace 검출 + InceptionResNetv1 전이학습 · 나이 MAE 4.66, 성별 Acc 89.4%, 감정 Acc 67.8%."
   tags: ["pytorch", "cv", "multitask", "teamlead"]
 
-- id: "grad-school"
+- id: "zerobase"
   order: 5
+  date: "2023.10 — 2024.04"
+  title: "데이터 분석 스쿨 · 제로베이스"
+  org: "교육 이수"
+  desc: "SQL, Git, Tableau, ML/DL 실전 프로젝트 중심 데이터 분석 역량 강화."
+  tags: ["education", "ml", "sql"]
+
+- id: "naver-bootcamp"
+  order: 6
+  date: "2024.01 — 2024.02"
+  title: "AI 엔지니어 역량 · 네이버 부트캠프"
+  org: "교육 이수"
+  desc: "머신러닝 및 딥러닝 알고리즘의 이해 및 구현."
+  tags: ["education", "dl", "ml"]
+
+- id: "sqld"
+  order: 7
+  date: "2023.10"
+  title: "SQL개발자 (SQLD) 취득"
+  org: "한국데이터베이스진흥센터 · 자격증"
+  desc: "SQL 데이터 조작·관리 역량 공인 자격 취득."
+  tags: ["certification", "sql"]
+
+- id: "megastudy"
+  order: 8
+  date: "2023.06 — 2023.09"
+  title: "Python 및 머신러닝 · 메가스터디"
+  org: "교육 이수"
+  desc: "Python 데이터 분석·시각화 및 머신러닝 기초."
+  tags: ["education", "python", "ml"]
+
+- id: "grad-school"
+  order: 9
   date: "2014.08 — 2016.08"
   title: "성균관대 일반대학원 석사 (경제학)"
   org: "논문 · '정부의 연구 용역에 대한 최적 보상 체계'"
@@ -41,7 +73,7 @@
   tags: ["economics", "research", "thesis"]
 
 - id: "hana-bank"
-  order: 6
+  order: 10
   date: "2012.07 — 2013.04"
   title: "하나은행 · 여신 업무"
   org: "신천역(잠실새내) 지점 계장"
@@ -49,7 +81,7 @@
   tags: ["finance", "banking"]
 
 - id: "undergrad"
-  order: 7
+  order: 11
   date: "2005.03 — 2012.08"
   title: "한국외대 경제학과"
   org: "학사 · Economics"

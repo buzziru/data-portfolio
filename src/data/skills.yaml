@@ -1,10 +1,10 @@
-# 기술 스택. pills.level 은 using | learning | next 중 하나.
+# 기술 스택. pills.level 은 core | using | learning | next 중 하나.
 - id: "lang-tools"
   order: 1
   title: "언어 · 도구"
   tag: "/ foundation"
   pills:
-    - { name: "Python", level: "using", tip: "주 언어 · 분석/ML/DL 전 영역" }
+    - { name: "Python", level: "core", tip: "주 언어 · 분석/ML/DL 전 영역" }
     - { name: "SQL", level: "using", tip: "AWS RDS, MariaDB · 복잡 조회 및 DB 설계" }
     - { name: "Git / GitHub", level: "using", tip: "버전 관리 · 실험 이력 공개" }
     - { name: "Hydra", level: "using", tip: "설정 선언 기반 실험 관리" }
@@ -15,11 +15,11 @@
   title: "Machine Learning"
   tag: "/ applied"
   pills:
-    - { name: "LightGBM", level: "using", tip: "Kaggle · 탭형 데이터 메인 모델" }
+    - { name: "LightGBM", level: "core", tip: "Kaggle 상위 4.9% · 탭형 데이터 메인 모델" }
+    - { name: "scikit-learn", level: "core", tip: "기본 파이프라인 · CV · 평가" }
+    - { name: "OOF 스태킹", level: "core", tip: "Out-of-Fold 메타러너 앙상블" }
     - { name: "XGBoost", level: "using", tip: "분류/회귀 앙상블 실전 사용" }
     - { name: "CatBoost", level: "using", tip: "범주형 처리 · 은행 이탈 예측" }
-    - { name: "scikit-learn", level: "using", tip: "기본 파이프라인 · CV · 평가" }
-    - { name: "OOF 스태킹", level: "using", tip: "Out-of-Fold 메타러너 앙상블" }
     - { name: "RealMLP / TabM", level: "learning", tip: "신규 탭형 딥러닝 모델 탐색 중" }
 
 - id: "dl"
@@ -27,16 +27,28 @@
   title: "딥러닝"
   tag: "/ computer vision"
   pills:
-    - { name: "PyTorch", level: "using", tip: "CV 프로젝트 · 멀티태스크 학습" }
-    - { name: "PyTorch Lightning", level: "using", tip: "재현 가능한 실험 구조 설계" }
-    - { name: "ResNeSt", level: "using", tip: "식물 병해 진단 · KD 티처 모델" }
-    - { name: "ConvNeXt", level: "using", tip: "식물 병해 진단 · KD 스튜던트" }
-    - { name: "CNN", level: "using", tip: "얼굴 인식 · 이미지 분류" }
-    - { name: "지식 증류 (KD)", level: "using", tip: "이종 Teacher→Student · T=1.25" }
+    - { name: "PyTorch", level: "core", tip: "CV 프로젝트 · 멀티태스크 학습" }
+    - { name: "PyTorch Lightning", level: "core", tip: "재현 가능한 실험 구조 설계" }
+    - { name: "지식 증류 (KD)", level: "core", tip: "이종 Teacher→Student · T=1.25 · ROC-AUC 0.977" }
+    - { name: "ResNeSt", level: "core", tip: "식물 병해 진단 · KD 스튜던트 모델" }
+    - { name: "ConvNeXt", level: "core", tip: "식물 병해 진단 · KD 티처 모델" }
     - { name: "RetinaFace", level: "using", tip: "얼굴 검출 · 멀티태스크 파이프라인" }
+    - { name: "CNN", level: "using", tip: "얼굴 인식 · 이미지 분류" }
+
+- id: "llm"
+  order: 4
+  title: "LLM · NLP"
+  tag: "/ language models"
+  pills:
+    - { name: "LLM 파인튜닝", level: "core", tip: "인스트럭션 튜닝 · 특허 도메인 언어모델 학습 (마크클라우드)" }
+    - { name: "RAG", level: "core", tip: "법령·심결례 참조 검색 증강 생성 프로토타입 구축" }
+    - { name: "HuggingFace", level: "using", tip: "모델 허브 · 학습 데이터셋 가공 파이프라인" }
+    - { name: "Ollama", level: "using", tip: "로컬 LLM 추론 · 비정형 문서 정제 파이프라인" }
+    - { name: "OpenAI API", level: "using", tip: "정규식 + 로컬 LLM + OpenAI 조합 정제 파이프라인" }
+    - { name: "프롬프트 엔지니어링", level: "learning", tip: "RAG 응답 품질 개선 · 분류 프롬프트 설계" }
 
 - id: "mlops"
-  order: 4
+  order: 5
   title: "MLOps · 인프라"
   tag: "/ experiment ops"
   pills:
@@ -47,7 +59,7 @@
     - { name: "Kaggle / Colab GPU", level: "using", tip: "헤드리스 비동기 GPU 오프로드" }
 
 - id: "analysis-viz"
-  order: 5
+  order: 6
   title: "분석 · 시각화"
   tag: "/ outputs"
   pills:

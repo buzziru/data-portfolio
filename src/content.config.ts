@@ -46,7 +46,7 @@ const skills = defineCollection({
     pills: z.array(
       z.object({
         name: z.string(),
-        level: z.enum(['using', 'learning', 'next']),
+        level: z.enum(['core', 'using', 'learning', 'next']),
         tip: z.string(),
       }),
     ),
