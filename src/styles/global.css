@@ -684,11 +684,14 @@ footer.site{
 .detail-fig img{margin:0;}
 .detail-fig figcaption{margin-top:10px;font-family:var(--font-mono);font-size:11px;color:var(--fg-muted);letter-spacing:.04em;}
 
-/* 편중 차트 — 프로즈 칼럼(720px)을 벗어나 콘텐츠 폭으로 크게 표시 */
-.detail-body .fig-wide{width:min(940px,calc(100vw - 64px));margin:24px 0 34px;padding:26px 30px 20px;border:1px solid var(--border);border-radius:16px;background:var(--bg-surface);}
-.detail-body .fig-wide svg{display:block;width:100%;height:auto;margin:0;border:0;border-radius:0;background:none;}
-.detail-body .fig-wide figcaption{margin-top:16px;font-size:14px;color:var(--fg-muted);line-height:1.65;letter-spacing:0;}
-@media(max-width:1000px){.detail-body .fig-wide{width:100%;padding:18px 18px 14px;}}
+/* 좌: 텍스트 / 우: 편중 차트 — 프로즈 칼럼(720px)을 벗어나 우측 여백을 활용 */
+.detail-body .detail-split{width:min(1116px,calc(100vw - 64px));display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:40px;align-items:center;margin:14px 0 34px;}
+.detail-body .detail-split-body > :first-child{margin-top:0;}
+.detail-body .detail-split-body > :last-child{margin-bottom:0;}
+.detail-body .detail-split-fig{margin:0;padding:24px 28px 18px;border:1px solid var(--border);border-radius:16px;background:var(--bg-surface);}
+.detail-body .detail-split-fig svg{display:block;width:100%;height:auto;margin:0;border:0;border-radius:0;background:none;}
+.detail-body .detail-split-fig figcaption{margin-top:14px;font-size:13px;color:var(--fg-muted);line-height:1.6;letter-spacing:0;}
+@media(max-width:900px){.detail-body .detail-split{grid-template-columns:1fr;gap:22px;width:100%;}}
 
 /* ── Project detail — embedded live demo ── */
 .detail-demo{max-width:960px;margin:56px 0 0;padding-top:40px;border-top:1px solid var(--border);}
