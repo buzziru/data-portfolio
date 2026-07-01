@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="'Malgun Gothic','Segoe UI',system-ui,sans-serif">
+  <rect width="1200" height="630" fill="#010102"/>
+  <rect x="0.5" y="0.5" width="1199" height="629" fill="none" stroke="#23252a"/>
+
+  <!-- brand -->
+  <g transform="translate(80,80)">
+    <rect width="44" height="44" rx="10" fill="#5e6ad2"/>
+    <text x="22" y="23" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">D</text>
+    <text x="60" y="16" font-size="19" font-weight="600" fill="#f7f8f8">Research Notebook</text>
+    <text x="60" y="38" font-family="'Consolas',monospace" font-size="13" letter-spacing="1.5" fill="#8a8f98">/ DATA ANALYST PORTFOLIO</text>
+  </g>
+
+  <!-- kicker -->
+  <text x="80" y="250" font-family="'Consolas',monospace" font-size="15" letter-spacing="2.5" fill="#828fff">ML HARNESS · LLM FINE-TUNING · DATA ANALYSIS</text>
+
+  <!-- title -->
+  <text x="78" y="330" font-size="54" font-weight="600" letter-spacing="-1.5" fill="#f7f8f8">데이터로 문제를 정의하고,</text>
+  <text x="78" y="400" font-size="54" font-weight="600" letter-spacing="-1.5" fill="#f7f8f8">모델로 <tspan fill="#828fff">해결 가능성</tspan>을 검증하는 분석가</text>
+
+  <!-- footer -->
+  <text x="80" y="540" font-size="20" font-weight="500" fill="#d0d6e0">조인경 · Data Analyst · Data Scientist</text>
+  <text x="1120" y="540" font-family="'Consolas',monospace" font-size="14" fill="#62666d" text-anchor="end">Seoul · UTC+9</text>
+</svg>
