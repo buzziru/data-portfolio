@@ -684,6 +684,12 @@ footer.site{
 .detail-fig img{margin:0;}
 .detail-fig figcaption{margin-top:10px;font-family:var(--font-mono);font-size:11px;color:var(--fg-muted);letter-spacing:.04em;}
 
+/* 본문 우측에 띄우는 보조 도식 — 관련 문단이 좌측으로 감김 */
+.detail-body .fig-aside{float:right;width:44%;max-width:330px;margin:4px 0 16px 26px;padding:14px 15px 11px;border:1px solid var(--border);border-radius:12px;background:var(--bg-surface);}
+.detail-body .fig-aside svg{display:block;width:100%;height:auto;margin:0;border:0;border-radius:0;background:none;}
+.detail-body .fig-aside figcaption{margin-top:9px;font-size:11.5px;color:var(--fg-muted);line-height:1.55;letter-spacing:0;}
+@media(max-width:640px){.detail-body .fig-aside{float:none;width:100%;max-width:none;margin:0 0 20px;}}
+
 /* ── Project detail — embedded live demo ── */
 .detail-demo{max-width:960px;margin:56px 0 0;padding-top:40px;border-top:1px solid var(--border);}
 .detail-demo--wide{max-width:none;}

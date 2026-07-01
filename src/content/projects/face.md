@@ -31,9 +31,36 @@ demoNote: 샘플 이미지를 누르면 얼굴별 나이·성별·감정 추론 
 1. **RetinaFace** 얼굴 검출 및 얼굴 부위 정렬
 2. **과업별 전용 백본 분리 학습**: 나이 회귀(InceptionResNetv1), 성별 분류(CNN), 감정 분류(CNN)
 3. **멀티태스크 결합**: 검출된 얼굴 → 세 모델 병렬 추론 → 결과 통합
-4. **Streamlit 대시보드**: 이미지/영상 입력 지원, 6인 동시 추정 데모
 
 ## Model / Analysis
+
+<figure class="fig-aside">
+<svg viewBox="0 0 200 100" role="img" aria-label="연령대별 CS(5) 정확도 — 30대 이상 데이터 희소">
+<line x1="14" y1="8" x2="196" y2="8" stroke="rgba(255,255,255,0.06)" stroke-width="0.6" />
+<line x1="14" y1="44" x2="196" y2="44" stroke="rgba(255,255,255,0.06)" stroke-width="0.6" />
+<line x1="14" y1="80" x2="196" y2="80" stroke="rgba(255,255,255,0.1)" stroke-width="0.6" />
+<rect x="16" y="18" width="16" height="62" rx="1.5" fill="rgba(94,106,210,0.45)" stroke="#5e6ad2" stroke-width="0.6" />
+<text x="24" y="26" text-anchor="middle" font-family="JetBrains Mono" font-size="5" fill="#ba9cff">86.3</text>
+<rect x="42" y="26" width="16" height="54" rx="1.5" fill="rgba(94,106,210,0.35)" stroke="#5e6ad2" stroke-width="0.6" />
+<text x="50" y="34" text-anchor="middle" font-family="JetBrains Mono" font-size="5" fill="#ba9cff">75.2</text>
+<rect x="68" y="32" width="16" height="48" rx="1.5" fill="rgba(94,106,210,0.25)" stroke="#7877c6" stroke-width="0.6" />
+<text x="76" y="40" text-anchor="middle" font-family="JetBrains Mono" font-size="5" fill="#7877c6">67.0</text>
+<rect x="94" y="49" width="16" height="31" rx="1.5" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.15)" stroke-width="0.6" />
+<rect x="120" y="48" width="16" height="32" rx="1.5" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.15)" stroke-width="0.6" />
+<rect x="146" y="50" width="16" height="30" rx="1.5" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.15)" stroke-width="0.6" />
+<rect x="172" y="74" width="16" height="6" rx="1.5" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="0.6" />
+<text x="180" y="72" text-anchor="middle" font-family="JetBrains Mono" font-size="5" fill="#62666d">7.9</text>
+<text x="24" y="88" text-anchor="middle" font-family="JetBrains Mono" font-size="4" fill="#62666d">0-10</text>
+<text x="50" y="88" text-anchor="middle" font-family="JetBrains Mono" font-size="4" fill="#62666d">11-20</text>
+<text x="76" y="88" text-anchor="middle" font-family="JetBrains Mono" font-size="4" fill="#62666d">21-30</text>
+<text x="102" y="88" text-anchor="middle" font-family="JetBrains Mono" font-size="4" fill="#62666d">31-40</text>
+<text x="128" y="88" text-anchor="middle" font-family="JetBrains Mono" font-size="4" fill="#62666d">41-50</text>
+<text x="154" y="88" text-anchor="middle" font-family="JetBrains Mono" font-size="4" fill="#62666d">51-60</text>
+<text x="180" y="88" text-anchor="middle" font-family="JetBrains Mono" font-size="4" fill="#62666d">61+</text>
+<text x="100" y="97" text-anchor="middle" font-family="JetBrains Mono" font-size="4.5" fill="#62666d">연령대별 CS(5) — 30대↑ 데이터 희소</text>
+</svg>
+<figcaption>학습 데이터가 0~20대에 집중되어 30대 이상은 표본이 희소하고, 연령대별 CS(5)가 급감한다 — 집계 지표가 감추던 고연령 실패를 드러낸 편중 진단.</figcaption>
+</figure>
 
 **나이 회귀(본인 담당):** InceptionResNetv1 마지막 블록 미세조정. 60대 이상 이미지 오버샘플링. 데이터 분포(0~19세 ~75% 편중)가 집계 지표를 왜곡해 고연령 실패를 은폐하는 문제를 발견 → 연령대별 MAE·CS(5) 분리 지표 도입.
 
