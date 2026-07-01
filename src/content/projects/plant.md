@@ -26,11 +26,39 @@ Plant Pathology 2020 (Kaggle FGVC7) · 이미지 분류 · 4클래스 · 학습 
 
 ## Approach
 
+<div class="detail-split">
+<div class="detail-split-body">
+
 1. **누출 진단**: pHash + CNN 유사도로 train-test 중복 이미지 식별 → 동일 인물 폴드 묶기
 2. **라벨 노이즈 교정**: 누출 이미지 기반 라벨 재검토
 3. **이종 지식 증류**: ConvNeXt(Teacher) → ResNeSt(Student), 온도 T=1.25
 4. **Top-k(3) 앙상블**: 최종 제출 앙상블
 5. **재사용 가능한 Lightning 구조 설계**: 학습 로직을 모듈 단위로 분리해 재사용성 확보
+
+</div>
+
+<figure class="detail-split-fig">
+<svg viewBox="0 0 200 100" role="img" aria-label="이종 지식 증류 — ConvNeXt Teacher에서 ResNeSt Student로 soft label 전달">
+<rect x="14" y="30" width="52" height="40" rx="4" fill="rgba(94,106,210,0.2)" stroke="#5e6ad2" stroke-width="1" />
+<text x="40" y="48" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#ba9cff">ConvNeXt</text>
+<text x="40" y="60" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#7877c6">Teacher</text>
+<rect x="134" y="30" width="52" height="40" rx="4" fill="rgba(119,119,198,0.15)" stroke="#7877c6" stroke-width="1" />
+<text x="160" y="48" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#b4bcd0">ResNeSt</text>
+<text x="160" y="60" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#6a6b6c">Student</text>
+<line x1="66" y1="50" x2="134" y2="50" stroke="rgba(186,156,255,0.5)" stroke-width="1.5" marker-end="url(#kd)" />
+<text x="100" y="44" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#ba9cff">soft labels</text>
+<text x="100" y="56" text-anchor="middle" font-family="JetBrains Mono" font-size="6" fill="#6a6b6c">T=1.25</text>
+<text x="100" y="86" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#5e6ad2">ROC-AUC 0.977</text>
+<defs>
+<marker id="kd" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+<path d="M0,0 L10,5 L0,10" fill="rgba(186,156,255,0.5)" />
+</marker>
+</defs>
+</svg>
+<figcaption>이종 지식 증류 — ConvNeXt(Teacher)의 soft label을 ResNeSt(Student)가 학습(T=1.25)</figcaption>
+</figure>
+
+</div>
 
 ## Model / Analysis
 
