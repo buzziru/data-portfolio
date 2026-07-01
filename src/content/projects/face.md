@@ -6,11 +6,14 @@ summary: RetinaFace 얼굴 검출 후 나이(회귀)·성별·감정(분류) 세
 domain: Computer Vision / 딥러닝
 role: 팀 3인 · 팀장 · 나이 회귀·멀티태스크 결합·Streamlit 담당
 methods: [RetinaFace, InceptionResNetv1 전이학습, CNN, 멀티태스크 학습]
-tools: [Python, PyTorch, RetinaFace, InceptionResNetv1, Streamlit]
+tools: [Python, PyTorch, RetinaFace, InceptionResNetv1, ONNX, Streamlit]
 keyMetric: 나이 MAE 4.66 · 성별 Acc 89.4% · 감정 Acc 67.8%
 date: "2024"
 thumb: cnn
+image: /projects/face-demo.jpg
 github: https://github.com/buzziru/DL_FACE_REC
+demo: https://ingyoun-face-rec-demo.static.hf.space
+demoNote: 샘플 이미지를 누르면 얼굴별 나이·성별·감정 추론 결과가 즉시 표시됩니다. 직접 이미지를 올리면 RetinaFace 검출과 나이·성별·감정 모델(ONNX)이 실시간으로 추론합니다.
 ---
 
 ## Problem
@@ -20,7 +23,7 @@ github: https://github.com/buzziru/DL_FACE_REC
 ## Data
 
 - **성별/나이**: AI허브 안면 에이징 76.84GB · 1인당 유아\~현재 약 50장 수집 · 저연령(0\~19세) 편중 약 75%
-- **감정**: FER-2013 감정 7클래스 · 'disgust' 클래스 희소
+- **감정**: FER-2013 감정 7클래스 · 'disgust' 클래스가 희소해 제외하고 6클래스로 학습
 - 총 학습 이미지: 40,150장(나이/성별) + 28,709장(감정)
 
 ## Approach
@@ -44,7 +47,7 @@ github: https://github.com/buzziru/DL_FACE_REC
 |---|---|---|
 | 나이 | MAE | 4.66 |
 | 성별 | Accuracy | 89.4% |
-| 감정 (7클래스) | Accuracy | 67.8% |
+| 감정 (6클래스) | Accuracy | 67.8% |
 
 ## What I Learned
 
@@ -55,3 +58,7 @@ github: https://github.com/buzziru/DL_FACE_REC
 ## Next Improvements
 
 40대+ 데이터 수집·증강 · 비율유지 리사이즈 전처리 · 불균형 인지 지표(AAR) 도입.
+
+## Deployment
+
+기존 Streamlit 데모는 GitHub의 학습 모델(PyTorch·Keras)을 그대로 로드해 추론 지연이 컸습니다. 세 모델을 **ONNX로 변환**하고 검출을 RetinaFace ONNX로 대체해 onnxruntime(CPU)로 경량화 배포했습니다. 정적 인터랙티브 데모 운영 중(Hugging Face) — 샘플은 사전 추론 결과 내장, 업로드 시에만 실시간 추론.
