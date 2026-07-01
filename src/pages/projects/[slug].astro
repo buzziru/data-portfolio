@@ -25,7 +25,7 @@ const STATUS_LABEL: Record<string, string> = {
 };
 ---
 
-<BaseLayout title={`${d.title} — Research Notebook`} description={d.summary}>
+<BaseLayout title={`${d.title} — Research Notebook`} description={d.summary.replace(/<br\s*\/?>/gi, ' ')}>
   <main class="detail-main">
     <div class="wrap">
       <a class="detail-back" href="/#projects">← 프로젝트 목록으로</a>
@@ -35,7 +35,7 @@ const STATUS_LABEL: Record<string, string> = {
           <div class="detail-kicker">CASE {String(d.order).padStart(2, '0')} · {d.domain}</div>
           {titleHtml ? <h1 class="detail-title" set:html={titleHtml} /> : <h1 class="detail-title">{d.title}</h1>}
           <span class={`status-pill status-${d.status} mono`} style="position:static;display:inline-block;margin-bottom:16px;">{STATUS_LABEL[d.status]}</span>
-          <p class="detail-summary">{d.summary}</p>
+          <p class="detail-summary" set:html={d.summary} />
           <p class="detail-metric mono">{d.keyMetric}</p>
 
           <dl class="detail-meta">

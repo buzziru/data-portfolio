@@ -2,7 +2,7 @@
 title: 식물 잎 병해 진단 — 이종 지식 증류
 status: completed
 order: 3
-summary: Kaggle FGVC7 Plant Pathology 대회에서 1위 솔루션을 분석해 이종 지식 증류(ConvNeXt→ResNeSt)를 직접 구현. ROC-AUC 0.977, Kaggle 18위 상당.
+summary: Kaggle FGVC7 Plant Pathology 대회에서 1위 솔루션을 분석해 이종 지식 증류(ConvNeXt→ResNeSt)를 직접 구현.<br>ROC-AUC 0.977, Kaggle 18위 상당.
 domain: Computer Vision / 딥러닝
 role: 개인 · 설계·구현 전담
 methods: [이종 지식 증류(KD), pHash 누출 진단, Top-k 앙상블, PyTorch Lightning]
@@ -29,11 +29,11 @@ Plant Pathology 2020 (Kaggle FGVC7) · 이미지 분류 · 4클래스 · 학습 
 <div class="detail-split">
 <div class="detail-split-body">
 
-1. **누출 진단**: pHash + CNN 유사도로 train-test 중복 이미지 식별 → 동일 인물 폴드 묶기
-2. **라벨 노이즈 교정**: 누출 이미지 기반 라벨 재검토
-3. **이종 지식 증류**: ConvNeXt(Teacher) → ResNeSt(Student), 온도 T=1.25
-4. **Top-k(3) 앙상블**: 최종 제출 앙상블
-5. **재사용 가능한 Lightning 구조 설계**: 학습 로직을 모듈 단위로 분리해 재사용성 확보
+1. **누출 진단**<br>pHash + CNN 유사도로 train-test 중복 이미지 식별 → 동일 인물 폴드 묶기
+2. **라벨 노이즈 교정**<br>누출 이미지 기반 라벨 재검토
+3. **이종 지식 증류**<br>ConvNeXt(Teacher) → ResNeSt(Student), 온도 T=1.25
+4. **Top-k(3) 앙상블**<br>최종 제출 앙상블
+5. **재사용 가능한 Lightning 구조 설계**<br>학습 로직을 모듈 단위로 분리해 재사용성 확보
 
 </div>
 

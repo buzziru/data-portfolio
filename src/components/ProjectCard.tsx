@@ -39,7 +39,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       <div className="proj-body">
         <h3 className="proj-title">{title}</h3>
         <p className="proj-metric mono">{keyMetric}</p>
-        <p className="proj-problem">{summary}</p>
+        <p className="proj-problem">{summary.replace(/<br\s*\/?>/gi, ' ')}</p>
         <div className="proj-footer">
           <div className="proj-links">
             <a className="proj-expand mono" href={`/projects/${slug}`}>Case Study 보기 <span className="arrow">→</span></a>
