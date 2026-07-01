@@ -64,6 +64,40 @@ Plant Pathology 2020 (Kaggle FGVC7) · 이미지 분류 · 4클래스 · 학습 
 
 1위 솔루션을 코드 없이 논문·설명만으로 분석해 직접 구현했습니다. ConvNeXt를 Teacher, ResNeSt를 Student로 설정한 이종 증류는 Teacher의 soft label을 Student가 학습하는 구조입니다. timm 라이브러리로 백본을 빠르게 교체 실험했습니다.
 
+<div class="detail-split">
+<div class="detail-split-body">
+
+**재사용 가능한 Lightning 구조.** 노트북에 뒤섞여 있던 학습 로직을 네 모듈로 분리했습니다 — 설정(`CFG`) · 데이터(`DataModule`) · 모델·학습(`LightningModule`) · 실행(`ExperimentRunner`). 설정 한 곳만 바꾸면 백본과 학습 전략을 교체할 수 있어, 다른 대회·데이터셋에도 구조를 그대로 재사용합니다.
+
+지식 증류 · fold별 가중치 조절 · Top-k 가중치 평균 · 온도 캘리브레이션 같은 특화 전략은 학습 루프 본체가 아니라 콜백과 별도 메서드로 분리했습니다. 핵심 로직을 건드리지 않고 전략을 껐다 켤 수 있습니다.
+
+</div>
+
+<figure class="detail-split-fig">
+<svg viewBox="0 0 200 100" role="img" aria-label="재사용 가능한 PyTorch Lightning 모듈 구조 — CFG 설정이 ExperimentRunner에 주입되고 Runner가 DataModule과 LightningModule을 오케스트레이션">
+<rect x="72" y="5" width="56" height="15" rx="3" fill="rgba(94,106,210,0.18)" stroke="#5e6ad2" stroke-width="0.8" />
+<text x="100" y="14.8" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#ba9cff">CFG · 설정</text>
+<line x1="100" y1="20" x2="100" y2="30" stroke="rgba(186,156,255,0.55)" stroke-width="1" marker-end="url(#plm)" />
+<rect x="8" y="31" width="184" height="63" rx="5" fill="rgba(255,255,255,0.03)" stroke="#34343a" stroke-width="0.8" />
+<text x="16" y="43" font-family="JetBrains Mono" font-size="6.5" fill="#8a8f98">ExperimentRunner — K-Fold 실행</text>
+<rect x="18" y="50" width="76" height="37" rx="3" fill="rgba(94,106,210,0.1)" stroke="#5e6ad2" stroke-width="0.7" />
+<text x="56" y="66" text-anchor="middle" font-family="JetBrains Mono" font-size="6.5" fill="#d0d6e0">DataModule</text>
+<text x="56" y="77" text-anchor="middle" font-family="JetBrains Mono" font-size="5.5" fill="#8a8f98">데이터 · 증강</text>
+<rect x="106" y="50" width="76" height="37" rx="3" fill="rgba(94,106,210,0.1)" stroke="#5e6ad2" stroke-width="0.7" />
+<text x="144" y="66" text-anchor="middle" font-family="JetBrains Mono" font-size="6.5" fill="#d0d6e0">LightningModule</text>
+<text x="144" y="77" text-anchor="middle" font-family="JetBrains Mono" font-size="5.5" fill="#8a8f98">모델 · 손실 · 최적화</text>
+<line x1="94" y1="68" x2="106" y2="68" stroke="rgba(186,156,255,0.55)" stroke-width="1" marker-end="url(#plm)" />
+<defs>
+<marker id="plm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+<path d="M0,0 L10,5 L0,10" fill="rgba(186,156,255,0.6)" />
+</marker>
+</defs>
+</svg>
+<figcaption>노트북 실험을 설정·데이터·모델·실행 네 모듈로 분리 — 설정만 바꿔 재사용</figcaption>
+</figure>
+
+</div>
+
 ## Results
 
 - ROC-AUC 0.977
