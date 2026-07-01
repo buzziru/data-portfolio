@@ -34,7 +34,7 @@ demoNote: 샘플 이미지를 누르면 얼굴별 나이·성별·감정 추론 
 
 ## Model / Analysis
 
-<figure class="fig-aside">
+<figure class="fig-wide">
 <svg viewBox="0 0 200 100" role="img" aria-label="연령대별 CS(5) 정확도 — 30대 이상 데이터 희소">
 <line x1="14" y1="8" x2="196" y2="8" stroke="rgba(255,255,255,0.06)" stroke-width="0.6" />
 <line x1="14" y1="44" x2="196" y2="44" stroke="rgba(255,255,255,0.06)" stroke-width="0.6" />
