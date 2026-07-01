@@ -2,12 +2,12 @@
 title: 이커머스 고객 세분화 — SQL·RFM 분석
 status: completed
 order: 5
-summary: AWS RDS 5테이블 관계형 DB를 직접 설계하고, SQL·RFM 분석으로 고객 1,468명을 11개 세그먼트로 구조화.
+summary: AWS RDS 6테이블 관계형 DB를 직접 설계하고, SQL·RFM 분석으로 고객 1,468명을 11개 세그먼트로 구조화.
 domain: 이커머스 / 고객 분석
 role: 팀 프로젝트 · DB 설계 · RFM 분석 담당
 methods: [관계형 DB 설계, SQL 분석, RFM 세분화, ARPU/ARPPU 지표 산출]
 tools: [SQL, AWS RDS, Python, pandas]
-keyMetric: AWS RDS 5테이블 직접 설계 · 1,468명 RFM 11개 그룹 세분화
+keyMetric: AWS RDS 6테이블 직접 설계 · 1,468명 RFM 11개 그룹 세분화
 thumb: recsys
 image: /projects/ecommerce-rfm-strategy.svg
 thumbImage: /projects/ecommerce-rfm-strategy-thumb.svg
@@ -23,21 +23,21 @@ github: https://github.com/buzziru/ML_COMMERCE
 <div class="detail-split">
 <div class="detail-split-body">
 
-Dacon 이커머스 데이터셋 · 고객 1,468명 · 주문/상품/카테고리/회원/결제 테이블. AWS RDS에 5개 테이블의 PK·FK 관계를 직접 설계해 적재했습니다.
+Dacon 이커머스 데이터셋 · 고객 1,468명 · customer·sales·discount·tax·product·marketing 6개 테이블. AWS RDS에 6개 테이블의 PK·FK 관계를 직접 설계해 적재했습니다.
 
 </div>
 
 <figure class="detail-split-fig">
-  <img src="/projects/ecommerce-db.svg" alt="AWS RDS 5테이블 관계형 DB 스키마 — customer·sales·discount·product·marketing·tax 테이블과 PK/FK 관계" />
-  <figcaption>AWS RDS 관계형 스키마 — 5개 테이블의 PK·FK 관계를 직접 설계</figcaption>
+  <img src="/projects/ecommerce-db.svg" alt="AWS RDS 6테이블 관계형 DB 스키마 — customer·sales·discount·tax·product·marketing 테이블과 PK/FK 관계" />
+  <figcaption>AWS RDS 관계형 스키마 — 6개 테이블의 PK·FK 관계를 직접 설계</figcaption>
 </figure>
 
 </div>
 
 ## Approach
 
-1. **AWS RDS 5테이블 관계형 DB 직접 설계**: 고객·주문·상품·카테고리·결제 테이블 관계 정의
-2. **SQL 조회 + ARPU/ARPPU 지표 산출**: 복잡 조인 및 윈도우 함수로 지표 계산
+1. **AWS RDS 6테이블 관계형 DB 직접 설계**: customer·sales·discount·tax·product·marketing 테이블 관계 정의
+2. **SQL 조회 + ARPU/ARPPU 지표 산출**: 복잡 조인·윈도우 함수로 사용자당·결제자당 평균 매출(ARPU/ARPPU) 계산
 3. **RFM 세분화**: Recency·Frequency·Monetary 점수로 1,468명을 11개 그룹(핵심 4 · 비핵심 7)으로 분류
 
 ## Model / Analysis
@@ -58,7 +58,7 @@ RFM(Recency·Frequency·Monetary) 점수 임계값(R/F/M ≷ 3)을 순차 적용
 
 ## Results
 
-- AWS RDS 5테이블 관계형 DB 설계 및 운영
+- AWS RDS 6테이블 관계형 DB 설계 및 운영
 - SQL 복합 조인·윈도우 함수로 ARPU/ARPPU 지표 산출
 - 1,468명을 11개 RFM 세그먼트(핵심 4 · 비핵심 7)로 분류
 - 핵심 4개 그룹별 차별화 마케팅 전략 제안

@@ -16,7 +16,7 @@ export default function ProjectsSection({ projects }: { projects: Project[] }) {
   const visible = projects.filter((p) => filter === 'all' || p.status === filter);
   const count =
     filter === 'all'
-      ? `${visible.length} entries · last sync 2024.11`
+      ? `${visible.length} entries · last sync 2026.07`
       : `${visible.length} entries · filter: ${filter}`;
 
   return (

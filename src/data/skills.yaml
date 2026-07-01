@@ -7,19 +7,19 @@
     - { name: "Python", level: "core", tip: "주 언어 · 분석/ML/DL 전 영역" }
     - { name: "SQL", level: "using", tip: "AWS RDS, MariaDB · 복잡 조회 및 DB 설계" }
     - { name: "Git / GitHub", level: "using", tip: "버전 관리 · 실험 이력 공개" }
-    - { name: "Hydra", level: "using", tip: "설정 선언 기반 실험 관리" }
-    - { name: "uv", level: "using", tip: "Python 패키지·환경 관리" }
+    - { name: "Hydra", level: "learning", tip: "설정 선언 기반 실험 관리" }
+    - { name: "uv", level: "learning", tip: "Python 패키지·환경 관리" }
 
 - id: "ml"
   order: 2
   title: "Machine Learning"
   tag: "/ applied"
   pills:
-    - { name: "LightGBM", level: "core", tip: "Kaggle 상위 4.9% · 탭형 데이터 메인 모델" }
+    - { name: "LightGBM", level: "core", tip: "Kaggle 상위 4.9% 상당 · 탭형 데이터 메인 모델" }
     - { name: "scikit-learn", level: "core", tip: "기본 파이프라인 · CV · 평가" }
-    - { name: "OOF 스태킹", level: "core", tip: "Out-of-Fold 메타러너 앙상블" }
-    - { name: "XGBoost", level: "using", tip: "분류/회귀 앙상블 실전 사용" }
-    - { name: "CatBoost", level: "using", tip: "범주형 처리 · 은행 이탈 예측" }
+    - { name: "XGBoost", level: "core", tip: "분류/회귀 앙상블 실전 사용" }
+    - { name: "CatBoost", level: "core", tip: "범주형 처리 · 은행 이탈 예측" }
+    - { name: "OOF 스태킹", level: "using", tip: "Out-of-Fold 메타러너 앙상블" }
     - { name: "RealMLP / TabM", level: "learning", tip: "신규 탭형 딥러닝 모델 탐색 중" }
 
 - id: "dl"
@@ -30,8 +30,8 @@
     - { name: "PyTorch", level: "core", tip: "CV 프로젝트 · 멀티태스크 학습" }
     - { name: "PyTorch Lightning", level: "core", tip: "재현 가능한 실험 구조 설계" }
     - { name: "지식 증류 (KD)", level: "core", tip: "이종 Teacher→Student · T=1.25 · ROC-AUC 0.977" }
-    - { name: "ResNeSt", level: "core", tip: "식물 병해 진단 · KD 스튜던트 모델" }
-    - { name: "ConvNeXt", level: "core", tip: "식물 병해 진단 · KD 티처 모델" }
+    - { name: "ResNeSt", level: "using", tip: "식물 병해 진단 · KD 스튜던트 모델" }
+    - { name: "ConvNeXt", level: "using", tip: "식물 병해 진단 · KD 티처 모델" }
     - { name: "RetinaFace", level: "using", tip: "얼굴 검출 · 멀티태스크 파이프라인" }
     - { name: "CNN", level: "using", tip: "얼굴 인식 · 이미지 분류" }
 
@@ -54,9 +54,10 @@
   pills:
     - { name: "W&B", level: "using", tip: "실험 트래킹 · 모델 비교" }
     - { name: "ONNX", level: "using", tip: "모델 경량화 · 추론 최적화" }
-    - { name: "AWS RDS", level: "using", tip: "관계형 DB 설계 · SQL 분석" }
+    - { name: "AWS RDS", level: "learning", tip: "관계형 DB 설계 · SQL 분석" }
     - { name: "Claude Code", level: "using", tip: "6 에이전트 아키텍처 설계·운영" }
     - { name: "Kaggle / Colab GPU", level: "using", tip: "헤드리스 비동기 GPU 오프로드" }
+    - { name: "Lightning Studio", level: "using", tip: "클라우드 GPU 개발 환경 · 학습 실행" }
 
 - id: "analysis-viz"
   order: 6
@@ -64,7 +65,5 @@
   tag: "/ outputs"
   pills:
     - { name: "Streamlit", level: "using", tip: "ML 데모 · 대시보드 배포" }
-    - { name: "Gradio", level: "using", tip: "빠른 모델 인터페이스 구축" }
-    - { name: "Tableau", level: "using", tip: "데이터 시각화 · 대시보드" }
-    - { name: "RFM 분석", level: "using", tip: "고객 세분화 · 이커머스 프로젝트" }
-    - { name: "코호트 분석", level: "using", tip: "이커머스 재방문·리텐션 분석" }
+    - { name: "folium", level: "using", tip: "지하철 이용량 지도 시각화 · subway 데모" }
+    - { name: "RFM 분석", level: "learning", tip: "고객 세분화 · 이커머스 프로젝트" }

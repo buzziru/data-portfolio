@@ -13,7 +13,7 @@ thumb: harness
 github: https://github.com/buzziru/agentic-kaggle-tabular-template
 ---
 
-> 이 프로젝트의 강조점은 Kaggle 성적이 아니라 **실험 설계와 재사용 구조**입니다. 대회마다 한 번 쓰고 버리던 코드를, 역할이 분리되고 클라우드 GPU 인프라를 활용하며 가드레일로 보호되는 **재사용 가능한 ML 하니스**로 일반화했습니다. 첫 실전(F1)에서 기록한 상위 4.9%는 그 구조가 작동한다는 증거일 뿐, 목적이 아닙니다.
+> 이 프로젝트의 강조점은 Kaggle 성적이 아니라 **실험 설계와 재사용 구조**입니다. 대회마다 한 번 쓰고 버리던 코드를, 역할이 분리되고 클라우드 GPU 인프라를 활용하며 가드레일로 보호되는 **재사용 가능한 ML 하니스**로 일반화했습니다. 첫 실전(F1)에서 낸 상위 4.9% 상당의 성적은 그 구조가 작동한다는 증거일 뿐, 목적이 아닙니다.
 
 ## 출발점 — 단일 에이전트 운영의 한계
 
@@ -23,7 +23,7 @@ github: https://github.com/buzziru/agentic-kaggle-tabular-template
 2. **코드 부채 → 재현성 붕괴** — ML 특성상 피처·모델을 끊임없이 고치게 되는데, 이때 코드 부채가 쌓이면 동결돼야 할 결과가 재현 불가능해지고 리팩토링까지 막힙니다.
 3. **토끼굴** — ROI가 낮은 작업에 과투자하는 패턴이 반복됩니다.
 
-이때 얻은 성적 자체도 한 모델을 쥐어짠 결과가 아니라 실험 설계의 산물이었습니다 — 저평가 모델 재발굴, 메타러너 탐색, 독립 검증 축(fold-split) 추가. **좋은 설계가 성적을 만든다면, 그 설계를 매번 재구축하지 않도록 구조로 굳히는 것**이 다음 과제였습니다.
+이때 얻은 성적 자체도 한 모델을 쥐어짠 결과가 아니라 실험 설계의 산물이었습니다 — 저평가 모델 재발굴, 메타러너(여러 모델의 예측을 종합하는 상위 모델) 탐색, 독립 검증 축(fold-split, 데이터를 여러 겹으로 나눠 교차 검증) 추가. **좋은 설계가 성적을 만든다면, 그 설계를 매번 재구축하지 않도록 구조로 굳히는 것**이 다음 과제였습니다.
 
 ## 4단계로 굳힌 재사용 하니스
 
@@ -56,9 +56,50 @@ github: https://github.com/buzziru/agentic-kaggle-tabular-template
 - **단일 책임(SRP)** — 피처 생성과 피처 선택을 별도 모듈로 분리합니다. 책임이 섞이지 않아 한쪽을 수정해도 다른 쪽이 깨지지 않고, 재사용·검증이 쉬워집니다.
 - **설정 기반 확장** — 모델·하이퍼파라미터·피처 조합 같은 실험 변형을 코드 수정이 아니라 설정 선언으로 다룹니다. 코드는 고정한 채 설정만 갈아 끼워 실험을 확장합니다.
 
-## 설계 ③ — 클라우드 GPU 인프라 활용 + 가드레일
+## 설계 ③ — 클라우드 컴퓨팅 인프라 활용 + 가드레일
 
-**헤드리스 비동기 위임** — GPU는 물론 무거운 CPU 작업까지 Kaggle 커널·Colab GPU로 오프로드합니다. 무거운 연산을 클라우드 컴퓨팅에 위임하니, 로컬 메인(Lightning Studio)은 분석·판단에만 집중하고 오버로드가 없습니다.
+<div class="detail-split">
+<div class="detail-split-body">
+
+**헤드리스 비동기 위임** — GPU 모델 훈련은 물론 무거운 CPU 작업까지 Kaggle 커널에 오프로드하고, 추가 GPU 잡은 Lightning 잡·Colab에 분산합니다. 무거운 연산을 클라우드에 위임하니, 로컬 메인(활성 Lightning Studio)은 분석·판단에만 집중하고 오버로드가 없습니다.
+
+</div>
+
+<figure class="detail-split-fig">
+<svg viewBox="0 0 200 120" role="img" aria-label="헤드리스 비동기 위임 — 로컬 메인의 push가 N개 GPU 잡을 클라우드 인프라로 병렬 발사하고, 완료되면 monitor가 알림을 받아 수집한다">
+<text x="48" y="8" text-anchor="middle" font-family="JetBrains Mono" font-size="4.5" fill="#7877c6">턴 종료 · 메인 대화 유지</text>
+<rect x="16" y="13" width="64" height="24" rx="4" fill="rgba(94,106,210,0.22)" stroke="#5e6ad2" stroke-width="1" />
+<text x="48" y="25" text-anchor="middle" font-family="JetBrains Mono" font-size="7.5" fill="#ba9cff">push</text>
+<text x="48" y="33" text-anchor="middle" font-family="JetBrains Mono" font-size="5" fill="#7877c6">백그라운드 발사</text>
+<rect x="120" y="13" width="64" height="24" rx="4" fill="rgba(255,255,255,0.03)" stroke="#34343a" stroke-width="0.9" />
+<text x="152" y="25" text-anchor="middle" font-family="JetBrains Mono" font-size="7.5" fill="#d0d6e0">monitor</text>
+<text x="152" y="33" text-anchor="middle" font-family="JetBrains Mono" font-size="5" fill="#8a8f98">완료 알림 수신</text>
+<rect x="8" y="62" width="184" height="50" rx="5" fill="rgba(255,255,255,0.02)" stroke="#34343a" stroke-width="0.8" stroke-dasharray="3 2" />
+<text x="100" y="71" text-anchor="middle" font-family="JetBrains Mono" font-size="4.8" fill="#8a8f98">클라우드 컴퓨팅 인프라 — 로컬 밖으로 분산</text>
+<rect x="14" y="77" width="56" height="29" rx="3.5" fill="rgba(94,106,210,0.08)" stroke="#5e6ad2" stroke-width="0.7" />
+<text x="42" y="90" text-anchor="middle" font-family="JetBrains Mono" font-size="6" fill="#d0d6e0">Kaggle 커널</text>
+<text x="42" y="99" text-anchor="middle" font-family="JetBrains Mono" font-size="4.6" fill="#8a8f98">GPU·CPU 오프로드</text>
+<rect x="72" y="77" width="56" height="29" rx="3.5" fill="rgba(94,106,210,0.08)" stroke="#5e6ad2" stroke-width="0.7" />
+<text x="100" y="90" text-anchor="middle" font-family="JetBrains Mono" font-size="6" fill="#d0d6e0">Lightning 잡</text>
+<text x="100" y="99" text-anchor="middle" font-family="JetBrains Mono" font-size="4.6" fill="#8a8f98">GPU 잡·기준 환경</text>
+<rect x="130" y="77" width="56" height="29" rx="3.5" fill="rgba(94,106,210,0.08)" stroke="#5e6ad2" stroke-width="0.7" />
+<text x="158" y="90" text-anchor="middle" font-family="JetBrains Mono" font-size="6" fill="#d0d6e0">Colab</text>
+<text x="158" y="99" text-anchor="middle" font-family="JetBrains Mono" font-size="4.6" fill="#8a8f98">보조 GPU·CLI</text>
+<path d="M40,37 L40,60.5" fill="none" stroke="#7877c6" stroke-width="0.9" stroke-dasharray="2.5 2" marker-end="url(#hd-arrow)" />
+<text x="37" y="46" text-anchor="end" font-family="JetBrains Mono" font-size="4.4" fill="#828fff">N개 GPU 잡</text>
+<text x="37" y="52" text-anchor="end" font-family="JetBrains Mono" font-size="4.4" fill="#828fff">병렬 발사</text>
+<path d="M160,60.5 L160,37.5" fill="none" stroke="#7877c6" stroke-width="0.9" stroke-dasharray="2.5 2" marker-end="url(#hd-arrow)" />
+<text x="163" y="50" font-family="JetBrains Mono" font-size="4.4" fill="#8a8f98">완료 시 알림</text>
+<defs>
+<marker id="hd-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+<path d="M0,0 L10,5 L0,10" fill="#7877c6" />
+</marker>
+</defs>
+</svg>
+<figcaption>로컬 메인의 push가 GPU 잡을 클라우드로 병렬 발사하고 턴을 종료 — 잡이 끝나면 monitor가 완료 알림을 받아 수집한다. 무거운 연산이 로컬 밖에서 도는 동안 메인은 분석·판단에 집중한다.</figcaption>
+</figure>
+
+</div>
 
 **반복 실수를 막는 3단계 가드(훅)** — 사람이 지키는 규칙이 아니라 훅으로 강제합니다.
 
@@ -70,10 +111,10 @@ github: https://github.com/buzziru/agentic-kaggle-tabular-template
 
 | 검증 | 과업 | 결과 |
 |---|---|---|
-| F1 (S6E5) | 이진분류 · ROC-AUC | **0.95460** · 상위 4.9% (148/3,023팀) |
+| F1 (S6E5) | 이진분류 · ROC-AUC | **0.95460** · 상위 4.9% 상당 (148/3,023팀) |
 | Stellar (S6E6) | 3클래스 다중분류 · balanced acc. | **≈ 0.9709** |
 
-F1은 합성 데이터(train 439K / test 188K)에서 노이즈 σ ≈ 0.0007 수준의 Private 점수를 냈습니다. 더 중요한 것은 **다른 문제(Stellar)에 재적용했을 때도 구조가 그대로 작동했다는 점**입니다. 재적용 과정에서는 ML 특성상 모델·피처 코드를 거듭 수정하며 코드량이 계속 불어났는데, 이를 기능별 패키지로 분리·정리하면서 구조를 한층 일반화했습니다. 재적용 자체가 곧 하니스의 검증이 된 셈입니다.
+F1은 합성 데이터(train 439K / test 188K)에서 노이즈 σ ≈ 0.0007 수준(순위가 뒤집힐 만한 편차가 거의 없는 안정적 점수)의 Private 점수를 냈습니다. 더 중요한 것은 **다른 문제(Stellar)에 재적용했을 때도 구조가 그대로 작동했다는 점**입니다. 재적용 과정에서는 ML 특성상 모델·피처 코드를 거듭 수정하며 코드량이 계속 불어났는데, 이를 기능별 패키지로 분리·정리하면서 구조를 한층 일반화했습니다. 재적용 자체가 곧 하니스의 검증이 된 셈입니다.
 
 ## 배운 점
 

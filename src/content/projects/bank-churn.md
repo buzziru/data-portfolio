@@ -4,7 +4,7 @@ status: completed
 order: 4
 summary: 대회 지표(AUROC) 대신 유치비용 > 방지비용 구조에 맞춰 Recall 중심으로 문제를 재정의. CatBoost로 이탈 고객 78% 포착.
 domain: 금융 / 고객 분석
-role: 팀 리드 · 문제 정의·모델 선택 주도
+role: 팀장 · 문제 정의·모델 선택 주도
 methods: [Logistic Regression, XGBoost, CatBoost, class_weight 불균형 처리]
 tools: [Python, scikit-learn, XGBoost, CatBoost, Streamlit]
 keyMetric: Recall 0.78 (이탈 고객 78% 포착)
@@ -20,7 +20,7 @@ demo: https://ingyoun-bank-churn.static.hf.space/
 
 ## Data
 
-Kaggle Bank Churn 데이터셋 · 테스트 165,034행 · 이탈율 약 20% (클래스 불균형).
+Kaggle Bank Churn 데이터셋 · 테스트 165,034행 · 이탈률 약 20% (클래스 불균형).
 
 ## Approach
 

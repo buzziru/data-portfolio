@@ -8,7 +8,7 @@
       <div>
         <span class="sec-kicker">Core strengths</span>
         <h2 class="sec-title">프로젝트가 증명하는 네 가지 역량.</h2>
-        <p class="sec-desc">각 역량은 구체적인 프로젝트 결과로 뒷받침됩니다. 소개(01)와 겹치지 않도록, 실제 작업에서 반복적으로 드러난 기술적 능력에 집중했습니다.</p>
+        <p class="sec-desc sec-desc--wide">각 역량은 구체적인 프로젝트 결과로 뒷받침됩니다.<br />소개(01)와 겹치지 않도록, 실제 작업에서 반복적으로 드러난 기술적 능력에 집중했습니다.</p>
       </div>
     </div>
 
@@ -23,7 +23,12 @@
           </svg>
         </div>
         <h3 class="strength-title">데이터 진단</h3>
-        <p class="strength-body">모델 전에 데이터 문제를 먼저 찾습니다. pHash·CNN 임베딩으로 train/test 유출을 직접 진단해 폴드를 재구성했고, 연령 분포 편중이 MAE 집계를 왜곡한다는 것을 지표 분리로 드러냈습니다.</p>
+        <p class="strength-lead">모델 성능을 끌어올리기 전에, 데이터를 믿을 수 있는지부터 확인합니다.</p>
+        <ul class="strength-ev">
+          <li><b>식물 병해 진단</b> — 검증·리더보드 점수 갭에서 학습·평가 이미지 중복(데이터 누출)을 이미지 유사도(pHash·CNN)로 진단해 데이터 분할을 바로잡음</li>
+          <li><b>얼굴 나이 추정</b> — 저연령(0~19세) 75% 편중이 전체 평균오차(MAE)를 왜곡함을 연령대별 지표로 규명</li>
+        </ul>
+        <div class="strength-metrics"><span>검증 0.980 → LB 0.960</span><span>저연령 75% 편중</span></div>
         <div class="strength-keys"><span>data-leakage</span><span>label-noise</span><span>distribution-analysis</span></div>
       </article>
 
@@ -37,9 +42,14 @@
             <path d="M12 6v5M12 11l-5.5 7M12 11l5.5 7"></path>
           </svg>
         </div>
-        <h3 class="strength-title">앙상블 · 증류 모델링</h3>
-        <p class="strength-body">단일 모델 튜닝이 아닌 조합 전략으로 정량 성과를 냅니다. OOF 스태킹으로 Kaggle 상위 4.9%, 이종 지식 증류(ConvNeXt→ResNeSt, T=1.25)로 ROC-AUC 0.977을 달성했습니다.</p>
-        <div class="strength-keys"><span>oof-stacking</span><span>knowledge-distillation</span><span>transfer-learning</span></div>
+        <h3 class="strength-title">방법론 설계 · 성능 개선</h3>
+        <p class="strength-lead">문제에 맞는 방법론을 직접 조사·설계해 목표 성능까지 끌어올립니다.</p>
+        <ul class="strength-ev">
+          <li><b>식물 병해 진단</b> — 대회 1위 솔루션을 분석해 이종 지식 증류(큰 모델의 판단을 가벼운 모델에 이식, ConvNeXt→ResNeSt)를 PyTorch Lightning으로 직접 구현</li>
+          <li><b>Kaggle 이진분류</b> — 디스커션·레퍼런스를 조사해 여러 모델의 예측을 결합하는 앙상블(OOF 스태킹) 적용 방안을 설계</li>
+        </ul>
+        <div class="strength-metrics"><span>ROC-AUC 0.977</span><span>Kaggle 18위 상당</span><span>상위 4.9% 상당</span></div>
+        <div class="strength-keys"><span>sota-adaptation</span><span>knowledge-distillation</span><span>oof-stacking</span><span>pytorch-lightning</span></div>
       </article>
 
       <article class="strength-card reveal">
@@ -51,9 +61,14 @@
             <path d="M4 12v5c0 1.657 3.582 3 8 3s8-1.343 8-3v-5"></path>
           </svg>
         </div>
-        <h3 class="strength-title">SQL · 데이터 엔지니어링</h3>
-        <p class="strength-body">모델 전 단계를 직접 처리합니다. AWS RDS 5테이블 관계형 DB를 직접 설계해 SQL로 조회했고, 공공데이터 4개 영역을 수집·통합해 350만 행·50개 변수 데이터셋을 구축했습니다.</p>
-        <div class="strength-keys"><span>db-design</span><span>sql</span><span>data-pipeline</span></div>
+        <h3 class="strength-title">데이터 엔지니어링</h3>
+        <p class="strength-lead">분석에 쓸 데이터를, 흩어진 상태에서 직접 모으고 구조를 설계합니다.</p>
+        <ul class="strength-ev">
+          <li><b>이커머스 분석</b> — 판매·상품·마케팅 데이터의 관계형 DB(AWS RDS 6테이블)를 직접 설계하고 조회해 고객을 세분화</li>
+          <li><b>지하철 이용량 예측</b> — 지하철·기후·부동산·버스 4개 영역 공공데이터를 약 8주간 직접 수집·통합</li>
+        </ul>
+        <div class="strength-metrics"><span>AWS RDS 6테이블</span><span>1,468명 세분화</span><span>356만 행 × 50변수</span></div>
+        <div class="strength-keys"><span>db-design</span><span>data-pipeline</span></div>
       </article>
 
       <article class="strength-card reveal">
@@ -67,7 +82,12 @@
           </svg>
         </div>
         <h3 class="strength-title">팀 리드 · 커뮤니케이션</h3>
-        <p class="strength-body">세 번의 팀리드에서 방향 설정·역할 분리·발표를 주도했습니다. 분석 결과를 Streamlit 대시보드와 발표 자료로 구성해 동료와 의사결정자가 읽을 수 있는 형태로 전달합니다.</p>
+        <p class="strength-lead">분석 결과를, 동료와 결정권자가 바로 읽을 수 있는 형태로 전달합니다.</p>
+        <ul class="strength-ev">
+          <li><b>팀&nbsp;프로젝트</b> — 지하철·은행 이탈·얼굴 인식에서 팀장으로 주제 선정·역할 분리·발표를&nbsp;주도</li>
+          <li><b>결과 전달</b> — Streamlit 대시보드·발표 자료로 정리해 비전문가도 결론과 근거를 확인하게 전달</li>
+        </ul>
+        <div class="strength-metrics"><span>팀장 3회</span><span>Streamlit 대시보드</span></div>
         <div class="strength-keys"><span>team-lead</span><span>presentation</span><span>dashboard</span></div>
       </article>
     </div>
