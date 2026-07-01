@@ -689,7 +689,8 @@ footer.site{
 .detail-body .detail-split-body > :first-child{margin-top:0;}
 .detail-body .detail-split-body > :last-child{margin-bottom:0;}
 .detail-body .detail-split-fig{margin:0;padding:24px 28px 18px;border:1px solid var(--border);border-radius:16px;background:var(--bg-surface);}
-.detail-body .detail-split-fig svg{display:block;width:100%;height:auto;margin:0;border:0;border-radius:0;background:none;}
+.detail-body .detail-split-fig svg,
+.detail-body .detail-split-fig img{display:block;width:100%;height:auto;margin:0;border:0;border-radius:8px;background:none;}
 .detail-body .detail-split-fig figcaption{margin-top:14px;font-size:13px;color:var(--fg-muted);line-height:1.6;letter-spacing:0;}
 @media(max-width:900px){.detail-body .detail-split{grid-template-columns:1fr;gap:22px;width:100%;}}
 

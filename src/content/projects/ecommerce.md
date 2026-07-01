@@ -20,12 +20,19 @@ github: https://github.com/buzziru/ML_COMMERCE
 
 ## Data
 
-Dacon 이커머스 데이터셋 · 고객 1,468명 · 주문/상품/카테고리/회원/결제 테이블.
+<div class="detail-split">
+<div class="detail-split-body">
 
-<figure class="detail-fig">
+Dacon 이커머스 데이터셋 · 고객 1,468명 · 주문/상품/카테고리/회원/결제 테이블. AWS RDS에 5개 테이블의 PK·FK 관계를 직접 설계해 적재했습니다.
+
+</div>
+
+<figure class="detail-split-fig">
   <img src="/projects/ecommerce-db.svg" alt="AWS RDS 5테이블 관계형 DB 스키마 — customer·sales·discount·product·marketing·tax 테이블과 PK/FK 관계" />
   <figcaption>AWS RDS 관계형 스키마 — 5개 테이블의 PK·FK 관계를 직접 설계</figcaption>
 </figure>
+
+</div>
 
 ## Approach
 
@@ -35,12 +42,19 @@ Dacon 이커머스 데이터셋 · 고객 1,468명 · 주문/상품/카테고리
 
 ## Model / Analysis
 
+<div class="detail-split">
+<div class="detail-split-body">
+
 RFM(Recency·Frequency·Monetary) 점수 임계값(R/F/M ≷ 3)을 순차 적용해 고객 1,468명을 11개 세그먼트로 분류했습니다. 핵심 4개 그룹(Loyal Champion · Potential Loyalist · Promising Newcomer · Bargain Lover)을 먼저 식별하고, 각 그룹의 R·F·M 프로파일에 맞춘 차별화 마케팅 전략을 제안했습니다.
 
-<figure class="detail-fig">
+</div>
+
+<figure class="detail-split-fig">
   <img src="/projects/ecommerce-rfm-matrix.svg" alt="RFM 핵심 4개 세그먼트의 Recency·Frequency·Monetary 매트릭스" />
   <figcaption>핵심 4개 세그먼트의 R·F·M 프로파일</figcaption>
 </figure>
+
+</div>
 
 ## Results
 
