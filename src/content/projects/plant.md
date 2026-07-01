@@ -29,7 +29,7 @@ Plant Pathology 2020 (Kaggle FGVC7) · 이미지 분류 · 4클래스 · 학습 
 <div class="detail-split">
 <div class="detail-split-body">
 
-1. **누출 진단**<br>pHash + CNN 유사도로 train-test 중복 이미지 식별 → 동일 인물 폴드 묶기
+1. **누출 진단**<br>pHash + CNN 유사도로 train-test 중복 이미지 식별 → 동일 폴드 묶기
 2. **라벨 노이즈 교정**<br>누출 이미지 기반 라벨 재검토
 3. **이종 지식 증류**<br>ConvNeXt(Teacher) → ResNeSt(Student), 온도 T=1.25
 4. **Top-k(3) 앙상블**<br>최종 제출 앙상블
