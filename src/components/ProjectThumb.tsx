@@ -132,6 +132,89 @@ export default function ProjectThumb({ thumb }: Props) {
         </svg>
       );
 
+    case 'patent':
+      return (
+        <svg viewBox="0 0 200 100">
+          {/* 특허문헌 → 장문 인코더 → 17대분류/188중분류 계층 */}
+          <rect x="10" y="30" width="30" height="40" rx="2.5" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.18)" strokeWidth="0.8" />
+          <line x1="15" y1="39" x2="35" y2="39" stroke="rgba(255,255,255,0.22)" strokeWidth="0.8" />
+          <line x1="15" y1="45" x2="35" y2="45" stroke="rgba(255,255,255,0.15)" strokeWidth="0.8" />
+          <line x1="15" y1="51" x2="35" y2="51" stroke="rgba(255,255,255,0.15)" strokeWidth="0.8" />
+          <line x1="15" y1="57" x2="30" y2="57" stroke="rgba(255,255,255,0.15)" strokeWidth="0.8" />
+          <text x="25" y="80" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="4.5" fill="#62666d">특허문헌</text>
+          <rect x="60" y="36" width="46" height="28" rx="4" fill="rgba(94,106,210,0.2)" stroke="#5e6ad2" strokeWidth="1" />
+          <text x="83" y="48" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="6" fill="#ba9cff">ModernBERT</text>
+          <text x="83" y="58" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="5.5" fill="#7877c6">8,192 tok</text>
+          <line x1="40" y1="50" x2="59" y2="50" stroke="rgba(94,106,210,0.5)" strokeWidth="1" markerEnd="url(#p-arr)" />
+          <line x1="106" y1="50" x2="122" y2="50" stroke="rgba(94,106,210,0.5)" strokeWidth="1" markerEnd="url(#p-arr)" />
+          <rect x="124" y="28" width="42" height="14" rx="2" fill="rgba(94,106,210,0.16)" stroke="#5e6ad2" strokeWidth="0.7" />
+          <text x="145" y="37.5" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="6" fill="#b4bcd0">17 대분류</text>
+          <line x1="145" y1="42" x2="132" y2="52" stroke="rgba(255,255,255,0.15)" strokeWidth="0.7" />
+          <line x1="145" y1="42" x2="145" y2="52" stroke="rgba(255,255,255,0.15)" strokeWidth="0.7" />
+          <line x1="145" y1="42" x2="158" y2="52" stroke="rgba(255,255,255,0.15)" strokeWidth="0.7" />
+          <rect x="124" y="53" width="42" height="13" rx="2" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" strokeWidth="0.7" />
+          <text x="145" y="62" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="6" fill="#8a8f98">188 중분류</text>
+          <text x="100" y="92" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="4.5" fill="#62666d">단일 레이블 · 계층 일관성 자동 보장</text>
+          <defs>
+            <marker id="p-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+              <path d="M0,0 L10,5 L0,10" fill="rgba(94,106,210,0.6)" />
+            </marker>
+          </defs>
+        </svg>
+      );
+
+    case 'sft':
+      return (
+        <svg viewBox="0 0 200 100">
+          {/* frozen 4-bit base + LoRA 어댑터 → 페르소나/유보 출력 */}
+          <rect x="14" y="26" width="60" height="48" rx="5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.18)" strokeWidth="0.9" />
+          <text x="44" y="43" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="6.5" fill="#8a8f98">instruct 14B</text>
+          <text x="44" y="53" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="5" fill="#62666d">frozen · 4-bit</text>
+          <rect x="26" y="58" width="36" height="12" rx="2" fill="rgba(94,106,210,0.22)" stroke="#5e6ad2" strokeWidth="0.9" />
+          <text x="44" y="66.5" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="6" fill="#ba9cff">QLoRA</text>
+          <line x1="74" y1="40" x2="118" y2="34" stroke="rgba(94,106,210,0.45)" strokeWidth="1" markerEnd="url(#s-arr)" />
+          <line x1="74" y1="60" x2="118" y2="66" stroke="rgba(94,106,210,0.45)" strokeWidth="1" markerEnd="url(#s-arr)" />
+          <rect x="120" y="26" width="70" height="16" rx="3" fill="rgba(94,106,210,0.1)" stroke="rgba(94,106,210,0.35)" strokeWidth="0.7" />
+          <text x="155" y="36.5" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="6" fill="#7877c6">페르소나 응대</text>
+          <rect x="120" y="58" width="70" height="16" rx="3" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" strokeWidth="0.7" />
+          <text x="155" y="68.5" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="6" fill="#8a8f98">근거부재 → 유보</text>
+          <text x="100" y="92" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="4.5" fill="#62666d">페르소나 준수율 · 범위밖 유보율</text>
+          <defs>
+            <marker id="s-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+              <path d="M0,0 L10,5 L0,10" fill="rgba(94,106,210,0.6)" />
+            </marker>
+          </defs>
+        </svg>
+      );
+
+    case 'rag':
+      return (
+        <svg viewBox="0 0 200 100">
+          {/* 회의록 청크 → 검색 → FT 생성기 → 근거 정박 답변 */}
+          <rect x="10" y="30" width="30" height="12" rx="2" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" strokeWidth="0.7" />
+          <rect x="10" y="45" width="30" height="12" rx="2" fill="rgba(94,106,210,0.18)" stroke="#5e6ad2" strokeWidth="0.8" />
+          <rect x="10" y="60" width="30" height="12" rx="2" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" strokeWidth="0.7" />
+          <text x="25" y="26" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="4.5" fill="#62666d">회의록 청크</text>
+          <line x1="40" y1="51" x2="56" y2="51" stroke="rgba(94,106,210,0.5)" strokeWidth="1" markerEnd="url(#r-arr)" />
+          <rect x="57" y="40" width="34" height="22" rx="4" fill="rgba(94,106,210,0.12)" stroke="#5e6ad2" strokeWidth="0.9" />
+          <text x="74" y="49" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="5.5" fill="#ba9cff">retrieve</text>
+          <text x="74" y="57" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="5" fill="#7877c6">recall@k</text>
+          <line x1="91" y1="51" x2="107" y2="51" stroke="rgba(94,106,210,0.5)" strokeWidth="1" markerEnd="url(#r-arr)" />
+          <rect x="108" y="38" width="40" height="26" rx="4" fill="rgba(94,106,210,0.2)" stroke="#5e6ad2" strokeWidth="1" />
+          <text x="128" y="49" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="5.5" fill="#ba9cff">FT 생성기</text>
+          <text x="128" y="58" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="5" fill="#7877c6">P2 재활용</text>
+          <line x1="148" y1="51" x2="164" y2="51" stroke="rgba(94,106,210,0.5)" strokeWidth="1" markerEnd="url(#r-arr)" />
+          <rect x="165" y="40" width="26" height="22" rx="3" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" strokeWidth="0.7" />
+          <text x="178" y="53" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="5" fill="#8a8f98">근거답변</text>
+          <text x="100" y="92" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="4.5" fill="#62666d">RAG · FT · hybrid — faithfulness 비교</text>
+          <defs>
+            <marker id="r-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+              <path d="M0,0 L10,5 L0,10" fill="rgba(94,106,210,0.6)" />
+            </marker>
+          </defs>
+        </svg>
+      );
+
     default:
       return (
         <svg viewBox="0 0 200 100">
