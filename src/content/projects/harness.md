@@ -1,7 +1,7 @@
 ---
 title: ML 하니스 — Agentic ML 파이프라인
 status: completed
-order: 1
+order: 2
 summary: 단발성 Kaggle 코드를 에이전트 역할 분리, 클라우드 GPU 인프라 활용, 가드레일을 갖춘 재사용 가능한 ML 하니스로 일반화한 프로젝트.
 domain: Kaggle / ML 엔지니어링
 role: 개인 · 설계·운영 전담

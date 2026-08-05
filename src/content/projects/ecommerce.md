@@ -1,7 +1,7 @@
 ---
 title: 이커머스 고객 세분화 — SQL·RFM 분석
 status: completed
-order: 5
+order: 6
 summary: AWS RDS 6테이블 관계형 DB를 직접 설계하고, SQL·RFM 분석으로 고객 1,468명을 11개 세그먼트로 구조화.
 domain: 이커머스 / 고객 분석
 role: 팀 프로젝트 · DB 설계 · RFM 분석 담당

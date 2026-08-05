@@ -144,17 +144,17 @@ export default function ProjectThumb({ thumb }: Props) {
           <text x="25" y="80" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="4.5" fill="#62666d">특허문헌</text>
           <rect x="60" y="36" width="46" height="28" rx="4" fill="rgba(94,106,210,0.2)" stroke="#5e6ad2" strokeWidth="1" />
           <text x="83" y="48" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="6" fill="#ba9cff">ModernBERT</text>
-          <text x="83" y="58" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="5.5" fill="#7877c6">8,192 tok</text>
+          <text x="83" y="58" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="5.5" fill="#7877c6">4,096 tok</text>
           <line x1="40" y1="50" x2="59" y2="50" stroke="rgba(94,106,210,0.5)" strokeWidth="1" markerEnd="url(#p-arr)" />
           <line x1="106" y1="50" x2="122" y2="50" stroke="rgba(94,106,210,0.5)" strokeWidth="1" markerEnd="url(#p-arr)" />
           <rect x="124" y="28" width="42" height="14" rx="2" fill="rgba(94,106,210,0.16)" stroke="#5e6ad2" strokeWidth="0.7" />
-          <text x="145" y="37.5" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="6" fill="#b4bcd0">17 대분류</text>
-          <line x1="145" y1="42" x2="132" y2="52" stroke="rgba(255,255,255,0.15)" strokeWidth="0.7" />
+          <text x="145" y="37.5" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="6" fill="#b4bcd0">188 중분류</text>
+          <line x1="132" y1="42" x2="145" y2="52" stroke="rgba(255,255,255,0.15)" strokeWidth="0.7" />
           <line x1="145" y1="42" x2="145" y2="52" stroke="rgba(255,255,255,0.15)" strokeWidth="0.7" />
-          <line x1="145" y1="42" x2="158" y2="52" stroke="rgba(255,255,255,0.15)" strokeWidth="0.7" />
+          <line x1="158" y1="42" x2="145" y2="52" stroke="rgba(255,255,255,0.15)" strokeWidth="0.7" />
           <rect x="124" y="53" width="42" height="13" rx="2" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" strokeWidth="0.7" />
-          <text x="145" y="62" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="6" fill="#8a8f98">188 중분류</text>
-          <text x="100" y="92" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="4.5" fill="#62666d">단일 레이블 · 계층 일관성 자동 보장</text>
+          <text x="145" y="62" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="6" fill="#8a8f98">17 대분류</text>
+          <text x="100" y="92" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="4.5" fill="#62666d">다중 레이블 · 중분류 예측 → 대분류 유도</text>
           <defs>
             <marker id="p-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto">
               <path d="M0,0 L10,5 L0,10" fill="rgba(94,106,210,0.6)" />

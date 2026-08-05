@@ -1,7 +1,7 @@
 ---
 title: 식물 잎 병해 진단 — 이종 지식 증류
 status: completed
-order: 3
+order: 4
 summary: Kaggle FGVC7 Plant Pathology 대회에서 1위 솔루션을 분석해 이종 지식 증류(ConvNeXt→ResNeSt)를 직접 구현.<br>ROC-AUC 0.977, Kaggle 18위 상당.
 domain: Computer Vision / 딥러닝
 role: 개인 · 설계·구현 전담

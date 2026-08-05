@@ -1,7 +1,7 @@
 ---
 title: 은행 고객 이탈 예측 — 비용 기반 지표 재정의
 status: completed
-order: 4
+order: 5
 summary: 대회 지표(AUROC) 대신 유치비용 > 방지비용 구조에 맞춰 Recall 중심으로 문제를 재정의. CatBoost로 이탈 고객 78% 포착.
 domain: 금융 / 고객 분석
 role: 팀장 · 문제 정의·모델 선택 주도

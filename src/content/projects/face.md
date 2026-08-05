@@ -1,7 +1,7 @@
 ---
 title: 얼굴 나이·성별·감정 멀티태스크 추정
 status: completed
-order: 2
+order: 3
 summary: RetinaFace 얼굴 검출 후 나이(회귀)·성별·감정(분류) 세 속성을 동시 추정하는 멀티태스크 딥러닝 파이프라인.
 domain: Computer Vision / 딥러닝
 role: 팀 3인 · 팀장 · 나이 회귀·멀티태스크 결합·Streamlit 담당
