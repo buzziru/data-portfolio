@@ -8,7 +8,7 @@
       <div>
         <span class="sec-kicker">Core strengths</span>
         <h2 class="sec-title">프로젝트가 증명하는 네 가지 역량.</h2>
-        <p class="sec-desc sec-desc--wide">각 역량은 구체적인 프로젝트 결과로 뒷받침됩니다.<br />소개(01)와 겹치지 않도록, 실제 작업에서 반복적으로 드러난 기술적 능력에 집중했습니다.</p>
+        <p class="sec-desc sec-desc--wide">각 역량은 구체적인 프로젝트 결과로 뒷받침됩니다.<br />소개(01)가 그렇게 판단한 이유라면, 여기는 그 판단이 남긴 실측치입니다.</p>
       </div>
     </div>
 
@@ -25,11 +25,12 @@
         <h3 class="strength-title">데이터 진단</h3>
         <p class="strength-lead">모델 성능을 끌어올리기 전에, 데이터를 믿을 수 있는지부터 확인합니다.</p>
         <ul class="strength-ev">
+          <li><b>특허 분류</b> — 배포처가 제공한 분할에서 학습·검증에 겹치는 문서 7,822건을 실측하고, 동일성 기준을 문서 ID에서 실질 입력 문자열로 바꿔 라벨 충돌 89건까지 걷어냄</li>
           <li><b>식물 병해 진단</b> — 검증·리더보드 점수 갭에서 학습·평가 이미지 중복(데이터 누출)을 이미지 유사도(pHash·CNN)로 진단해 데이터 분할을 바로잡음</li>
           <li><b>얼굴 나이 추정</b> — 저연령(0~19세) 75% 편중이 전체 평균오차(MAE)를 왜곡함을 연령대별 지표로 규명</li>
         </ul>
-        <div class="strength-metrics"><span>검증 0.980 → LB 0.960</span><span>저연령 75% 편중</span></div>
-        <div class="strength-keys"><span>data-leakage</span><span>label-noise</span><span>distribution-analysis</span></div>
+        <div class="strength-metrics"><span>누수 7,822건 실측</span><span>검증 0.980 → LB 0.960</span><span>저연령 75% 편중</span></div>
+        <div class="strength-keys"><span>data-leakage</span><span>label-noise</span><span>metric-redefinition</span><span>distribution-analysis</span></div>
       </article>
 
       <article class="strength-card reveal">
@@ -45,11 +46,12 @@
         <h3 class="strength-title">방법론 설계 · 성능 개선</h3>
         <p class="strength-lead">문제에 맞는 방법론을 직접 조사·설계해 목표 성능까지 끌어올립니다.</p>
         <ul class="strength-ev">
+          <li><b>특허 분류</b> — 512 토큰 창에서 잘려 나가던 청구항 본문을 장문 인코더(4,096 토큰)로 회수해 절단 손실을 42%에서 1.6%로 줄이고, 개선폭을 신뢰구간과 함께 입증</li>
           <li><b>식물 병해 진단</b> — 대회 1위 솔루션을 분석해 이종 지식 증류(큰 모델의 판단을 가벼운 모델에 이식, ConvNeXt→ResNeSt)를 PyTorch Lightning으로 직접 구현</li>
           <li><b>Kaggle 이진분류</b> — 디스커션·레퍼런스를 조사해 여러 모델의 예측을 결합하는 앙상블(OOF 스태킹) 적용 방안을 설계</li>
         </ul>
-        <div class="strength-metrics"><span>ROC-AUC 0.977</span><span>Kaggle 18위 상당</span><span>상위 4.9% 상당</span></div>
-        <div class="strength-keys"><span>sota-adaptation</span><span>knowledge-distillation</span><span>oof-stacking</span><span>pytorch-lightning</span></div>
+        <div class="strength-metrics"><span>micro-F1 0.8660 (+1.60pt)</span><span>ROC-AUC 0.977</span><span>Kaggle 18위 상당</span></div>
+        <div class="strength-keys"><span>long-document-encoder</span><span>knowledge-distillation</span><span>oof-stacking</span><span>paired-bootstrap</span></div>
       </article>
 
       <article class="strength-card reveal">
