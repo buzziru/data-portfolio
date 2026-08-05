@@ -41,11 +41,12 @@
   tag: "/ language models"
   pills:
     - { name: "LLM 파인튜닝", level: "core", tip: "인스트럭션 튜닝 · 특허 도메인 언어모델 학습 (마크클라우드)" }
-    - { name: "RAG", level: "core", tip: "법령·심결례 참조 검색 증강 생성 프로토타입 구축" }
+    - { name: "다중 레이블 분류", level: "core", tip: "특허 188 중분류 · sigmoid + Focal Loss · micro-F1 0.8660" }
+    - { name: "장문 인코더", level: "using", tip: "ModernBERT 4,096 토큰 창 · 절단 손실 42% → 1.6%" }
     - { name: "HuggingFace", level: "using", tip: "모델 허브 · 학습 데이터셋 가공 파이프라인" }
     - { name: "Ollama", level: "using", tip: "로컬 LLM 추론 · 비정형 문서 정제 파이프라인" }
     - { name: "OpenAI API", level: "using", tip: "정규식 + 로컬 LLM + OpenAI 조합 정제 파이프라인" }
-    - { name: "프롬프트 엔지니어링", level: "learning", tip: "RAG 응답 품질 개선 · 분류 프롬프트 설계" }
+    - { name: "프롬프트 엔지니어링", level: "learning", tip: "비정형 문서 정제 · 분류 프롬프트 설계" }
 
 - id: "mlops"
   order: 5
@@ -56,6 +57,8 @@
     - { name: "ONNX", level: "using", tip: "모델 경량화 · 추론 최적화" }
     - { name: "AWS RDS", level: "learning", tip: "관계형 DB 설계 · SQL 분석" }
     - { name: "Claude Code", level: "using", tip: "6 에이전트 아키텍처 설계·운영" }
+    - { name: "RunPod", level: "using", tip: "특허 인코더 학습 · 커스텀 Docker 이미지 팟 템플릿" }
+    - { name: "Docker", level: "using", tip: "flash-attention 2 포함 학습 이미지 직접 빌드" }
     - { name: "Kaggle / Colab GPU", level: "using", tip: "헤드리스 비동기 GPU 오프로드" }
     - { name: "Lightning Studio", level: "using", tip: "클라우드 GPU 개발 환경 · 학습 실행" }
 
