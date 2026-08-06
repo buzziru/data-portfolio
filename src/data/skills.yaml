@@ -59,8 +59,8 @@
     - { name: "Claude Code", level: "using", tip: "6 에이전트 아키텍처 설계·운영" }
     - { name: "RunPod", level: "using", tip: "특허 인코더 학습 · 커스텀 Docker 이미지 팟 템플릿" }
     - { name: "Docker", level: "using", tip: "flash-attention 2 포함 학습 이미지 직접 빌드" }
-    - { name: "Kaggle / Colab GPU", level: "using", tip: "헤드리스 비동기 GPU 오프로드" }
-    - { name: "Lightning Studio", level: "using", tip: "클라우드 GPU 개발 환경 · 학습 실행" }
+    - { name: "Kaggle / Colab GPU", level: "using", tip: "로컬 PC 기준 · 헤드리스 비동기 GPU 오프로드" }
+    - { name: "Lightning Job", level: "using", tip: "Python SDK 이미지 잡 제출 · 머신 티어 선택" }
 
 - id: "analysis-viz"
   order: 6
