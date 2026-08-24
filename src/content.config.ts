@@ -28,7 +28,10 @@ const projects = defineCollection({
     listMetric: z.string().optional(), // 표 한 줄용 축약 지표 (없으면 keyMetric)
     thumb: z.string(), // ProjectThumb SVG key (churn|cnn|forecast|nlp|recsys|…)
     image: z.string().optional(), // 상세 헤더용 실제 스크린샷 (있으면 thumb SVG 대신 사용)
-    thumbImage: z.string().optional(), // 카드 썸네일 전용 이미지 (없으면 image 사용)
+    // 예약 필드 — 지금은 읽는 컴포넌트가 없다. 이 값을 쓰던 카드 그리드는 2026.08 개편에서
+    // 사라졌지만, 썸네일을 다시 쓰는 디자인을 대비해 스키마와 기존 값을 남겨 둔다.
+    // optional 이라 새 프로젝트를 추가할 때 채울 의무가 없다 — 비워 두면 그만이다.
+    thumbImage: z.string().optional(), // (미사용) 카드 썸네일 전용 이미지
     github: z.string().url().optional(),
     demo: z.string().url().optional(),
     demoNote: z.string().optional(), // 임베드 데모 안내 문구 (없으면 기본 문구 사용)

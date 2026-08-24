@@ -98,10 +98,11 @@ guardrail that keeps content edits safe.
 - **timeline / skills**: each YAML entry needs a unique `id` (required by the `file`
   loader) and an `order` (components sort by it).
 
-> Two schema fields currently have **no consumer**: `thumbImage` (the card grid that
-> read it was removed in the 2026.08 개편) and `tags` on `timeline` (required, filled
-> in all entries, rendered nowhere). Decide to render or drop them — do not add more
-> fields on the assumption that something reads them.
+> `thumbImage` has **no consumer**: the card grid that read it went away in the
+> 2026.08 개편. It is kept on purpose, against a future design that wants thumbnails
+> again — it is optional, so a new project never has to fill it. Do not "fix" it by
+> wiring it into the current WORK row, and do not add further fields on the
+> assumption that something reads them.
 
 ## 5. Data flow (page composition)
 
