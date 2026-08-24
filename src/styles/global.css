@@ -519,9 +519,6 @@ footer.site{background:var(--ink);color:var(--on-ink);}
 .detail-demo::before{
   content:"";position:absolute;top:0;left:0;right:0;border-top:1px solid var(--ink);
 }
-/* 대시보드형 데모는 프레임 왼쪽까지 되물려 전폭 판으로 — .detail-wide 와 같은 처리.
-   킥커·안내문은 산문 축에 그대로 남는다. */
-.detail-demo--wide .detail-demo-frame{margin-left:calc(var(--detail-rail) * -1);}
 /* 킥커는 섹션 번호와 같은 자리(레일)로 뺀다 — h2::before 와 같은 문법.
    흐름에서 빠지므로 헤드 행에는 외부 링크만 남아 우측 정렬된다.
    레일이 접히는 ≤900px 에서는 left 가 0 이 되어 원래의 양끝 정렬로 자연히 돌아간다. */
@@ -535,7 +532,13 @@ footer.site{background:var(--ink);color:var(--on-ink);}
    따로 두면(13.5px / --ink-muted / 1.65 / 64ch) 같은 지면에서 혼자 캡션처럼 보인다.
    폭은 레일 패딩이 잡아 주므로 따로 max-width 를 두지 않는다 — 두면 산문보다 몇 px 더 나간다. */
 .detail-demo-note{font-size:15px;color:var(--ink-2);line-height:1.8;margin-bottom:18px;}
-.detail-demo-frame{border:1px solid var(--rule);overflow:hidden;background:var(--paper-sunk);margin-right:calc(var(--detail-rail) * -1);}
+/* 테두리가 보이는 확장 블록은 좌우 모두 레일까지 되물려 틀 전폭으로 — .detail-wide 와 같은 처리.
+   산문 왼쪽선에만 맞추면 무거운 판이 오른쪽으로 치우쳐 보인다. 두 변을 다 틀 선에 얹어야
+   산문 중심축을 기준으로 좌우 대칭이 된다. 킥커·안내문은 산문 축에 그대로 남는다. */
+.detail-demo-frame{
+  border:1px solid var(--rule);overflow:hidden;background:var(--paper-sunk);
+  margin:0 calc(var(--detail-rail) * -1);
+}
 .detail-demo-frame iframe{
   /* 높이는 데모가 postMessage로 보내는 콘텐츠 높이에 맞춰 JS가 설정.
      아래는 스크립트 실행 전 초기 폴백. */

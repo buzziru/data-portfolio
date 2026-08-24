@@ -14,7 +14,6 @@ image: /projects/subway-demo.png
 thumbImage: /projects/subway-thumb.png
 github: https://github.com/buzziru/guro_stream
 demo: https://ingyoun-seoul-subway-demo.static.hf.space
-demoWide: true
 demoNote: 지하철·기후·인구·버스 통합 데이터셋에서 역별 이용량과 출퇴근 순승하차 흐름을 큐레이션한 대시보드입니다. 지도는 직접 클릭·확대할 수 있고, 차트는 실측 집계값입니다.
 ---
 

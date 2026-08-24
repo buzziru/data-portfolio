@@ -32,7 +32,6 @@ const projects = defineCollection({
     github: z.string().url().optional(),
     demo: z.string().url().optional(),
     demoNote: z.string().optional(), // 임베드 데모 안내 문구 (없으면 기본 문구 사용)
-    demoWide: z.boolean().optional(), // 대시보드형 데모 — 임베드 프레임을 넓게(콘텐츠 폭) 표시
   }),
 });
 
