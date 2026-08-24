@@ -1,5 +1,5 @@
 # 기술 스택 — 주력 / 사용 중 / 학습 중 세 줄. level 은 core | using | learning.
-# 4단계 레벨·점수 막대·범례로 되돌리지 않는다 (CLAUDE.md · Design System).
+# 4단계 레벨·점수 막대·범례로 되돌리지 않는다 (DESIGN-instrument.md).
 - id: "core"
   order: 1
   level: "core"

@@ -18,7 +18,7 @@ There is no test suite or separate lint step; `astro build` type-checks `.astro`
 
 ## Design System
 
-The site uses the **Instrument** visual language (2026.08 개편; replaced the previous Linear dark theme). 수치가 주인공이다 — 디자인은 계측 장비의 판독창처럼 보여야 한다: 큰 모노스페이스 숫자, 라벨, 격자.
+The site uses the **Instrument** visual language, defined in full in `DESIGN-instrument.md` (2026.08 개편; replaced `DESIGN-linear.app.md`). 그 문서가 정본이고 아래는 요약이다 — 색·크기·간격은 `DESIGN-instrument.md`에서만 바꾼다. 수치가 주인공이다 — 디자인은 계측 장비의 판독창처럼 보여야 한다: 큰 모노스페이스 숫자, 라벨, 격자.
 
 **네 가지 제약. 어떤 변경도 이걸 깨지 않는다:**
 

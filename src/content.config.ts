@@ -53,7 +53,7 @@ const skills = defineCollection({
   schema: z.object({
     order: z.number(),
     // 주력 / 사용 중 / 학습 중 세 줄만 쓴다.
-    // 4단계 레벨·점수 막대·범례로 되돌리지 않는다 (CLAUDE.md · Design System).
+    // 4단계 레벨·점수 막대·범례로 되돌리지 않는다 (DESIGN-instrument.md).
     level: z.enum(['core', 'using', 'learning']),
     label: z.string(), // 라틴 대문자 라벨 (CORE / IN USE / LEARNING)
     note: z.string(), // 한글 짧은 설명

@@ -1,6 +1,7 @@
-/* ── Instrument design tokens (see the Design System section of CLAUDE.md) ──
+/* ── Instrument design tokens (spec: DESIGN-instrument.md) ──
    지면은 밝은 회색 종이, 구획은 1px 괘선과 격자. 카드·라운드·그림자 없음.
-   신호색은 딥 그린 하나 + 예정 상태의 앰버. 색·크기는 여기서만 바꾼다. */
+   신호색은 딥 그린 하나 + 예정 상태의 앰버.
+   토큰은 이 :root 에서만 바꾸고, 개별 컴포넌트에서 하드코딩하지 않는다. */
 :root {
   /* 지면 */
   --paper:        #e8e6e0;
@@ -399,7 +400,7 @@ footer.site{background:var(--ink);color:var(--on-ink);}
 .detail-body td{color:var(--ink-2);}
 .detail-body td:not(:first-child){font-family:var(--font-mono);font-size:13.5px;font-weight:500;}
 .detail-body tr:last-child td{border-bottom:none;}
-/* 좁은 화면에서 표는 가로 스크롤 컨테이너에 담는다. 숫자를 줄여 표기하지 않는다 (CLAUDE.md · Design System) */
+/* 좁은 화면에서 표는 가로 스크롤 컨테이너에 담는다. 숫자를 줄여 표기하지 않는다 (DESIGN-instrument.md) */
 @media(max-width:640px){
   .detail-body table{display:block;max-width:100%;overflow-x:auto;}
 }
