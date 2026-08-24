@@ -8,7 +8,6 @@
   desc:
     - "실무에서 다룬 특허 도메인을 개인 프로젝트로 재수행:<br />평가 지표 재정의·데이터 누수 제거로 비교선을 세운 뒤 장문 인코더로 갱신(micro-F1 0.8660)."
     - "학습·평가·배포 전 과정과 실패한 실험 기록까지 재현 가능한 형태로 공개."
-  tags: ["nlp", "classification", "evaluation", "mlops"]
 
 - id: "markcloud"
   order: 2
@@ -18,7 +17,6 @@
   desc:
     - "특허 문헌 자동 분류 모델 개발(제안서 작성·수주 포함):<br />주요 5개국 특허문헌 API 수집·가공 후 LLM 기반 파인튜닝·인스트럭션 튜닝 수행."
     - "상표 거절사유 분석:<br />비정형 행정 문서(API·HWP·PDF) 정제 파이프라인 구성 및 RAG 기반 자동화 프로토타입 중간 보고 반영."
-  tags: ["llm", "finetuning", "rag", "nlp", "classification"]
 
 - id: "naver-bootcamp"
   order: 3
@@ -26,7 +24,6 @@
   title: "AI 엔지니어 역량 · 네이버 부트캠프"
   org: "교육 이수"
   desc: "머신러닝 및 딥러닝 알고리즘의 이해 및 구현."
-  tags: ["education", "dl", "ml"]
 
 - id: "zerobase"
   order: 4
@@ -34,7 +31,6 @@
   title: "데이터 분석 스쿨 · 제로베이스"
   org: "교육 이수"
   desc: "SQL, Git, Tableau, ML/DL 실전 프로젝트 중심 데이터 분석 역량 강화."
-  tags: ["education", "ml", "sql"]
 
 - id: "sqld"
   order: 5
@@ -42,7 +38,6 @@
   title: "SQL개발자 (SQLD) 취득"
   org: "한국데이터베이스진흥센터 · 자격증"
   desc: "SQL 데이터 조작·관리 역량 공인 자격 취득."
-  tags: ["certification", "sql"]
 
 - id: "megastudy"
   order: 6
@@ -50,7 +45,6 @@
   title: "Python 및 머신러닝 · 메가스터디"
   org: "교육 이수"
   desc: "Python 데이터 분석·시각화 및 머신러닝 기초."
-  tags: ["education", "python", "ml"]
 
 - id: "grad-school"
   order: 7
@@ -58,7 +52,6 @@
   title: "성균관대 일반대학원 석사 (경제학)"
   org: "논문 · '정부의 연구 용역에 대한 최적 보상 체계'"
   desc: "경제학 전공 석사. 공공 인센티브 설계를 주제로 논문 연구."
-  tags: ["economics", "research", "thesis"]
 
 - id: "hana-bank"
   order: 8
@@ -66,7 +59,6 @@
   title: "하나은행 · 여신 업무"
   org: "신천역(잠실새내) 지점 계장"
   desc: "여신 업무 담당. 금융 데이터 실무 경험."
-  tags: ["finance", "banking"]
 
 - id: "undergrad"
   order: 9
@@ -74,4 +66,3 @@
   title: "한국외대 경제학과"
   org: "학사 · Economics"
   desc: "경제학 기반 학습. 통계 및 계량경제학 이수."
-  tags: ["economics", "statistics"]

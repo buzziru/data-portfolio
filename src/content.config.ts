@@ -50,7 +50,6 @@ const timeline = defineCollection({
     // 한 줄이면 문자열, 실제로 여러 건이면 배열 — 배열은 대시 불릿으로 렌더된다.
     // <br /> 로 이어붙인 문자열로 여러 건을 표현하지 않는다 (한 항목처럼 읽힌다).
     desc: z.union([z.string(), z.array(z.string())]),
-    tags: z.array(z.string()),
   }),
 });
 
