@@ -505,6 +505,9 @@ footer.site{background:var(--ink);color:var(--on-ink);}
    1200px 안팎으로 그린 도식을 split 의 500px 칸에 넣으면 배율이 40%까지 떨어져
    안에 쓴 글자가 5px 이 된다. 좁은 칸을 전제로 그린 인라인 도식만 split 에 남긴다. */
 .detail-fig{margin:16px calc(var(--detail-rail) * -1) 32px;}
+/* 넓힐 이유가 없는 도판은 산문 폭에 둔다 — 720px 캔버스로 그린 도식은 여기서 100% 로 찍히고,
+   본문 흐름을 끊는 전폭 판은 폭이 실제로 필요한 것만 남는다. */
+.detail-fig--prose{margin-left:0;margin-right:0;}
 .detail-fig img{margin:0;}
 /* 캡션은 한글 문장이다 — 모노 10px대에 넣지 않는다 (DESIGN-instrument.md). .detail-split-fig 와 같은 조판. */
 .detail-fig figcaption{margin-top:14px;font-size:13px;color:var(--ink-muted);line-height:1.6;letter-spacing:0;}

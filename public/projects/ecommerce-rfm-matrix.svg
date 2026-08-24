@@ -1,47 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" font-family="Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif">
-  <rect width="1200" height="460" fill="#e8e6e0"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 324" font-family="Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif">
+  <rect width="720" height="324" fill="#e8e6e0"/>
 
-  <text x="48" y="34" font-family="'IBM Plex Mono', Consolas, monospace" font-size="12" letter-spacing="2" fill="#7b7f7d">RFM · CORE SEGMENTS</text>
-  <text x="48" y="72" font-size="28" font-weight="600" letter-spacing="-0.5" fill="#101214">RFM에 따른 핵심 고객 분류</text>
+  <text x="18" y="32" font-family="'IBM Plex Mono', Consolas, monospace" font-size="10.5" letter-spacing="1.6" fill="#7b7f7d">RFM · CORE SEGMENTS</text>
+  <text x="18" y="64" font-size="21" font-weight="600" letter-spacing="-0.4" fill="#101214">RFM에 따른 핵심 고객 분류</text>
 
-  <!-- Column headers -->
-  <g font-size="14" font-weight="600" fill="#101214" text-anchor="middle">
-    <rect x="300" y="110" width="200" height="56" fill="#dedbd3" stroke="#c4c1b8"/><text x="400" y="144">Loyal Champions</text>
-    <rect x="516" y="110" width="200" height="56" fill="#dedbd3" stroke="#c4c1b8"/><text x="616" y="144">Potential Loyalist</text>
-    <rect x="732" y="110" width="200" height="56" fill="#dedbd3" stroke="#c4c1b8"/><text x="832" y="144">Promising Newcomers</text>
-    <rect x="948" y="110" width="200" height="56" fill="#dedbd3" stroke="#c4c1b8"/><text x="1048" y="144">Bargain Lovers</text>
+  <!-- Column headers — 두 줄로 접어 열폭을 줄인다 (한 줄이면 720px 에 4열이 안 들어간다) -->
+  <g font-size="12" font-weight="600" fill="#101214" text-anchor="middle">
+    <rect x="154" y="86" width="131" height="44" fill="#dedbd3" stroke="#c4c1b8"/>
+    <text x="219.5" y="104">Loyal</text><text x="219.5" y="120">Champions</text>
+    <rect x="293" y="86" width="131" height="44" fill="#dedbd3" stroke="#c4c1b8"/>
+    <text x="358.5" y="104">Potential</text><text x="358.5" y="120">Loyalist</text>
+    <rect x="432" y="86" width="131" height="44" fill="#dedbd3" stroke="#c4c1b8"/>
+    <text x="497.5" y="104">Promising</text><text x="497.5" y="120">Newcomers</text>
+    <rect x="571" y="86" width="131" height="44" fill="#dedbd3" stroke="#c4c1b8"/>
+    <text x="636.5" y="104">Bargain</text><text x="636.5" y="120">Lovers</text>
   </g>
 
-  <!-- Row: Recency  ▲ ▼ ▲ ▲ -->
+  <!-- Recency  ▲ ▼ ▲ ▲ -->
   <g>
-    <rect x="48" y="178" width="240" height="76" fill="#dedbd3" stroke="#c4c1b8"/>
-    <rect x="62" y="206" width="3" height="20" fill="#101214"/>
-    <text x="80" y="222" font-size="16" font-weight="500" fill="#3d4144">Recency</text>
-    <rect x="300" y="178" width="200" height="76" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="400,205 389,224 411,224" fill="#0b6e4f"/>
-    <rect x="516" y="178" width="200" height="76" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="616,224 605,205 627,205" fill="#b3651a"/>
-    <rect x="732" y="178" width="200" height="76" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="832,205 821,224 843,224" fill="#0b6e4f"/>
-    <rect x="948" y="178" width="200" height="76" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="1048,205 1037,224 1059,224" fill="#0b6e4f"/>
+    <rect x="18" y="136" width="126" height="54" fill="#dedbd3" stroke="#c4c1b8"/>
+    <rect x="30" y="155" width="2.5" height="16" fill="#101214"/>
+    <text x="42" y="168" font-size="13" font-weight="500" fill="#3d4144">Recency</text>
+    <rect x="154" y="136" width="131" height="54" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="219.5,155 209.5,172 229.5,172" fill="#0b6e4f"/>
+    <rect x="293" y="136" width="131" height="54" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="358.5,172 348.5,155 368.5,155" fill="#b3651a"/>
+    <rect x="432" y="136" width="131" height="54" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="497.5,155 487.5,172 507.5,172" fill="#0b6e4f"/>
+    <rect x="571" y="136" width="131" height="54" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="636.5,155 626.5,172 646.5,172" fill="#0b6e4f"/>
   </g>
 
-  <!-- Row: Frequency  ▲ ▲ ▼ ▲ -->
+  <!-- Frequency  ▲ ▲ ▼ ▲ -->
   <g>
-    <rect x="48" y="262" width="240" height="76" fill="#dedbd3" stroke="#c4c1b8"/>
-    <rect x="62" y="290" width="3" height="20" fill="#101214"/>
-    <text x="80" y="306" font-size="16" font-weight="500" fill="#3d4144">Frequency</text>
-    <rect x="300" y="262" width="200" height="76" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="400,289 389,308 411,308" fill="#0b6e4f"/>
-    <rect x="516" y="262" width="200" height="76" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="616,289 605,308 627,308" fill="#0b6e4f"/>
-    <rect x="732" y="262" width="200" height="76" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="832,308 821,289 843,289" fill="#b3651a"/>
-    <rect x="948" y="262" width="200" height="76" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="1048,289 1037,308 1059,308" fill="#0b6e4f"/>
+    <rect x="18" y="194" width="126" height="54" fill="#dedbd3" stroke="#c4c1b8"/>
+    <rect x="30" y="213" width="2.5" height="16" fill="#101214"/>
+    <text x="42" y="226" font-size="13" font-weight="500" fill="#3d4144">Frequency</text>
+    <rect x="154" y="194" width="131" height="54" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="219.5,213 209.5,230 229.5,230" fill="#0b6e4f"/>
+    <rect x="293" y="194" width="131" height="54" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="358.5,213 348.5,230 368.5,230" fill="#0b6e4f"/>
+    <rect x="432" y="194" width="131" height="54" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="497.5,230 487.5,213 507.5,213" fill="#b3651a"/>
+    <rect x="571" y="194" width="131" height="54" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="636.5,213 626.5,230 646.5,230" fill="#0b6e4f"/>
   </g>
 
-  <!-- Row: Monetary Value  ▲ ▲ ▲ ▼ -->
+  <!-- Monetary Value  ▲ ▲ ▲ ▼ -->
   <g>
-    <rect x="48" y="346" width="240" height="76" fill="#dedbd3" stroke="#c4c1b8"/>
-    <rect x="62" y="374" width="3" height="20" fill="#101214"/>
-    <text x="80" y="390" font-size="16" font-weight="500" fill="#3d4144">Monetary Value</text>
-    <rect x="300" y="346" width="200" height="76" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="400,373 389,392 411,392" fill="#0b6e4f"/>
-    <rect x="516" y="346" width="200" height="76" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="616,373 605,392 627,392" fill="#0b6e4f"/>
-    <rect x="732" y="346" width="200" height="76" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="832,373 821,392 843,392" fill="#0b6e4f"/>
-    <rect x="948" y="346" width="200" height="76" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="1048,392 1037,373 1059,373" fill="#b3651a"/>
+    <rect x="18" y="252" width="126" height="54" fill="#dedbd3" stroke="#c4c1b8"/>
+    <rect x="30" y="271" width="2.5" height="16" fill="#101214"/>
+    <text x="42" y="284" font-size="13" font-weight="500" fill="#3d4144">Monetary Value</text>
+    <rect x="154" y="252" width="131" height="54" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="219.5,271 209.5,288 229.5,288" fill="#0b6e4f"/>
+    <rect x="293" y="252" width="131" height="54" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="358.5,271 348.5,288 368.5,288" fill="#0b6e4f"/>
+    <rect x="432" y="252" width="131" height="54" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="497.5,271 487.5,288 507.5,288" fill="#0b6e4f"/>
+    <rect x="571" y="252" width="131" height="54" fill="#e8e6e0" stroke="#c4c1b8"/><polygon points="636.5,288 626.5,271 646.5,271" fill="#b3651a"/>
   </g>
 </svg>

@@ -38,7 +38,7 @@ Dacon 이커머스 데이터셋 · 고객 1,468명 · customer·sales·discount�
 
 RFM(Recency·Frequency·Monetary) 점수 임계값(R/F/M ≷ 3)을 순차 적용해 고객 1,468명을 11개 세그먼트로 분류했습니다. 핵심 4개 그룹(Loyal Champion · Potential Loyalist · Promising Newcomer · Bargain Lover)을 먼저 식별하고, 각 그룹의 R·F·M 프로파일에 맞춘 차별화 마케팅 전략을 제안했습니다.
 
-<figure class="detail-fig">
+<figure class="detail-fig detail-fig--prose">
   <img src="/projects/ecommerce-rfm-matrix.svg" alt="RFM 핵심 4개 세그먼트의 Recency·Frequency·Monetary 매트릭스" />
   <figcaption>핵심 4개 세그먼트의 R·F·M 프로파일</figcaption>
 </figure>
