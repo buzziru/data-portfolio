@@ -366,7 +366,10 @@ footer.site{background:var(--ink);color:var(--on-ink);}
 
 /* ── Project detail page ──
    랜딩과 같은 팔레트·괘선 규칙. 상세 레이아웃 전면 개편은 case-study.dc.html 참조. */
-.detail-main{padding:56px 0 96px;}
+/* --detail-rail: 산문·데모가 공유하는 섹션 레일 폭.
+   --detail-measure: 산문의 오른쪽 한계선. 본문도 데모 안내문도 이 선에서 끝나야
+   페이지가 한 칼럼으로 읽힌다. 둘 다 여기서만 바꾼다. */
+.detail-main{padding:56px 0 96px;--detail-rail:160px;--detail-measure:720px;}
 .detail-back{
   font-family:var(--font-mono);font-size:12px;
   color:var(--signal);letter-spacing:.04em;
@@ -408,19 +411,32 @@ footer.site{background:var(--ink);color:var(--on-ink);}
 .detail-meta dd{color:var(--ink);font-size:13px;}
 .detail-actions{display:flex;flex-wrap:wrap;gap:10px;}
 
-.detail-body{max-width:720px;counter-reset:section;}
+/* 섹션 레일 — 랜딩의 .rail-grid 와 같은 골격(레일 + 콘텐츠).
+   산문을 레일만큼 안으로 들이고 섹션 번호를 그 자리로 뺀다. 산문 칼럼 자체는 720px 그대로 —
+   여기서 폭을 넓히면 줄당 52자가 더 늘어난다. 도식·표 breakout 은 레일까지 되물려 전폭을 유지한다. */
+.detail-body{max-width:calc(var(--detail-measure) + var(--detail-rail));padding-left:var(--detail-rail);counter-reset:section;}
 .detail-body h2,.detail-body h3{
   font-family:var(--font-display);font-weight:600;
   margin:0 0 10px;letter-spacing:-.03em;color:var(--ink);
 }
 .detail-body h2{
   font-size:28px;counter-increment:section;
-  padding-top:32px;margin-top:32px;border-top:1px solid var(--ink);
+  padding-top:32px;margin-top:32px;position:relative;
 }
+/* 섹션 괘선만 콘텐츠 전폭으로 — 헤더 하단 괘선과 이어져 지면이 닫힌다.
+   제목 상자는 720px 그대로다(전폭으로 늘리면 긴 제목이 산문 칼럼 밖으로 나간다).
+   ::before 는 섹션 번호가 쓰고 있어 ::after 로 그린다. */
+.detail-body h2::after{
+  content:"";position:absolute;top:0;left:calc(var(--detail-rail) * -1);
+  width:min(1176px,calc(100vw - 64px));
+  border-top:1px solid var(--ink);
+}
+/* 섹션 번호는 제목 위가 아니라 레일에 — 첫 줄 baseline 에 맞춘다 */
 .detail-body h2::before{
-  content:counter(section,decimal-leading-zero)" ";
-  display:block;font-family:var(--font-mono);font-size:11px;
-  color:var(--ink-faint);letter-spacing:.14em;margin-bottom:6px;
+  content:counter(section,decimal-leading-zero);
+  position:absolute;left:calc(var(--detail-rail) * -1);top:32px;
+  font-family:var(--font-mono);font-size:11px;line-height:1.9;
+  color:var(--ink-faint);letter-spacing:.14em;
 }
 .detail-body h3{font-size:20px;letter-spacing:-.025em;}
 .detail-body p{font-size:15px;color:var(--ink-2);line-height:1.8;margin-bottom:16px;}
@@ -455,27 +471,58 @@ footer.site{background:var(--ink);color:var(--on-ink);}
 }
 /* 본문 도식(figure): 프로즈 칼럼(720px)을 벗어나 콘텐츠 전체 폭으로 표시 */
 .detail-body img{display:block;width:100%;height:auto;margin:8px 0 24px;border:1px solid var(--rule);background:var(--paper-sunk);}
-.detail-fig{width:min(1176px,calc(100vw - 64px));margin:16px 0 32px;}
+/* 산문이 아닌 블록(넓은 표)은 레일까지 되물려 전폭으로 — 표는 넓혀도 가독성이 나빠지지 않는다.
+   짧은 표까지 넓히면 오히려 허전해지므로, 열이 많거나 셀이 3줄 이상 감기는 표에만 쓴다. */
+.detail-body .detail-wide{width:min(1176px,calc(100vw - 64px));margin:0 0 20px calc(var(--detail-rail) * -1);}
+.detail-body .detail-wide table{margin-bottom:0;}
+@media(max-width:900px){.detail-body .detail-wide{width:100%;}}
+
+.detail-fig{width:min(1176px,calc(100vw - 64px));margin:16px 0 32px calc(var(--detail-rail) * -1);}
 .detail-fig img{margin:0;}
 .detail-fig figcaption{margin-top:10px;font-family:var(--font-mono);font-size:11px;color:var(--ink-faint);letter-spacing:.04em;}
 
 /* 좌: 텍스트 / 우: 편중 차트 — 프로즈 칼럼(720px)을 벗어나 우측 여백을 활용 */
-.detail-body .detail-split{width:min(1176px,calc(100vw - 64px));display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:40px;align-items:center;margin:14px 0 34px;}
+/* split 은 왼쪽 절반이 산문이므로 레일까지 되물리지 않는다 — 산문 시작선(332)을 지키고
+   오른쪽으로만 늘려 도식이 여백을 쓴다. 순수 도판인 .detail-fig / .detail-wide 와 다른 점. */
+.detail-body .detail-split{width:calc(min(1176px,100vw - 64px) - var(--detail-rail));display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:40px;align-items:center;margin:14px 0 34px;}
 .detail-body .detail-split-body > :first-child{margin-top:0;}
 .detail-body .detail-split-body > :last-child{margin-bottom:0;}
 .detail-body .detail-split-fig{margin:0;padding:24px 28px 18px;border:1px solid var(--rule);background:var(--paper-sunk);}
 .detail-body .detail-split-fig svg,
 .detail-body .detail-split-fig img{display:block;width:100%;height:auto;margin:0;border:0;background:none;}
 .detail-body .detail-split-fig figcaption{margin-top:14px;font-size:13px;color:var(--ink-muted);line-height:1.6;letter-spacing:0;}
-@media(max-width:900px){.detail-body .detail-split{grid-template-columns:1fr;gap:22px;width:100%;}}
+@media(max-width:900px){
+  .detail-body .detail-split{grid-template-columns:1fr;gap:22px;width:100%;}
+  /* 레일을 접고 섹션 번호를 제목 위 원래 자리로 되돌린다.
+     max-width 가 calc(... + var) 라 폭은 자동으로 원래 값으로 돌아간다. */
+  .detail-main{--detail-rail:0px;}
+  .detail-body h2::before{position:static;display:block;margin-bottom:6px;}
+}
 
 /* ── Project detail — embedded live demo ── */
-.detail-demo{max-width:960px;margin:56px 0 0;padding-top:40px;border-top:1px solid var(--ink);}
+/* 데모는 .detail-body 의 형제라 레일을 따로 적용한다 — 안 하면 960px 블록이 1176px 틀 안에서
+   좌측에 붙고 구분 괘선까지 960px 에서 끊긴다(h2 괘선과 같은 문제). */
+.detail-demo{
+  max-width:calc(960px + var(--detail-rail));padding-left:var(--detail-rail);
+  margin:56px 0 0;padding-top:40px;position:relative;
+}
+.detail-demo::before{
+  content:"";position:absolute;top:0;left:0;
+  width:min(1176px,calc(100vw - 64px));border-top:1px solid var(--ink);
+}
 .detail-demo--wide{max-width:none;}
-.detail-demo-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:10px;}
-.detail-demo-kicker{font-size:10.5px;letter-spacing:.16em;color:var(--signal);}
+/* 킥커는 섹션 번호와 같은 자리(레일)로 뺀다 — h2::before 와 같은 문법.
+   흐름에서 빠지므로 헤드 행에는 외부 링크만 남아 우측 정렬된다.
+   레일이 접히는 ≤900px 에서는 left 가 0 이 되어 원래의 양끝 정렬로 자연히 돌아간다. */
+.detail-demo-head{position:relative;display:flex;justify-content:flex-end;align-items:baseline;gap:16px;margin-bottom:10px;}
+.detail-demo-kicker{
+  position:absolute;left:calc(var(--detail-rail) * -1);top:0;
+  font-size:10.5px;line-height:1.55;letter-spacing:.16em;color:var(--signal);
+}
 .detail-demo-ext{font-size:12px;color:var(--signal);letter-spacing:.04em;white-space:nowrap;}
-.detail-demo-note{font-size:13.5px;color:var(--ink-muted);line-height:1.65;margin-bottom:18px;max-width:64ch;}
+/* 데모 안내문도 본문 문단이다 — 크기·색·행간·끝선을 .detail-body p 와 맞춘다.
+   따로 두면(13.5px / --ink-muted / 1.65 / 64ch) 같은 지면에서 혼자 캡션처럼 보인다. */
+.detail-demo-note{font-size:15px;color:var(--ink-2);line-height:1.8;margin-bottom:18px;max-width:var(--detail-measure);}
 .detail-demo-frame{border:1px solid var(--rule);overflow:hidden;background:var(--paper-sunk);}
 .detail-demo-frame iframe{
   /* 높이는 데모가 postMessage로 보내는 콘텐츠 높이에 맞춰 JS가 설정.
