@@ -1,27 +1,23 @@
 ---
 // Nav links are absolute (/#id) so they also work from project detail pages.
+// 섹션 번호는 쓰지 않는다 — 이름만 (CLAUDE.md · Design System).
 const links = [
-  { href: '/#summary', label: '01 · 소개' },
-  { href: '/#strengths', label: '02 · 역량' },
-  { href: '/#projects', label: '03 · 프로젝트' },
-  { href: '/#skills', label: '04 · 기술 스택' },
-  { href: '/#timeline', label: '05 · 이력' },
-  { href: '/#contact', label: '06 · 연락' },
+  { href: '/#thesis', label: 'THESIS' },
+  { href: '/#work', label: 'WORK' },
+  { href: '/#stack', label: 'STACK' },
+  { href: '/#log', label: 'LOG' },
 ];
 ---
 
 <header class="top">
   <div class="top-inner">
-    <a class="brand" href="/" style="text-decoration:none;color:inherit;">
-      <div class="brand-mark">D</div>
-      <div>
-        <div class="brand-name">Research Notebook</div>
-        <div class="brand-sub mono">/ DATA ANALYST PORTFOLIO</div>
-      </div>
+    <a class="brand" href="/">
+      <span class="brand-name">CHO INKYOUNG</span>
+      <span class="brand-sub">DATA ANALYST / MEASUREMENT LOG</span>
     </a>
     <nav class="top-nav" aria-label="Primary">
       {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      <a class="nav-cta" href="/#contact">CONTACT</a>
     </nav>
-    <div class="top-meta mono">v1.1 · 2026.08</div>
   </div>
 </header>

@@ -1,7 +1,7 @@
 ---
 title: 식물 잎 병해 진단 — 이종 지식 증류
 status: completed
-order: 4
+order: 3
 summary: Kaggle FGVC7 Plant Pathology 대회에서 1위 솔루션을 분석해 이종 지식 증류(ConvNeXt→ResNeSt)를 직접 구현.<br>ROC-AUC 0.977, Kaggle 18위 상당.
 domain: Computer Vision / 딥러닝
 role: 개인 · 설계·구현 전담
@@ -9,6 +9,15 @@ methods: [이종 지식 증류(KD), pHash 누출 진단, Top-k 앙상블, PyTorc
 tools: [PyTorch Lightning, ResNeSt, ConvNeXt, timm, W&B, ONNX, Streamlit]
 keyMetric: ROC-AUC 0.977 · Kaggle 18위 상당
 date: "2026.01"
+featured: true
+railNote: "개인 · 2026.01"
+results:
+  - { v: "0.977", k: "ROC-AUC" }
+  - { v: "18위 상당", k: "Kaggle 리더보드" }
+  - { v: "0.980→0.960", k: "검증 → LB (누출 진단 계기)" }
+fixes:
+  - "검증과 리더보드 사이 점수 갭에서 학습·평가 이미지 중복을 이미지 유사도(pHash·CNN)로 진단해 분할을 바로잡음."
+  - "큰 모델의 판단을 가벼운 모델에 이식(T=1.25)해 추론 비용을 낮추면서 성능 유지."
 thumb: plant
 image: /projects/plant-demo.jpg
 github: https://github.com/buzziru/Plant-Pathology-2020
@@ -39,19 +48,19 @@ Plant Pathology 2020 (Kaggle FGVC7) · 이미지 분류 · 4클래스 · 학습 
 
 <figure class="detail-split-fig">
 <svg viewBox="0 0 200 100" role="img" aria-label="이종 지식 증류 — ConvNeXt Teacher에서 ResNeSt Student로 soft label 전달">
-<rect x="14" y="30" width="52" height="40" rx="4" fill="rgba(94,106,210,0.2)" stroke="#5e6ad2" stroke-width="1" />
-<text x="40" y="48" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#ba9cff">ConvNeXt</text>
-<text x="40" y="60" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#7877c6">Teacher</text>
-<rect x="134" y="30" width="52" height="40" rx="4" fill="rgba(119,119,198,0.15)" stroke="#7877c6" stroke-width="1" />
-<text x="160" y="48" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#b4bcd0">ResNeSt</text>
-<text x="160" y="60" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#6a6b6c">Student</text>
-<line x1="66" y1="50" x2="134" y2="50" stroke="rgba(186,156,255,0.5)" stroke-width="1.5" marker-end="url(#kd)" />
-<text x="100" y="44" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#ba9cff">soft labels</text>
-<text x="100" y="56" text-anchor="middle" font-family="JetBrains Mono" font-size="6" fill="#6a6b6c">T=1.25</text>
-<text x="100" y="86" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#5e6ad2">ROC-AUC 0.977</text>
+<rect x="14" y="30" width="52" height="40" rx="4" fill="rgba(11,110,79,0.2)" stroke="#0b6e4f" stroke-width="1" />
+<text x="40" y="48" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#0b6e4f">ConvNeXt</text>
+<text x="40" y="60" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#5c605f">Teacher</text>
+<rect x="134" y="30" width="52" height="40" rx="4" fill="rgba(92,96,95,0.15)" stroke="#5c605f" stroke-width="1" />
+<text x="160" y="48" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#3d4144">ResNeSt</text>
+<text x="160" y="60" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#7b7f7d">Student</text>
+<line x1="66" y1="50" x2="134" y2="50" stroke="rgba(11,110,79,0.5)" stroke-width="1.5" marker-end="url(#kd)" />
+<text x="100" y="44" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#0b6e4f">soft labels</text>
+<text x="100" y="56" text-anchor="middle" font-family="IBM Plex Mono" font-size="6" fill="#7b7f7d">T=1.25</text>
+<text x="100" y="86" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#0b6e4f">ROC-AUC 0.977</text>
 <defs>
 <marker id="kd" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
-<path d="M0,0 L10,5 L0,10" fill="rgba(186,156,255,0.5)" />
+<path d="M0,0 L10,5 L0,10" fill="rgba(11,110,79,0.5)" />
 </marker>
 </defs>
 </svg>
@@ -75,21 +84,21 @@ Plant Pathology 2020 (Kaggle FGVC7) · 이미지 분류 · 4클래스 · 학습 
 
 <figure class="detail-split-fig">
 <svg viewBox="0 0 200 100" role="img" aria-label="재사용 가능한 PyTorch Lightning 모듈 구조 — CFG 설정이 ExperimentRunner에 주입되고 Runner가 DataModule과 LightningModule을 오케스트레이션">
-<rect x="72" y="5" width="56" height="15" rx="3" fill="rgba(94,106,210,0.18)" stroke="#5e6ad2" stroke-width="0.8" />
-<text x="100" y="14.8" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#ba9cff">CFG · 설정</text>
-<line x1="100" y1="20" x2="100" y2="30" stroke="rgba(186,156,255,0.55)" stroke-width="1" marker-end="url(#plm)" />
-<rect x="8" y="31" width="184" height="63" rx="5" fill="rgba(255,255,255,0.03)" stroke="#34343a" stroke-width="0.8" />
-<text x="16" y="43" font-family="JetBrains Mono" font-size="6.5" fill="#8a8f98">ExperimentRunner — K-Fold 실행</text>
-<rect x="18" y="50" width="76" height="37" rx="3" fill="rgba(94,106,210,0.1)" stroke="#5e6ad2" stroke-width="0.7" />
-<text x="56" y="66" text-anchor="middle" font-family="JetBrains Mono" font-size="6.5" fill="#d0d6e0">DataModule</text>
-<text x="56" y="77" text-anchor="middle" font-family="JetBrains Mono" font-size="5.5" fill="#8a8f98">데이터 · 증강</text>
-<rect x="106" y="50" width="76" height="37" rx="3" fill="rgba(94,106,210,0.1)" stroke="#5e6ad2" stroke-width="0.7" />
-<text x="144" y="66" text-anchor="middle" font-family="JetBrains Mono" font-size="6.5" fill="#d0d6e0">LightningModule</text>
-<text x="144" y="77" text-anchor="middle" font-family="JetBrains Mono" font-size="5.5" fill="#8a8f98">모델 · 손실 · 최적화</text>
-<line x1="94" y1="68" x2="106" y2="68" stroke="rgba(186,156,255,0.55)" stroke-width="1" marker-end="url(#plm)" />
+<rect x="72" y="5" width="56" height="15" rx="3" fill="rgba(11,110,79,0.18)" stroke="#0b6e4f" stroke-width="0.8" />
+<text x="100" y="14.8" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#0b6e4f">CFG · 설정</text>
+<line x1="100" y1="20" x2="100" y2="30" stroke="rgba(11,110,79,0.55)" stroke-width="1" marker-end="url(#plm)" />
+<rect x="8" y="31" width="184" height="63" rx="5" fill="rgba(16,18,20,0.03)" stroke="#c4c1b8" stroke-width="0.8" />
+<text x="16" y="43" font-family="IBM Plex Mono" font-size="6.5" fill="#5c605f">ExperimentRunner — K-Fold 실행</text>
+<rect x="18" y="50" width="76" height="37" rx="3" fill="rgba(11,110,79,0.1)" stroke="#0b6e4f" stroke-width="0.7" />
+<text x="56" y="66" text-anchor="middle" font-family="IBM Plex Mono" font-size="6.5" fill="#3d4144">DataModule</text>
+<text x="56" y="77" text-anchor="middle" font-family="IBM Plex Mono" font-size="5.5" fill="#5c605f">데이터 · 증강</text>
+<rect x="106" y="50" width="76" height="37" rx="3" fill="rgba(11,110,79,0.1)" stroke="#0b6e4f" stroke-width="0.7" />
+<text x="144" y="66" text-anchor="middle" font-family="IBM Plex Mono" font-size="6.5" fill="#3d4144">LightningModule</text>
+<text x="144" y="77" text-anchor="middle" font-family="IBM Plex Mono" font-size="5.5" fill="#5c605f">모델 · 손실 · 최적화</text>
+<line x1="94" y1="68" x2="106" y2="68" stroke="rgba(11,110,79,0.55)" stroke-width="1" marker-end="url(#plm)" />
 <defs>
 <marker id="plm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
-<path d="M0,0 L10,5 L0,10" fill="rgba(186,156,255,0.6)" />
+<path d="M0,0 L10,5 L0,10" fill="rgba(11,110,79,0.6)" />
 </marker>
 </defs>
 </svg>

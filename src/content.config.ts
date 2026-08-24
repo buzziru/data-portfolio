@@ -17,6 +17,12 @@ const projects = defineCollection({
     tools: z.array(z.string()),
     keyMetric: z.string(),
     date: z.string().optional(),
+    // 랜딩 WORK 섹션 — featured 항목은 격자 행으로 펼쳐지고, 나머지는 표 한 줄로 접힌다.
+    featured: z.boolean().optional(),
+    railNote: z.string().optional(), // 레일 둘째 줄 ("개인 · 2026.07") — featured 전용
+    results: z.array(z.object({ v: z.string(), k: z.string() })).optional(), // 판독창 3칸
+    fixes: z.array(z.string()).optional(), // FIXED 불릿 — 고친 것(판단)
+    listMetric: z.string().optional(), // 표 한 줄용 축약 지표 (없으면 keyMetric)
     thumb: z.string(), // ProjectThumb SVG key (churn|cnn|forecast|nlp|recsys|…)
     image: z.string().optional(), // 상세 헤더용 실제 스크린샷 (있으면 thumb SVG 대신 사용)
     thumbImage: z.string().optional(), // 카드 썸네일 전용 이미지 (없으면 image 사용)
@@ -46,15 +52,12 @@ const skills = defineCollection({
   loader: file('src/data/skills.yaml'),
   schema: z.object({
     order: z.number(),
-    title: z.string(),
-    tag: z.string(),
-    pills: z.array(
-      z.object({
-        name: z.string(),
-        level: z.enum(['core', 'using', 'learning', 'next']),
-        tip: z.string(),
-      }),
-    ),
+    // 주력 / 사용 중 / 학습 중 세 줄만 쓴다.
+    // 4단계 레벨·점수 막대·범례로 되돌리지 않는다 (CLAUDE.md · Design System).
+    level: z.enum(['core', 'using', 'learning']),
+    label: z.string(), // 라틴 대문자 라벨 (CORE / IN USE / LEARNING)
+    note: z.string(), // 한글 짧은 설명
+    items: z.string(), // ' · ' 로 이어붙인 목록
   }),
 });
 

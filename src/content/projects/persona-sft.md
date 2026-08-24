@@ -8,6 +8,7 @@ role: 개인 프로젝트 · 데이터 구성·합성 · QLoRA 학습·평가
 methods: [QLoRA, 페르소나 SFT, 유보·이관 합성데이터, 유보율 튜닝]
 tools: [Python, PyTorch, PEFT/QLoRA, Qwen3-14B]
 keyMetric: 민원 QA 32,135건 + 유보 합성 · L4 24GB QLoRA
+listMetric: "QA 32,135건 · L4 24GB"
 thumb: sft
 ---
 

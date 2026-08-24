@@ -9,6 +9,16 @@ methods: [188-class 다중 레이블 분류, 누수 제거·재분할, 실질 �
 tools: [Python, PyTorch, Hugging Face Transformers, A.X-Encoder(ModernBERT), RunPod, Docker, uv]
 keyMetric: micro-F1 0.8660 · 재현 비교선 대비 +1.60pt (CI95 [+1.19, +2.00])
 date: "2026.07"
+featured: true
+railNote: "개인 · 2026.07"
+results:
+  - { v: "0.8660", k: "micro-F1 (188 중분류)" }
+  - { v: "+1.60pt", k: "재현 비교선 대비 · CI95 [+1.19,+2.00]" }
+  - { v: "42%→1.6%", k: "청구항 절단 손실" }
+fixes:
+  - "채점 불가능한 단일 라벨 지표를 다중 라벨(micro-F1)로 재정의."
+  - "학습·검증에 겹친 문서 7,822건을 실측하고, 동일성 기준을 문서 ID에서 실질 입력 문자열로 바꿔 라벨 충돌 89건까지 제거."
+  - "512 토큰 창에서 잘려 나가던 청구항 본문을 4,096 토큰 장문 인코더로 회수."
 thumb: patent
 github: https://github.com/buzziru/patent_disc
 demo: https://ingyoun-patent-eval-demo.static.hf.space
@@ -164,22 +174,22 @@ test 11,244건 · τ=0.5 · 같은 문서·같은 순서에서 측정했습니�
 
 <figure class="detail-split-fig">
 <svg viewBox="0 0 200 100" role="img" aria-label="길이 구간별 micro-F1 개선폭 — 512 대비 4096의 이득이 문서가 길수록 커진다">
-<line x1="14" y1="12" x2="196" y2="12" stroke="rgba(255,255,255,0.06)" stroke-width="0.6" />
-<line x1="14" y1="44" x2="196" y2="44" stroke="rgba(255,255,255,0.06)" stroke-width="0.6" />
-<line x1="14" y1="76" x2="196" y2="76" stroke="rgba(255,255,255,0.12)" stroke-width="0.6" />
-<rect x="24" y="65" width="26" height="11" rx="1.5" fill="rgba(94,106,210,0.18)" stroke="#5e6ad2" stroke-width="0.6" />
-<text x="37" y="62" text-anchor="middle" font-family="JetBrains Mono" font-size="5.5" fill="#7877c6">+0.29</text>
-<rect x="66" y="55" width="26" height="21" rx="1.5" fill="rgba(94,106,210,0.28)" stroke="#5e6ad2" stroke-width="0.6" />
-<text x="79" y="52" text-anchor="middle" font-family="JetBrains Mono" font-size="5.5" fill="#7877c6">+0.55</text>
-<rect x="108" y="16" width="26" height="60" rx="1.5" fill="rgba(94,106,210,0.5)" stroke="#5e6ad2" stroke-width="0.7" />
-<text x="121" y="13" text-anchor="middle" font-family="JetBrains Mono" font-size="5.5" fill="#ba9cff">+1.58</text>
-<rect x="150" y="21" width="26" height="55" rx="1.5" fill="rgba(94,106,210,0.42)" stroke="#5e6ad2" stroke-width="0.7" />
-<text x="163" y="18" text-anchor="middle" font-family="JetBrains Mono" font-size="5.5" fill="#ba9cff">+1.44</text>
-<text x="37" y="84" text-anchor="middle" font-family="JetBrains Mono" font-size="4.4" fill="#62666d">≤512</text>
-<text x="79" y="84" text-anchor="middle" font-family="JetBrains Mono" font-size="4.4" fill="#62666d">512-1K</text>
-<text x="121" y="84" text-anchor="middle" font-family="JetBrains Mono" font-size="4.4" fill="#62666d">1K-2K</text>
-<text x="163" y="84" text-anchor="middle" font-family="JetBrains Mono" font-size="4.4" fill="#62666d">&gt;2K</text>
-<text x="100" y="95" text-anchor="middle" font-family="JetBrains Mono" font-size="4.5" fill="#62666d">길이 구간별 micro-F1 개선폭 (pt) — 512 → 4096</text>
+<line x1="14" y1="12" x2="196" y2="12" stroke="rgba(16,18,20,0.06)" stroke-width="0.6" />
+<line x1="14" y1="44" x2="196" y2="44" stroke="rgba(16,18,20,0.06)" stroke-width="0.6" />
+<line x1="14" y1="76" x2="196" y2="76" stroke="rgba(16,18,20,0.12)" stroke-width="0.6" />
+<rect x="24" y="65" width="26" height="11" rx="1.5" fill="rgba(11,110,79,0.18)" stroke="#0b6e4f" stroke-width="0.6" />
+<text x="37" y="62" text-anchor="middle" font-family="IBM Plex Mono" font-size="5.5" fill="#5c605f">+0.29</text>
+<rect x="66" y="55" width="26" height="21" rx="1.5" fill="rgba(11,110,79,0.28)" stroke="#0b6e4f" stroke-width="0.6" />
+<text x="79" y="52" text-anchor="middle" font-family="IBM Plex Mono" font-size="5.5" fill="#5c605f">+0.55</text>
+<rect x="108" y="16" width="26" height="60" rx="1.5" fill="rgba(11,110,79,0.5)" stroke="#0b6e4f" stroke-width="0.7" />
+<text x="121" y="13" text-anchor="middle" font-family="IBM Plex Mono" font-size="5.5" fill="#0b6e4f">+1.58</text>
+<rect x="150" y="21" width="26" height="55" rx="1.5" fill="rgba(11,110,79,0.42)" stroke="#0b6e4f" stroke-width="0.7" />
+<text x="163" y="18" text-anchor="middle" font-family="IBM Plex Mono" font-size="5.5" fill="#0b6e4f">+1.44</text>
+<text x="37" y="84" text-anchor="middle" font-family="IBM Plex Mono" font-size="4.4" fill="#6e7271">≤512</text>
+<text x="79" y="84" text-anchor="middle" font-family="IBM Plex Mono" font-size="4.4" fill="#6e7271">512-1K</text>
+<text x="121" y="84" text-anchor="middle" font-family="IBM Plex Mono" font-size="4.4" fill="#6e7271">1K-2K</text>
+<text x="163" y="84" text-anchor="middle" font-family="IBM Plex Mono" font-size="4.4" fill="#6e7271">&gt;2K</text>
+<text x="100" y="95" text-anchor="middle" font-family="IBM Plex Mono" font-size="4.5" fill="#6e7271">길이 구간별 micro-F1 개선폭 (pt) — 512 → 4096</text>
 </svg>
 <figcaption>같은 모델·같은 레시피에서 컨텍스트 창만 512에서 4096으로 넓혔을 때의 구간별 이득. 절단이 없는 짧은 문서에서는 +0.29pt에 그치고 긴 문서에서 +1.58pt까지 오른다 — 512 창에서 잘려 나가던 청구항 본문을 회복한 결과라는 설명과 맞아떨어진다.</figcaption>
 </figure>

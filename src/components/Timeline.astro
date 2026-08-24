@@ -6,27 +6,22 @@ const entries = await getCollection('timeline');
 const items = entries.map((e) => e.data).sort((a, b) => a.order - b.order);
 ---
 
-<section id="timeline">
-  <div class="wrap wrap-narrow">
-    <div class="sec-head">
-      <div class="sec-num"><span class="hash">§</span> 05</div>
-      <div>
-        <span class="sec-kicker">Career / Education / Certification</span>
-        <h2 class="sec-title">데이터 분석가로 이어진 궤적.</h2>
-        <p class="sec-desc sec-desc--wide">어디서 무엇을 배우고 경험했는지의 흐름을 봐 주세요. 프로젝트는 <a href="/#projects" style="color:var(--accent-light)">03 · 프로젝트</a> 섹션에서 확인할 수 있습니다.</p>
+<section id="log">
+  <div class="wrap">
+    <div class="rail-grid frame sec-close">
+      <div class="rail">LOG</div>
+      <div class="reveal">
+        {items.map((it) => (
+          <div class="log-row" data-state={it.state}>
+            <div class="log-date">{it.date}</div>
+            <div>
+              <div class="log-title">{it.title}</div>
+              <div class="log-org">{it.org}</div>
+              <p class="log-desc" set:html={it.desc}></p>
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
-
-    <div class="timeline reveal">
-      {items.map((it) => (
-        <div class="tl-item" data-state={it.state}>
-          <div class="tl-date mono">{it.date}</div>
-          <div class="tl-title">{it.title}</div>
-          <div class="tl-org mono">{it.org}</div>
-          <div class="tl-desc" set:html={it.desc}></div>
-          <div class="tl-tags">{it.tags.map((t) => <span>{t}</span>)}</div>
-        </div>
-      ))}
     </div>
   </div>
 </section>

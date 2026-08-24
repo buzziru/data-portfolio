@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="7" fill="#5e6ad2"/>
-  <text x="16" y="16" font-family="'Segoe UI','Inter',system-ui,sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">D</text>
+  <rect width="32" height="32" fill="#101214"/>
+  <rect x="0" y="27" width="32" height="5" fill="#0b6e4f"/>
+  <text x="16" y="14" font-family="'IBM Plex Mono','Consolas',monospace" font-size="15" font-weight="600" letter-spacing="0.5" fill="#e8e6e0" text-anchor="middle" dominant-baseline="central">CI</text>
 </svg>

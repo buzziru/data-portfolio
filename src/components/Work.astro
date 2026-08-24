@@ -1,0 +1,92 @@
+---
+// 프로젝트는 카드가 아니라 격자 행이다 (CLAUDE.md · Design System).
+// featured 항목은 판독창 3칸 + FIXED 불릿으로 펼치고, 나머지는 표 한 줄로 접는다.
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  projects: (CollectionEntry<'projects'>['data'] & { slug: string })[];
+}
+
+const { projects } = Astro.props;
+
+const featured = projects.filter((p) => p.featured);
+const rest = projects.filter((p) => !p.featured);
+
+const STATUS_LABEL: Record<string, string> = {
+  completed: 'COMPLETED',
+  progress: 'IN PROGRESS',
+  planned: 'PLANNED',
+};
+
+const no = (order: number) => `P—${String(order).padStart(2, '0')}`;
+---
+
+<section id="work">
+  <div class="wrap">
+    <div class="frame">
+      <div class="rail-grid work-head-grid sec-close">
+        <div class="rail">WORK</div>
+        <div class="work-head">
+          <span class="work-note">각 항목은 고친 것과 그 결과로 적었습니다.</span>
+          <span class="work-count">{projects.length} ENTRIES · LAST SYNC 2026.08</span>
+        </div>
+      </div>
+
+      {featured.map((p) => (
+        <article class="rail-grid proj-row reveal">
+          <div class="proj-rail">
+            <div class="proj-no">{no(p.order)}</div>
+            <div class="proj-domain">{p.railNote ? `${p.domain}\n${p.railNote}` : p.domain}</div>
+            <div class="proj-status" data-status={p.status}>{STATUS_LABEL[p.status]}</div>
+          </div>
+          <div class="proj-body">
+            <h3 class="proj-title"><a href={`/projects/${p.slug}`}>{p.title}</a></h3>
+            <p class="proj-summary" set:html={p.summary} />
+
+            {p.results && (
+              <div class="proj-results">
+                {p.results.map((r) => (
+                  <div class="proj-result">
+                    <div class="proj-result-v">{r.v}</div>
+                    <div class="proj-result-k">{r.k}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {p.fixes && (
+              <>
+                <div class="proj-fixed-label">FIXED</div>
+                {p.fixes.map((f) => (
+                  <div class="proj-fix">
+                    <span class="dash">—</span>
+                    <p>{f}</p>
+                  </div>
+                ))}
+              </>
+            )}
+
+            <div class="proj-links">
+              <a class="link-strong" href={`/projects/${p.slug}`}>CASE STUDY →</a>
+              {p.github && <a class="link-quiet" href={p.github} target="_blank" rel="noopener">GITHUB ↗</a>}
+            </div>
+          </div>
+        </article>
+      ))}
+
+      <div class="rail-grid sec-close">
+        <div class="proj-rest-rail">OTHER<br />ENTRIES</div>
+        <div class="proj-rest-scroll reveal">
+          {rest.map((p) => (
+            <div class="proj-rest-row">
+              <span class="proj-rest-no">{no(p.order)}</span>
+              <span class="proj-rest-title"><a href={`/projects/${p.slug}`}>{p.title}</a></span>
+              <span class="proj-rest-metric">{p.listMetric ?? p.keyMetric}</span>
+              <span class="proj-rest-status" data-status={p.status}>{STATUS_LABEL[p.status]}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

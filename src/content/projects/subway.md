@@ -8,6 +8,7 @@ role: 팀장 · 주제 선정 · 데이터 수집·전처리 · 머신러닝 총
 methods: [다중 출처 데이터 수집, 대규모 전처리·통합, 선형회귀·LightGBM 비교, 교차검증]
 tools: [Python, pandas, scikit-learn, LightGBM, folium]
 keyMetric: 356만 행 · 50개 변수 단일 데이터셋으로 통합
+listMetric: "356만 행 · 50변수"
 thumb: forecast
 image: /projects/subway-demo.png
 thumbImage: /projects/subway-thumb.png

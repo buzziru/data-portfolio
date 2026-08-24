@@ -8,6 +8,7 @@ role: 개인 프로젝트 · 검색 파이프라인 · RAG 평가·ablation
 methods: [대화형 RAG, 히스토리 인지 질의 재작성, 조건부 그라운딩, 검색·생성 분리 평가]
 tools: [Python, LangChain, 한국어 임베딩, FAISS]
 keyMetric: 회의록 11,827건 · gold QA 44,033쌍 · RAG/FT/hybrid ablation
+listMetric: "gold QA 44,033쌍"
 thumb: rag
 ---
 

@@ -1,10 +1,10 @@
 const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('nav.top-nav a'));
 
-// On project detail pages, always highlight the projects link.
+// On project detail pages, always highlight the work link.
 if (window.location.pathname.startsWith('/projects/')) {
-  navLinks.find(l => l.getAttribute('href') === '/#projects')?.classList.add('active');
+  navLinks.find(l => l.getAttribute('href') === '/#work')?.classList.add('active');
 } else {
-  const sectionIds = ['summary', 'strengths', 'projects', 'skills', 'timeline', 'contact'];
+  const sectionIds = ['thesis', 'work', 'stack', 'log', 'contact'];
 
   function updateActive() {
     // A section becomes active when its top crosses 30% down from the viewport top.

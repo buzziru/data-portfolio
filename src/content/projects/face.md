@@ -1,13 +1,14 @@
 ---
 title: 얼굴 나이·성별·감정 멀티태스크 추정
 status: completed
-order: 3
+order: 5
 summary: RetinaFace 얼굴 검출 후 나이(회귀)·성별·감정(분류) 세 속성을 동시 추정하는 멀티태스크 딥러닝 파이프라인.
 domain: Computer Vision / 딥러닝
 role: 팀 3인 · 팀장 · 나이 회귀·멀티태스크 결합·Streamlit 담당
 methods: [RetinaFace, InceptionResNetv1 전이학습, CNN, 멀티태스크 학습]
 tools: [Python, PyTorch, RetinaFace, InceptionResNetv1, ONNX, Streamlit]
 keyMetric: 나이 MAE 4.66 · 성별 Acc 89.4% · 감정 Acc 67.8%
+listMetric: "MAE 4.66 · Acc 89.4 / 67.8"
 date: "2024"
 thumb: cnn
 image: /projects/face-demo.jpg
@@ -48,28 +49,28 @@ demoNote: 샘플 이미지를 누르면 얼굴별 나이·성별·감정 추론 
 
 <figure class="detail-split-fig">
 <svg viewBox="0 0 200 100" role="img" aria-label="연령대별 CS(5) 정확도 — 30대 이상 데이터 희소">
-<line x1="14" y1="8" x2="196" y2="8" stroke="rgba(255,255,255,0.06)" stroke-width="0.6" />
-<line x1="14" y1="44" x2="196" y2="44" stroke="rgba(255,255,255,0.06)" stroke-width="0.6" />
-<line x1="14" y1="80" x2="196" y2="80" stroke="rgba(255,255,255,0.1)" stroke-width="0.6" />
-<rect x="16" y="18" width="16" height="62" rx="1.5" fill="rgba(94,106,210,0.45)" stroke="#5e6ad2" stroke-width="0.6" />
-<text x="24" y="26" text-anchor="middle" font-family="JetBrains Mono" font-size="5" fill="#ba9cff">86.3</text>
-<rect x="42" y="26" width="16" height="54" rx="1.5" fill="rgba(94,106,210,0.35)" stroke="#5e6ad2" stroke-width="0.6" />
-<text x="50" y="34" text-anchor="middle" font-family="JetBrains Mono" font-size="5" fill="#ba9cff">75.2</text>
-<rect x="68" y="32" width="16" height="48" rx="1.5" fill="rgba(94,106,210,0.25)" stroke="#7877c6" stroke-width="0.6" />
-<text x="76" y="40" text-anchor="middle" font-family="JetBrains Mono" font-size="5" fill="#7877c6">67.0</text>
-<rect x="94" y="49" width="16" height="31" rx="1.5" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.15)" stroke-width="0.6" />
-<rect x="120" y="48" width="16" height="32" rx="1.5" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.15)" stroke-width="0.6" />
-<rect x="146" y="50" width="16" height="30" rx="1.5" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.15)" stroke-width="0.6" />
-<rect x="172" y="74" width="16" height="6" rx="1.5" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="0.6" />
-<text x="180" y="72" text-anchor="middle" font-family="JetBrains Mono" font-size="5" fill="#62666d">7.9</text>
-<text x="24" y="88" text-anchor="middle" font-family="JetBrains Mono" font-size="4" fill="#62666d">0-10</text>
-<text x="50" y="88" text-anchor="middle" font-family="JetBrains Mono" font-size="4" fill="#62666d">11-20</text>
-<text x="76" y="88" text-anchor="middle" font-family="JetBrains Mono" font-size="4" fill="#62666d">21-30</text>
-<text x="102" y="88" text-anchor="middle" font-family="JetBrains Mono" font-size="4" fill="#62666d">31-40</text>
-<text x="128" y="88" text-anchor="middle" font-family="JetBrains Mono" font-size="4" fill="#62666d">41-50</text>
-<text x="154" y="88" text-anchor="middle" font-family="JetBrains Mono" font-size="4" fill="#62666d">51-60</text>
-<text x="180" y="88" text-anchor="middle" font-family="JetBrains Mono" font-size="4" fill="#62666d">61+</text>
-<text x="100" y="97" text-anchor="middle" font-family="JetBrains Mono" font-size="4.5" fill="#62666d">연령대별 CS(5) — 30대↑ 데이터 희소</text>
+<line x1="14" y1="8" x2="196" y2="8" stroke="rgba(16,18,20,0.06)" stroke-width="0.6" />
+<line x1="14" y1="44" x2="196" y2="44" stroke="rgba(16,18,20,0.06)" stroke-width="0.6" />
+<line x1="14" y1="80" x2="196" y2="80" stroke="rgba(16,18,20,0.1)" stroke-width="0.6" />
+<rect x="16" y="18" width="16" height="62" rx="1.5" fill="rgba(11,110,79,0.45)" stroke="#0b6e4f" stroke-width="0.6" />
+<text x="24" y="26" text-anchor="middle" font-family="IBM Plex Mono" font-size="5" fill="#0b6e4f">86.3</text>
+<rect x="42" y="26" width="16" height="54" rx="1.5" fill="rgba(11,110,79,0.35)" stroke="#0b6e4f" stroke-width="0.6" />
+<text x="50" y="34" text-anchor="middle" font-family="IBM Plex Mono" font-size="5" fill="#0b6e4f">75.2</text>
+<rect x="68" y="32" width="16" height="48" rx="1.5" fill="rgba(11,110,79,0.25)" stroke="#5c605f" stroke-width="0.6" />
+<text x="76" y="40" text-anchor="middle" font-family="IBM Plex Mono" font-size="5" fill="#5c605f">67.0</text>
+<rect x="94" y="49" width="16" height="31" rx="1.5" fill="rgba(16,18,20,0.07)" stroke="rgba(16,18,20,0.15)" stroke-width="0.6" />
+<rect x="120" y="48" width="16" height="32" rx="1.5" fill="rgba(16,18,20,0.07)" stroke="rgba(16,18,20,0.15)" stroke-width="0.6" />
+<rect x="146" y="50" width="16" height="30" rx="1.5" fill="rgba(16,18,20,0.07)" stroke="rgba(16,18,20,0.15)" stroke-width="0.6" />
+<rect x="172" y="74" width="16" height="6" rx="1.5" fill="rgba(16,18,20,0.05)" stroke="rgba(16,18,20,0.1)" stroke-width="0.6" />
+<text x="180" y="72" text-anchor="middle" font-family="IBM Plex Mono" font-size="5" fill="#6e7271">7.9</text>
+<text x="24" y="88" text-anchor="middle" font-family="IBM Plex Mono" font-size="4" fill="#6e7271">0-10</text>
+<text x="50" y="88" text-anchor="middle" font-family="IBM Plex Mono" font-size="4" fill="#6e7271">11-20</text>
+<text x="76" y="88" text-anchor="middle" font-family="IBM Plex Mono" font-size="4" fill="#6e7271">21-30</text>
+<text x="102" y="88" text-anchor="middle" font-family="IBM Plex Mono" font-size="4" fill="#6e7271">31-40</text>
+<text x="128" y="88" text-anchor="middle" font-family="IBM Plex Mono" font-size="4" fill="#6e7271">41-50</text>
+<text x="154" y="88" text-anchor="middle" font-family="IBM Plex Mono" font-size="4" fill="#6e7271">51-60</text>
+<text x="180" y="88" text-anchor="middle" font-family="IBM Plex Mono" font-size="4" fill="#6e7271">61+</text>
+<text x="100" y="97" text-anchor="middle" font-family="IBM Plex Mono" font-size="4.5" fill="#6e7271">연령대별 CS(5) — 30대↑ 데이터 희소</text>
 </svg>
 <figcaption>학습 데이터가 0~20대에 집중되어 30대 이상은 표본이 희소하고, 연령대별 CS(5)가 급감한다 — 집계 지표가 감추던 고연령 실패를 드러낸 편중 진단.</figcaption>
 </figure>

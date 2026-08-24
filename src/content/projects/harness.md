@@ -9,6 +9,15 @@ methods: [Agentic Workflow, 4단계 점진 일반화, 어댑터 패턴, OOF 스�
 tools: [Python, Claude Code, Hydra, uv, Git, W&B]
 keyMetric: 6 에이전트 역할 분리 · 원격 GPU 4채널 오프로드 · 모델 추가 = 어댑터 1개
 date: "2026.06"
+featured: true
+railNote: "개인 · 2026.06"
+results:
+  - { v: "6", k: "역할 분리 에이전트" }
+  - { v: "4채널", k: "원격 GPU 비동기 오프로드" }
+  - { v: "어댑터 1개", k: "모델 추가 비용" }
+fixes:
+  - "작성자와 평가자를 구조적으로 분리 — 구현·실행·탐색 에이전트와 리뷰·감사 에이전트를 갈라 self-eval을 차단."
+  - "로컬 PC를 기준으로 원격 GPU 4채널에 헤드리스 오프로드하는 실행 경로 설계."
 thumb: harness
 github: https://github.com/buzziru/agentic-kaggle-tabular-template
 ---
@@ -71,35 +80,35 @@ github: https://github.com/buzziru/agentic-kaggle-tabular-template
 
 <figure class="detail-split-fig">
 <svg viewBox="0 0 200 140" role="img" aria-label="로컬 기준 실행 인프라 — 로컬 PC(CPU)의 push가 GPU·CPU 잡을 Kaggle 커널·RunPod·Lightning Job·Colab 4개 원격 채널로 병렬 발사하고, 완료되면 monitor가 알림을 받아 회수한다">
-<rect x="8" y="6" width="184" height="40" rx="5" fill="rgba(255,255,255,0.02)" stroke="#23252a" stroke-width="0.8" />
-<text x="100" y="13.5" text-anchor="middle" font-family="JetBrains Mono" font-size="4.6" fill="#8a8f98">로컬 PC (CPU) — 메인은 분석·판단 유지</text>
-<rect x="18" y="17" width="72" height="25" rx="4" fill="rgba(94,106,210,0.22)" stroke="#5e6ad2" stroke-width="1" />
-<text x="54" y="29" text-anchor="middle" font-family="JetBrains Mono" font-size="7.5" fill="#ba9cff">push</text>
-<text x="54" y="37" text-anchor="middle" font-family="JetBrains Mono" font-size="4.4" fill="#7877c6">백그라운드 발사 · 턴 종료</text>
-<rect x="110" y="17" width="72" height="25" rx="4" fill="rgba(255,255,255,0.03)" stroke="#34343a" stroke-width="0.9" />
-<text x="146" y="29" text-anchor="middle" font-family="JetBrains Mono" font-size="7.5" fill="#d0d6e0">monitor</text>
-<text x="146" y="37" text-anchor="middle" font-family="JetBrains Mono" font-size="4.4" fill="#8a8f98">완료 알림 수신 · 회수</text>
-<rect x="8" y="62" width="184" height="76" rx="5" fill="rgba(255,255,255,0.02)" stroke="#34343a" stroke-width="0.8" stroke-dasharray="3 2" />
-<text x="100" y="70.5" text-anchor="middle" font-family="JetBrains Mono" font-size="4.6" fill="#8a8f98">실행 인프라 — GPU·CPU 잡을 로컬 밖 4개 채널로 분산</text>
-<rect x="14" y="76" width="84" height="26" rx="3.5" fill="rgba(94,106,210,0.14)" stroke="#5e6ad2" stroke-width="0.9" />
-<text x="56" y="87" text-anchor="middle" font-family="JetBrains Mono" font-size="6" fill="#828fff">Kaggle 커널</text>
-<text x="56" y="96" text-anchor="middle" font-family="JetBrains Mono" font-size="4.4" fill="#8a8f98">기본 경로 · 무료 쿼터</text>
-<rect x="102" y="76" width="84" height="26" rx="3.5" fill="rgba(255,255,255,0.02)" stroke="#34343a" stroke-width="0.7" />
-<text x="144" y="87" text-anchor="middle" font-family="JetBrains Mono" font-size="6" fill="#d0d6e0">RunPod</text>
-<text x="144" y="96" text-anchor="middle" font-family="JetBrains Mono" font-size="4.4" fill="#8a8f98">장시간 무인 · 이미지 고정</text>
-<rect x="14" y="106" width="84" height="26" rx="3.5" fill="rgba(255,255,255,0.02)" stroke="#34343a" stroke-width="0.7" />
-<text x="56" y="117" text-anchor="middle" font-family="JetBrains Mono" font-size="6" fill="#d0d6e0">Lightning Job</text>
-<text x="56" y="126" text-anchor="middle" font-family="JetBrains Mono" font-size="4.4" fill="#8a8f98">크레딧 · wandb online</text>
-<rect x="102" y="106" width="84" height="26" rx="3.5" fill="rgba(255,255,255,0.02)" stroke="#34343a" stroke-width="0.7" />
-<text x="144" y="117" text-anchor="middle" font-family="JetBrains Mono" font-size="6" fill="#d0d6e0">Colab</text>
-<text x="144" y="126" text-anchor="middle" font-family="JetBrains Mono" font-size="4.4" fill="#8a8f98">짧은 왕복 · 보조 GPU</text>
-<path d="M54,46 L54,60.5" fill="none" stroke="#7877c6" stroke-width="0.9" stroke-dasharray="2.5 2" marker-end="url(#hd-arrow)" />
-<text x="51" y="55" text-anchor="end" font-family="JetBrains Mono" font-size="4.4" fill="#828fff">N개 잡 병렬 발사</text>
-<path d="M146,60.5 L146,46.5" fill="none" stroke="#7877c6" stroke-width="0.9" stroke-dasharray="2.5 2" marker-end="url(#hd-arrow)" />
-<text x="149" y="55" font-family="JetBrains Mono" font-size="4.4" fill="#8a8f98">완료 시 알림</text>
+<rect x="8" y="6" width="184" height="40" rx="5" fill="rgba(16,18,20,0.02)" stroke="#c4c1b8" stroke-width="0.8" />
+<text x="100" y="13.5" text-anchor="middle" font-family="IBM Plex Mono" font-size="4.6" fill="#5c605f">로컬 PC (CPU) — 메인은 분석·판단 유지</text>
+<rect x="18" y="17" width="72" height="25" rx="4" fill="rgba(11,110,79,0.22)" stroke="#0b6e4f" stroke-width="1" />
+<text x="54" y="29" text-anchor="middle" font-family="IBM Plex Mono" font-size="7.5" fill="#0b6e4f">push</text>
+<text x="54" y="37" text-anchor="middle" font-family="IBM Plex Mono" font-size="4.4" fill="#5c605f">백그라운드 발사 · 턴 종료</text>
+<rect x="110" y="17" width="72" height="25" rx="4" fill="rgba(16,18,20,0.03)" stroke="#c4c1b8" stroke-width="0.9" />
+<text x="146" y="29" text-anchor="middle" font-family="IBM Plex Mono" font-size="7.5" fill="#3d4144">monitor</text>
+<text x="146" y="37" text-anchor="middle" font-family="IBM Plex Mono" font-size="4.4" fill="#5c605f">완료 알림 수신 · 회수</text>
+<rect x="8" y="62" width="184" height="76" rx="5" fill="rgba(16,18,20,0.02)" stroke="#c4c1b8" stroke-width="0.8" stroke-dasharray="3 2" />
+<text x="100" y="70.5" text-anchor="middle" font-family="IBM Plex Mono" font-size="4.6" fill="#5c605f">실행 인프라 — GPU·CPU 잡을 로컬 밖 4개 채널로 분산</text>
+<rect x="14" y="76" width="84" height="26" rx="3.5" fill="rgba(11,110,79,0.14)" stroke="#0b6e4f" stroke-width="0.9" />
+<text x="56" y="87" text-anchor="middle" font-family="IBM Plex Mono" font-size="6" fill="#0b6e4f">Kaggle 커널</text>
+<text x="56" y="96" text-anchor="middle" font-family="IBM Plex Mono" font-size="4.4" fill="#5c605f">기본 경로 · 무료 쿼터</text>
+<rect x="102" y="76" width="84" height="26" rx="3.5" fill="rgba(16,18,20,0.02)" stroke="#c4c1b8" stroke-width="0.7" />
+<text x="144" y="87" text-anchor="middle" font-family="IBM Plex Mono" font-size="6" fill="#3d4144">RunPod</text>
+<text x="144" y="96" text-anchor="middle" font-family="IBM Plex Mono" font-size="4.4" fill="#5c605f">장시간 무인 · 이미지 고정</text>
+<rect x="14" y="106" width="84" height="26" rx="3.5" fill="rgba(16,18,20,0.02)" stroke="#c4c1b8" stroke-width="0.7" />
+<text x="56" y="117" text-anchor="middle" font-family="IBM Plex Mono" font-size="6" fill="#3d4144">Lightning Job</text>
+<text x="56" y="126" text-anchor="middle" font-family="IBM Plex Mono" font-size="4.4" fill="#5c605f">크레딧 · wandb online</text>
+<rect x="102" y="106" width="84" height="26" rx="3.5" fill="rgba(16,18,20,0.02)" stroke="#c4c1b8" stroke-width="0.7" />
+<text x="144" y="117" text-anchor="middle" font-family="IBM Plex Mono" font-size="6" fill="#3d4144">Colab</text>
+<text x="144" y="126" text-anchor="middle" font-family="IBM Plex Mono" font-size="4.4" fill="#5c605f">짧은 왕복 · 보조 GPU</text>
+<path d="M54,46 L54,60.5" fill="none" stroke="#5c605f" stroke-width="0.9" stroke-dasharray="2.5 2" marker-end="url(#hd-arrow)" />
+<text x="51" y="55" text-anchor="end" font-family="IBM Plex Mono" font-size="4.4" fill="#0b6e4f">N개 잡 병렬 발사</text>
+<path d="M146,60.5 L146,46.5" fill="none" stroke="#5c605f" stroke-width="0.9" stroke-dasharray="2.5 2" marker-end="url(#hd-arrow)" />
+<text x="149" y="55" font-family="IBM Plex Mono" font-size="4.4" fill="#5c605f">완료 시 알림</text>
 <defs>
 <marker id="hd-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
-<path d="M0,0 L10,5 L0,10" fill="#7877c6" />
+<path d="M0,0 L10,5 L0,10" fill="#5c605f" />
 </marker>
 </defs>
 </svg>

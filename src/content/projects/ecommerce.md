@@ -8,6 +8,7 @@ role: 팀 프로젝트 · DB 설계 · RFM 분석 담당
 methods: [관계형 DB 설계, SQL 분석, RFM 세분화, ARPU/ARPPU 지표 산출]
 tools: [SQL, AWS RDS, Python, pandas]
 keyMetric: AWS RDS 6테이블 직접 설계 · 1,468명 RFM 11개 그룹 세분화
+listMetric: "RDS 6테이블 · 1,468명 11군"
 thumb: recsys
 image: /projects/ecommerce-rfm-strategy.svg
 thumbImage: /projects/ecommerce-rfm-strategy-thumb.svg

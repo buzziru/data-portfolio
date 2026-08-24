@@ -19,9 +19,9 @@ const d = entry.data;
 const titleHtml = entry.id === 'harness' ? d.title.replace(' — ', ' —<br>') : null;
 
 const STATUS_LABEL: Record<string, string> = {
-  completed: 'Completed',
-  progress: 'In Progress',
-  planned: 'Planned',
+  completed: 'COMPLETED',
+  progress: 'IN PROGRESS',
+  planned: 'PLANNED',
 };
 ---
 
@@ -34,7 +34,7 @@ const STATUS_LABEL: Record<string, string> = {
         <div class="detail-head-left">
           <div class="detail-kicker">CASE {String(d.order).padStart(2, '0')} · {d.domain}</div>
           {titleHtml ? <h1 class="detail-title" set:html={titleHtml} /> : <h1 class="detail-title">{d.title}</h1>}
-          <span class={`status-pill status-${d.status} mono`} style="position:static;display:inline-block;margin-bottom:16px;">{STATUS_LABEL[d.status]}</span>
+          <span class="detail-status" data-status={d.status}>{STATUS_LABEL[d.status]}</span>
           <p class="detail-summary" set:html={d.summary} />
           <p class="detail-metric mono">{d.keyMetric}</p>
 
@@ -48,8 +48,8 @@ const STATUS_LABEL: Record<string, string> = {
 
           {(d.github || d.demo) && (
             <div class="detail-actions">
-              {d.github && <a class="btn btn-ghost" href={d.github} target="_blank" rel="noopener">GitHub ↗</a>}
-              {d.demo && <a class="btn btn-primary" href={d.demo} target="_blank" rel="noopener">Live Demo ↗</a>}
+              {d.demo && <a class="link-strong" href={d.demo} target="_blank" rel="noopener">LIVE DEMO ↗</a>}
+              {d.github && <a class="link-quiet" href={d.github} target="_blank" rel="noopener">GITHUB ↗</a>}
             </div>
           )}
         </div>
