@@ -7,16 +7,26 @@ domain: Kaggle / ML 엔지니어링
 role: 개인 · 설계·운영 전담
 methods: [Agentic Workflow, 4단계 점진 일반화, 어댑터 패턴, OOF 스태킹·앙상블]
 tools: [Python, Claude Code, Hydra, uv, Git, W&B]
-keyMetric: 6 에이전트 역할 분리 · 원격 GPU 4채널 오프로드 · 모델 추가 = 어댑터 1개
+# 상세 헤더 한 줄 — WORK 의 VERIFIED 띠와 같은 값·같은 순서(재적용이 먼저).
+keyMetric: 2개 대회 재적용 · F1 ROC-AUC 0.95460 (상위 4.9%) · Stellar balanced acc. 0.9709
 date: "2026.06"
 featured: true
 railNote: "개인 · 2026.06"
+# WORK 행은 STAGES(무엇을 만들었나) → VERIFIED(그게 작동했나) → FIXED(무엇을 고쳤나) 순.
+# stages 를 지우면 아래 판독창만 남는다.
+stages:
+  - { v: "v0.1", n: "만들기", k: "코어 패턴을 코드로 굳힘" }
+  - { v: "v0.3", n: "템플릿화", k: "워크플로·가드만 승격" }
+  - { v: "v0.4", n: "재적용", k: "다른 대회에 적용·보완" }
+  - { v: "v0.6", n: "경화", k: "자체 감사·자동 검증" }
+# 구조 수치(에이전트 6·4채널·어댑터)는 stages 와 중복이라 빼고 검증 증거만 남긴다.
+# 첫 칸은 반드시 재적용 횟수 — 성적이 앞서면 띠 전체가 성적 자랑으로 읽힌다.
 results:
-  - { v: "6", k: "역할 분리 에이전트" }
-  - { v: "4채널", k: "원격 GPU 비동기 오프로드" }
-  - { v: "어댑터 1개", k: "모델 추가 비용" }
+  - { v: "2개 대회", k: "재적용 검증 · F1 → Stellar" }
+  - { v: "상위 4.9%", k: "F1 (S6E5) · 148/3,023팀" }
+  - { v: "0.9709", k: "Stellar 재적용 · balanced acc." }
 fixes:
-  - "작성자와 평가자를 구조적으로 분리 — 구현·실행·탐색 에이전트와 리뷰·감사 에이전트를 갈라 self-eval을 차단."
+  - "작성자와 평가자를 구조적으로 분리 — 구현·실행·탐색 에이전트와 리뷰·감사 에이전트를 갈라 self‑eval을 차단."
   - "로컬 PC를 기준으로 원격 GPU 4채널에 헤드리스 오프로드하는 실행 경로 설계."
 thumb: harness
 github: https://github.com/buzziru/agentic-kaggle-tabular-template

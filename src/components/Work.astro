@@ -43,15 +43,35 @@ const no = (order: number) => `P—${String(order).padStart(2, '0')}`;
             <h3 class="proj-title"><a href={`/projects/${p.slug}`}>{p.title}</a></h3>
             <p class="proj-summary" set:html={p.summary} />
 
+            {/* 결과가 점수가 아닌 프로젝트는 판독창 앞에 승격 계보를 먼저 놓는다.
+                띠 라벨은 stages 가 있을 때만 — 다른 행은 판독창 하나뿐이라 붙일 이유가 없다. */}
+            {p.stages && (
+              <>
+                <div class="proj-strip-label">STAGES</div>
+                <div class="proj-stages">
+                  {p.stages.map((s) => (
+                    <div class="proj-stage">
+                      <div class="proj-stage-v">{s.v}</div>
+                      <div class="proj-stage-n">{s.n}</div>
+                      <div class="proj-stage-k">{s.k}</div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+
             {p.results && (
-              <div class="proj-results">
-                {p.results.map((r) => (
-                  <div class="proj-result">
-                    <div class="proj-result-v">{r.v}</div>
-                    <div class="proj-result-k">{r.k}</div>
-                  </div>
-                ))}
-              </div>
+              <>
+                {p.stages && <div class="proj-strip-label">VERIFIED</div>}
+                <div class="proj-results">
+                  {p.results.map((r) => (
+                    <div class="proj-result">
+                      <div class="proj-result-v">{r.v}</div>
+                      <div class="proj-result-k">{r.k}</div>
+                    </div>
+                  ))}
+                </div>
+              </>
             )}
 
             {p.fixes && (

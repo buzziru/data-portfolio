@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { joinWithDot } from '../lib/text';
 
 // 데이터는 src/data/skills.yaml 에서 관리합니다.
 const entries = await getCollection('skills');
@@ -17,7 +18,7 @@ const rows = entries.map((e) => e.data).sort((a, b) => a.order - b.order);
               <div class="stack-label" data-level={s.level}>{s.label}</div>
               <div class="stack-note">{s.note}</div>
             </div>
-            <p class="stack-items">{s.items}</p>
+            <p class="stack-items">{joinWithDot(s.items.split(' · '))}</p>
           </div>
         ))}
       </div>

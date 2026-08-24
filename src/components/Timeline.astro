@@ -17,7 +17,16 @@ const items = entries.map((e) => e.data).sort((a, b) => a.order - b.order);
             <div>
               <div class="log-title">{it.title}</div>
               <div class="log-org">{it.org}</div>
-              <p class="log-desc" set:html={it.desc}></p>
+              {Array.isArray(it.desc) ? (
+                it.desc.map((d) => (
+                  <div class="log-item">
+                    <span class="dash">—</span>
+                    <p set:html={d} />
+                  </div>
+                ))
+              ) : (
+                <p class="log-desc" set:html={it.desc}></p>
+              )}
             </div>
           </div>
         ))}

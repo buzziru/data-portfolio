@@ -55,6 +55,11 @@ body{
   overflow-x:hidden;
   word-break:keep-all;
 }
+/* 줄 나눔 — 어절은 쪼개지 않고(keep-all), 마지막 줄에 한 어절만 남는 것을 피한다.
+   미지원 브라우저는 이 선언을 무시하고 기존 동작으로 흐른다. */
+p,li,dd,figcaption,td,th{text-wrap:pretty;}
+h1,h2,h3,blockquote{text-wrap:balance;}
+
 ::selection{background:var(--signal-wash);}
 a{color:var(--signal);text-decoration:none;}
 a:hover{color:var(--ink);}
@@ -106,7 +111,8 @@ nav.top-nav a.nav-cta:hover,nav.top-nav a.nav-cta.active{color:var(--ink);}
 
 /* ── Hero ── */
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 380px;}
-.hero-text{padding:64px var(--body-pad) 52px;border-right:1px solid var(--rule);}
+/* --measure: 제목과 소개문이 공유하는 오른쪽 한계선 */
+.hero-text{padding:64px var(--body-pad) 52px;border-right:1px solid var(--rule);--measure:696px;}
 .hero-kicker{
   font-size:13px;font-weight:600;letter-spacing:.01em;
   color:var(--signal);margin-bottom:36px;
@@ -114,13 +120,19 @@ nav.top-nav a.nav-cta:hover,nav.top-nav a.nav-cta.active{color:var(--ink);}
 h1.hero-title{
   font-family:var(--font-display);font-weight:600;
   font-size:58px;line-height:1.08;letter-spacing:-.035em;
-  margin:0 0 30px;max-width:20ch;
+  margin:0 0 30px;max-width:var(--measure);text-wrap:balance;
 }
-.hero-sub{font-size:16px;line-height:1.75;color:var(--ink-2);margin:0 0 32px;max-width:48ch;}
+.hero-sub{font-size:16px;line-height:1.75;color:var(--ink-2);margin:0 0 32px;max-width:var(--measure);}
 .hero-cta{display:flex;gap:10px;flex-wrap:wrap;}
 
 /* 판독창 (readout) — 출처 있는 실측치만 */
-.readout{padding:20px 24px;border-bottom:1px solid var(--rule);}
+/* 세 칸이 텍스트 칸 높이를 균등하게 나눠 채운다 — 마지막 괘선이 섹션 경계에 맞아떨어져야
+   칸이 모자란 것처럼 보이지 않는다. 칸 수가 바뀌면 이 값도 같이 바꾼다. */
+.hero-readouts{display:grid;grid-template-rows:repeat(3,1fr);}
+.readout{
+  padding:20px 24px;border-bottom:1px solid var(--rule);
+  display:flex;flex-direction:column;justify-content:center;
+}
 .readout-label{font-size:11.5px;letter-spacing:.01em;color:var(--ink-subtle);margin-bottom:8px;}
 .readout-value{
   font-family:var(--font-mono);font-size:30px;font-weight:500;
@@ -161,8 +173,8 @@ h1.hero-title{
   font-family:var(--font-display);font-size:26px;font-weight:500;
   line-height:1.5;letter-spacing:-.025em;margin:0 0 28px;max-width:38ch;
 }
-.thesis-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:44px;max-width:78ch;}
-.thesis-cols p{font-size:15.5px;line-height:1.8;color:var(--ink-2);margin:0;}
+.thesis-body{display:flex;flex-direction:column;gap:22px;max-width:66ch;}
+.thesis-body p{font-size:15.5px;line-height:1.8;color:var(--ink-2);margin:0;}
 
 /* ── Work ── */
 .work-head{padding:28px var(--body-pad);display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;}
@@ -179,14 +191,18 @@ h1.hero-title{
 .proj-status[data-status="planned"]{color:var(--pending);}
 .proj-status[data-status="progress"]{color:var(--ink-muted);}
 
-.proj-body{padding:36px var(--body-pad) 40px;}
+/* --measure: 산문의 오른쪽 한계선을 판독창 3칸 격자의 오른쪽 끝선에 맞춘다.
+   제목·요약·FIXED 가 판독창과 같은 세로선에서 끝나야 행이 도면처럼 닫힌다.
+   줄 길이는 폭으로 죄지 않고 summary 안의 명시적 <br>(의미 단위)로 잡는다. */
+.proj-body{padding:36px var(--body-pad) 40px;--measure:100%;}
 .proj-title{
   font-family:var(--font-display);font-size:27px;font-weight:600;
-  line-height:1.25;letter-spacing:-.03em;margin:0 0 12px;max-width:34ch;
+  line-height:1.25;letter-spacing:-.03em;margin:0 0 12px;
+  max-width:var(--measure);text-wrap:balance;
 }
 .proj-title a{color:inherit;}
 .proj-title a:hover{color:var(--signal);}
-.proj-summary{font-size:15px;line-height:1.75;color:var(--ink-2);margin:0 0 28px;max-width:60ch;}
+.proj-summary{font-size:15px;line-height:1.75;color:var(--ink-2);margin:0 0 28px;max-width:var(--measure);}
 
 .proj-results{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink);margin-bottom:26px;}
 .proj-result{padding:16px 18px;border-right:1px solid var(--rule);background:var(--paper-sunk);}
@@ -194,8 +210,25 @@ h1.hero-title{
 .proj-result-v{font-family:var(--font-mono);font-size:24px;font-weight:500;letter-spacing:-.03em;line-height:1.05;color:var(--ink);}
 .proj-result-k{font-size:11.5px;color:var(--ink-muted);margin-top:7px;line-height:1.45;}
 
-.proj-fixed-label{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.16em;color:var(--signal);margin-bottom:10px;}
-.proj-fix{display:grid;grid-template-columns:14px 1fr;gap:10px;margin-bottom:8px;max-width:62ch;}
+.proj-fixed-label,.proj-strip-label{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.16em;color:var(--signal);margin-bottom:10px;}
+
+/* 승격 계보 — 결과가 점수가 아니라 구조인 프로젝트는 판독창 대신 단계를 보여준다.
+   판독창과 같은 띠·괘선을 쓰되 셀 사이 화살표로 왼→오 진행을 표시한다. */
+.proj-stages{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink);margin-bottom:26px;}
+.proj-stage{padding:16px 18px;border-right:1px solid var(--rule);background:var(--paper-sunk);position:relative;}
+.proj-stage:last-child{border-right:none;}
+/* 괘선 위에 얹어 선을 끊는다 — 배경색이 같아야 화살표가 떠 보이지 않는다 */
+.proj-stage:not(:last-child)::after{
+  content:"→";position:absolute;right:-8px;top:50%;transform:translateY(-50%);
+  width:16px;text-align:center;padding:4px 0;background:var(--paper-sunk);
+  font-family:var(--font-mono);font-size:12px;line-height:1;color:var(--ink-faint);
+  /* 다음 셀이 DOM 뒤라 배경이 화살표를 덮는다 — 위로 올린다 */
+  z-index:1;
+}
+.proj-stage-v{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--signal);margin-bottom:7px;}
+.proj-stage-n{font-size:17px;font-weight:500;letter-spacing:-.02em;line-height:1.2;color:var(--ink);}
+.proj-stage-k{font-size:11.5px;color:var(--ink-muted);margin-top:7px;line-height:1.45;}
+.proj-fix{display:grid;grid-template-columns:14px 1fr;gap:10px;margin-bottom:8px;max-width:var(--measure);}
 .proj-fix .dash{font-family:var(--font-mono);font-size:13px;color:var(--signal);line-height:1.7;}
 .proj-fix p{font-size:14.5px;line-height:1.7;color:var(--ink-2);margin:0;}
 .proj-links{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap;}
@@ -243,6 +276,12 @@ h1.hero-title{
 .log-title{font-size:15.5px;color:var(--ink);font-weight:500;margin-bottom:3px;}
 .log-org{font-size:12.5px;color:var(--ink-faint);margin-bottom:8px;}
 .log-desc{font-size:14.5px;line-height:1.7;color:var(--ink-2);margin:0;max-width:56ch;}
+/* 실제로 여러 건인 이력은 대시 불릿으로 — 한 건이 줄바꿈된 건지 두 건인지 구분되어야 한다.
+   매달린 들여쓰기라 감긴 줄은 대시가 아니라 본문 아래로 붙는다 (WORK 의 .proj-fix 와 같은 격자). */
+.log-item{display:grid;grid-template-columns:14px 1fr;gap:10px;margin-bottom:8px;}
+.log-item:last-child{margin-bottom:0;}
+.log-item .dash{font-family:var(--font-mono);font-size:13px;color:var(--signal);line-height:1.7;}
+.log-item p{font-size:14.5px;line-height:1.7;color:var(--ink-2);margin:0;}
 
 /* ── Contact (어두운 면) ── */
 .contact{background:var(--ink);color:var(--on-ink);}
@@ -278,6 +317,11 @@ footer.site{background:var(--ink);color:var(--on-ink);}
   .proj-results{grid-template-columns:repeat(2,1fr);}
   .proj-result:nth-child(2n){border-right:none;}
   .proj-result:nth-child(-n+2){border-bottom:1px solid var(--rule);}
+  /* 계보도 2열로 접는다 — 줄 끝 셀의 화살표는 가리킬 곳이 없으므로 숨긴다 */
+  .proj-stages{grid-template-columns:repeat(2,1fr);}
+  .proj-stage:nth-child(2n){border-right:none;}
+  .proj-stage:nth-child(2n)::after{content:none;}
+  .proj-stage:nth-child(-n+2){border-bottom:1px solid var(--rule);}
   .contact-grid{grid-template-columns:1fr 340px;gap:40px;}
   .contact-msg{font-size:32px;}
 }
@@ -294,7 +338,6 @@ footer.site{background:var(--ink);color:var(--on-ink);}
   .hero-grid{grid-template-columns:1fr;}
   .hero-text{border-right:none;border-bottom:1px solid var(--rule);padding:48px var(--body-pad) 40px;}
   h1.hero-title{font-size:38px;letter-spacing:-.03em;}
-  .thesis-cols{grid-template-columns:1fr;gap:20px;}
   .stack-row,.log-row{grid-template-columns:1fr;gap:10px;}
   .contact-grid{grid-template-columns:1fr;gap:36px;align-items:start;}
   .contact-inner{padding:56px var(--gutter);}
@@ -315,6 +358,10 @@ footer.site{background:var(--ink);color:var(--on-ink);}
   .proj-results{grid-template-columns:1fr;}
   .proj-result{border-right:none;border-bottom:1px solid var(--rule);}
   .proj-result:last-child{border-bottom:none;}
+  .proj-stages{grid-template-columns:1fr;}
+  .proj-stage{border-right:none;border-bottom:1px solid var(--rule);}
+  .proj-stage:last-child{border-bottom:none;}
+  .proj-stage::after{content:none;}
 }
 
 /* ── Project detail page ──
@@ -325,8 +372,10 @@ footer.site{background:var(--ink);color:var(--on-ink);}
   color:var(--signal);letter-spacing:.04em;
   display:inline-flex;align-items:center;gap:6px;margin-bottom:28px;
 }
+/* 글이 도판보다 넓은 칸을 쓴다 — 좁은 칸에 52px 제목을 넣으면 한 줄에 8자밖에 못 들어가
+   "특허" 같은 어절이 한 줄을 통째로 차지한다 */
 .detail-head-grid{
-  display:grid;grid-template-columns:420px 1fr;gap:56px;
+  display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,0.88fr);gap:48px;
   align-items:center;margin-bottom:56px;
   padding-bottom:40px;border-bottom:1px solid var(--ink);
 }

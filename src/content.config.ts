@@ -21,6 +21,9 @@ const projects = defineCollection({
     featured: z.boolean().optional(),
     railNote: z.string().optional(), // 레일 둘째 줄 ("개인 · 2026.07") — featured 전용
     results: z.array(z.object({ v: z.string(), k: z.string() })).optional(), // 판독창 3칸
+    // 결과가 점수가 아니라 구조인 프로젝트(ML 하니스)용 — 있으면 판독창 대신 승격 계보를 렌더한다.
+    // v=버전, n=단계 이름, k=한 줄 설명. results 는 남겨두고 이 필드만 지우면 판독창으로 되돌아간다.
+    stages: z.array(z.object({ v: z.string(), n: z.string(), k: z.string() })).optional(),
     fixes: z.array(z.string()).optional(), // FIXED 불릿 — 고친 것(판단)
     listMetric: z.string().optional(), // 표 한 줄용 축약 지표 (없으면 keyMetric)
     thumb: z.string(), // ProjectThumb SVG key (churn|cnn|forecast|nlp|recsys|…)
@@ -42,7 +45,9 @@ const timeline = defineCollection({
     state: z.enum(['current']).optional(), // 진행 중인 항목만
     title: z.string(),
     org: z.string(),
-    desc: z.string(),
+    // 한 줄이면 문자열, 실제로 여러 건이면 배열 — 배열은 대시 불릿으로 렌더된다.
+    // <br /> 로 이어붙인 문자열로 여러 건을 표현하지 않는다 (한 항목처럼 읽힌다).
+    desc: z.union([z.string(), z.array(z.string())]),
     tags: z.array(z.string()),
   }),
 });
