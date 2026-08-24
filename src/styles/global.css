@@ -369,7 +369,7 @@ footer.site{background:var(--ink);color:var(--on-ink);}
 /* --detail-measure: 노리는 산문 칼럼 폭. 실제 폭은 "틀 - 레일 2개"로 나오고, 이 값은 레일 계산에만 쓴다.
    --detail-rail: 산문 왼쪽 여백이자 섹션 번호·킥커가 앉는 자리. 값은 "틀 폭에서 산문을 뺀 나머지의 절반" —
    1240 틀에서 (1176 - 720) / 2 = 228 이라 산문이 틀 정중앙에 놓이고, 레일까지 되물리는 전폭 블록
-   (.detail-wide / .detail-fig)은 좌우로 똑같이 228 씩 벌어진다. 한쪽으로만 튀어나오지 않게 하는 것이 요지.
+   (.detail-fig / 데모 프레임)은 좌우로 똑같이 228 씩 벌어진다. 한쪽으로만 튀어나오지 않게 하는 것이 요지.
    틀이 1240 보다 좁아지면 clamp 가 레일을 함께 줄여 대칭을 유지한다. 둘 다 여기서만 바꾼다. */
 .detail-main{
   padding:56px 0 96px;
@@ -479,11 +479,27 @@ footer.site{background:var(--ink);color:var(--on-ink);}
 }
 /* 본문 도식(figure): 프로즈 칼럼(720px)을 벗어나 콘텐츠 전체 폭으로 표시 */
 .detail-body img{display:block;width:100%;height:auto;margin:8px 0 24px;border:1px solid var(--rule);background:var(--paper-sunk);}
-/* 산문이 아닌 블록(넓은 표)은 레일까지 좌우로 되물려 전폭으로 — 표는 넓혀도 가독성이 나빠지지 않는다.
-   짧은 표까지 넓히면 오히려 허전해지므로, 열이 많거나 셀이 3줄 이상 감기는 표에만 쓴다.
-   레일이 접히는 ≤900px 에서는 음수 마진이 0 이 되어 저절로 전폭이다. */
-.detail-body .detail-wide{margin:0 calc(var(--detail-rail) * -1) 20px;}
-.detail-body .detail-wide table{margin-bottom:0;}
+/* 서술형 3열 표는 표를 쓰지 않는다 — 열끼리 비교할 값이 없어 격자가 폭만 잡아먹고,
+   산문 폭(720px)에 넣으면 열이 130~330px 로 쪼개져 어절이 의미 단위 중간에서 끊긴다.
+   모노 라벨 레일 + 전폭 본문으로 풀면 본문이 611px 를 통째로 써서 문장이 1~2줄에 들어간다.
+   숫자를 나열해 비교하는 표는 그대로 <table> 로 둔다. */
+.detail-body .detail-notes{margin:0 0 20px;border-top:1px solid var(--ink);}
+.detail-body .detail-notes > div{
+  display:grid;grid-template-columns:78px minmax(0,1fr);gap:0 16px;
+  padding:14px 0;border-bottom:1px solid var(--rule-soft);
+}
+.detail-body .detail-notes dt{
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;
+  color:var(--ink-faint);line-height:1.9;
+}
+.detail-body .detail-notes dd{font-size:15px;line-height:1.8;color:var(--ink-2);}
+.detail-body .detail-notes .detail-note-lead{color:var(--ink);font-weight:600;}
+/* 좁은 화면에서는 라벨을 본문 위로 올린다 — 78px 레일을 남기면 본문이 그만큼 더 쪼개진다 */
+@media(max-width:640px){
+  .detail-body .detail-notes > div{grid-template-columns:1fr;gap:2px;}
+  .detail-body .detail-notes dt{line-height:1.6;margin-top:6px;}
+  .detail-body .detail-notes dt:first-of-type{margin-top:0;}
+}
 
 .detail-fig{margin:16px calc(var(--detail-rail) * -1) 32px;}
 .detail-fig img{margin:0;}
@@ -491,7 +507,7 @@ footer.site{background:var(--ink);color:var(--on-ink);}
 
 /* 좌: 텍스트 / 우: 편중 차트 — 산문 칼럼을 벗어나 우측 여백을 활용 */
 /* split 은 왼쪽 절반이 산문이므로 왼쪽 레일은 되물리지 않는다 — 산문 시작선을 지키고
-   오른쪽으로만 늘려 도식이 여백을 쓴다. 순수 도판인 .detail-fig / .detail-wide 와 다른 점.
+   오른쪽으로만 늘려 도식이 여백을 쓴다. 순수 도판인 .detail-fig 와 다른 점.
    오른쪽 끝선은 전폭 블록과 같은 자리라 기준선이 늘어나지 않는다. */
 .detail-body .detail-split{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:40px;align-items:center;margin:14px calc(var(--detail-rail) * -1) 34px 0;}
 .detail-body .detail-split-body > :first-child{margin-top:0;}
@@ -532,7 +548,7 @@ footer.site{background:var(--ink);color:var(--on-ink);}
    따로 두면(13.5px / --ink-muted / 1.65 / 64ch) 같은 지면에서 혼자 캡션처럼 보인다.
    폭은 레일 패딩이 잡아 주므로 따로 max-width 를 두지 않는다 — 두면 산문보다 몇 px 더 나간다. */
 .detail-demo-note{font-size:15px;color:var(--ink-2);line-height:1.8;margin-bottom:18px;}
-/* 테두리가 보이는 확장 블록은 좌우 모두 레일까지 되물려 틀 전폭으로 — .detail-wide 와 같은 처리.
+/* 테두리가 보이는 확장 블록은 좌우 모두 레일까지 되물려 틀 전폭으로 — .detail-fig 와 같은 처리.
    산문 왼쪽선에만 맞추면 무거운 판이 오른쪽으로 치우쳐 보인다. 두 변을 다 틀 선에 얹어야
    산문 중심축을 기준으로 좌우 대칭이 된다. 킥커·안내문은 산문 축에 그대로 남는다. */
 .detail-demo-frame{
