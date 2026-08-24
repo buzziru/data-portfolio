@@ -1,15 +1,24 @@
 ---
 title: 얼굴 나이·성별·감정 멀티태스크 추정
 status: completed
-order: 5
+order: 4
 summary: RetinaFace 얼굴 검출 후 나이(회귀)·성별·감정(분류) 세 속성을 동시 추정하는 멀티태스크 딥러닝 파이프라인.
 domain: Computer Vision / 딥러닝
 role: 팀 3인 · 팀장 · 나이 회귀·멀티태스크 결합·Streamlit 담당
 methods: [RetinaFace, InceptionResNetv1 전이학습, CNN, 멀티태스크 학습]
 tools: [Python, PyTorch, RetinaFace, InceptionResNetv1, ONNX, Streamlit]
 keyMetric: 나이 MAE 4.66 · 성별 Acc 89.4% · 감정 Acc 67.8%
-listMetric: "MAE 4.66 · Acc 89.4 / 67.8"
 date: "2024"
+featured: true
+railNote: "팀장 · 2024"
+results:
+  - { v: "MAE 4.66", k: "나이 회귀 · 전체 집계" }
+  - { v: "86.3% → 7.9%", k: "CS(5) · 0–10대 → 61세+" }
+  - { v: "89.4% / 67.8%", k: "성별 Acc / 감정 6클래스 Acc" }
+fixes:
+  - "전체 MAE가 저연령 75% 편중에 끌려가 고연령 실패를 은폐하는 것을 확인하고, 연령대별 MAE·CS(5)를 분리 지표로 도입."
+  - "회귀와 분류를 한 백본에 묶지 않고 태스크별 전용 백본으로 갈라 학습한 뒤 추론 시점에 결합."
+  - "학습 가중치를 그대로 로드하던 데모를 세 모델 모두 ONNX로 변환해 onnxruntime(CPU) 추론으로 교체."
 thumb: cnn
 image: /projects/face-demo.jpg
 github: https://github.com/buzziru/DL_FACE_REC

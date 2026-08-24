@@ -1,22 +1,14 @@
 ---
 title: 은행 고객 이탈 예측 — 비용 기반 지표 재정의
 status: completed
-order: 4
+order: 5
 summary: 대회 지표(AUROC) 대신 유치비용 > 방지비용 구조에 맞춰 Recall 중심으로 문제를 재정의. CatBoost로 이탈 고객 78% 포착.
 domain: 금융 / 고객 분석
 role: 팀장 · 문제 정의·모델 선택 주도
 methods: [Logistic Regression, XGBoost, CatBoost, class_weight 불균형 처리]
 tools: [Python, scikit-learn, XGBoost, CatBoost, Streamlit]
 keyMetric: Recall 0.78 (이탈 고객 78% 포착)
-featured: true
-railNote: "팀장 · 팀 프로젝트"
-results:
-  - { v: "0.78", k: "Recall — 이탈 고객 78% 포착" }
-  - { v: "팀장", k: "문제 정의 · 모델 선택 주도" }
-  - { v: "CatBoost", k: "범주형 비중에 맞춘 주 모델" }
-fixes:
-  - "유치비용 > 방지비용 구조를 근거로 주 지표를 AUROC에서 Recall로 교체."
-  - "팀 실험 계획을 역할별로 분담하고 결과를 발표 자료로 정리."
+listMetric: "Recall 0.78 · CatBoost"
 thumb: churn
 image: /projects/bank-churn-demo.png
 github: https://github.com/buzziru/ML_Team_Project
