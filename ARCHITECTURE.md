@@ -40,7 +40,6 @@ src/
     Timeline.astro            # LOG     ◀ timeline 컬렉션
     Contact.astro             # CONTACT 밴드
     ProjectThumb.tsx          # inline-SVG thumbnail chosen by `thumb` key [React]
-    Process.astro             # ⚠ 고아 — 어디서도 import 하지 않고 CSS 도 없다 (§9)
   content.config.ts           # collection definitions + Zod schemas (the data contract)
   content/projects/*.md       # projects collection (1 file = 1 project)
   data/timeline.yaml          # timeline collection (이력)
@@ -51,7 +50,6 @@ src/
   styles/global.css           # entire design system
 DESIGN-instrument.md          # 시각 언어 정본 (색·타이포·레이아웃 규칙)
 scripts/generate-og.mjs       # public/og.png 재생성 (`npm run og`, sharp 사용)
-legacy/index.html             # pre-migration original, reference only (not built)
 ```
 
 ## 3. Rendering model (the key idea)
@@ -191,10 +189,6 @@ read CSS variables — so they must be remapped by hand whenever the palette cha
   renders the seam as a separator.
 - **Build = the test.** No unit tests; `npm run build` type-checks and validates all
   content. A green build is the correctness gate.
-- **`Process.astro`** is orphaned — nothing imports it and its CSS was removed with
-  the 2026.08 개편. Delete it, or wire it back into `index.astro`.
-- **`legacy/index.html`** is reference-only and excluded from the build (it lives
-  outside `src/pages`); it now predates two design languages. Delete it.
 
 ## 10. Commands
 

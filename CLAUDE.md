@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-A Korean-language portfolio site for a junior data analyst, built with **Astro 5 + React**. It was migrated from a single `index.html` (preserved at `legacy/index.html` as the visual reference) into a component-based, data-driven structure. The landing page is one long scroll of seven numbered sections; each project also has its own static detail page. Output is a fully static site (no server).
+A Korean-language portfolio site for a junior data analyst, built with **Astro 5 + React**. Content is data-driven — the site grows by adding Markdown/YAML files, not by editing markup. The landing page is one long scroll of six named sections (`hero` · `thesis` · `work` · `stack` · `log` · `contact`); each project also has its own static detail page. Output is a fully static site (no server).
 
 ## Commands
 
@@ -101,4 +101,3 @@ Token map (`src/styles/global.css` `:root`):
 - 연락처·링크·이력은 모두 실제 값이다 (`paraise@gmail.com` · `github.com/buzziru` · HF 스페이스). 스텁을 다시 넣지 않는다 — 링크를 바꿀 때는 `Contact.astro` / `Hero.astro` / 각 프로젝트 frontmatter 세 곳을 함께 본다.
 - Date strings live in the `N ENTRIES · LAST SYNC 2026.08` line of `Work.astro` and the `© 2026` line of `Footer.astro` — update them together.
 - **Inline SVG figures in `src/content/projects/*.md` use raw hex, not tokens** (markdown can't read CSS vars). They were remapped to the Instrument palette in the 2026.08 개편: `#0b6e4f` 신호 · `#5c605f` 보조 계열 · `#3d4144` 본문 · `#c4c1b8` 괘선 · `#101214` 잉크, 면은 `rgba(16,18,20,α)`. 새 도식도 이 값만 쓴다 — 보라 계열(`#5e6ad2`, `#ba9cff`)이나 `rgba(255,255,255,α)` 를 다시 넣지 않는다.
-- `legacy/index.html` is the pre-migration reference only; it is not part of the build. Delete it once the new site is confirmed.
