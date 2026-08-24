@@ -501,9 +501,13 @@ footer.site{background:var(--ink);color:var(--on-ink);}
   .detail-body .detail-notes dt:first-of-type{margin-top:0;}
 }
 
+/* 순수 도판 — 산문보다 큰 그림은 레일까지 좌우로 되물려 틀 전폭으로 놓는다.
+   1200px 안팎으로 그린 도식을 split 의 500px 칸에 넣으면 배율이 40%까지 떨어져
+   안에 쓴 글자가 5px 이 된다. 좁은 칸을 전제로 그린 인라인 도식만 split 에 남긴다. */
 .detail-fig{margin:16px calc(var(--detail-rail) * -1) 32px;}
 .detail-fig img{margin:0;}
-.detail-fig figcaption{margin-top:10px;font-family:var(--font-mono);font-size:11px;color:var(--ink-faint);letter-spacing:.04em;}
+/* 캡션은 한글 문장이다 — 모노 10px대에 넣지 않는다 (DESIGN-instrument.md). .detail-split-fig 와 같은 조판. */
+.detail-fig figcaption{margin-top:14px;font-size:13px;color:var(--ink-muted);line-height:1.6;letter-spacing:0;}
 
 /* 좌: 텍스트 / 우: 편중 차트 — 산문 칼럼을 벗어나 우측 여백을 활용 */
 /* split 은 왼쪽 절반이 산문이므로 왼쪽 레일은 되물리지 않는다 — 산문 시작선을 지키고
