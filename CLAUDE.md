@@ -14,7 +14,7 @@ npm run build     # static build → dist/
 npm run preview   # serve the production build at http://localhost:4321
 ```
 
-There is no test suite or separate lint step; `astro build` type-checks `.astro`/`.ts(x)` and validates content-collection frontmatter against the Zod schema, so a clean build is the verification gate. Fonts load from CDNs (Pretendard, JetBrains Mono, Fraunces) — previewing needs a network connection for correct typography.
+There is no test suite or separate lint step; `astro build` type-checks `.astro`/`.ts(x)` and validates content-collection frontmatter against the Zod schema, so a clean build is the verification gate. Fonts are self-hosted from npm (`pretendard` dynamic subset + `@fontsource/ibm-plex-sans` / `-mono`, imported in `BaseLayout.astro`) — no CDN, so offline preview renders correctly.
 
 ## Design System
 
@@ -71,7 +71,7 @@ Token map (`src/styles/global.css` `:root`):
 
 - **Layout & shell** — `src/layouts/BaseLayout.astro` owns `<html>`/`<head>` (fonts, meta, `global.css` import), renders shared `Header`/`Footer`, and loads the `reveal.ts` scroll script. Fonts are self-hosted: Pretendard (dynamic subset) + `@fontsource/ibm-plex-sans` + `@fontsource/ibm-plex-mono`. Every page wraps its content in `BaseLayout` and may pass `title`/`description` props. `Header.astro` nav links are absolute (`/#work`) so they work from detail pages too — keep nav links, the section `id`s in `index.astro`, and the `sectionIds` list in `src/scripts/nav-active.ts` in sync.
 
-- **Landing page** — `src/pages/index.astro` composes the section components in order: `Hero` (히어로 + 판독창 4개) · `Thesis` · `Work` · `Skills` (STACK) · `Timeline` (LOG) · `Contact`. It loads projects via `getCollection('projects')`, sorts by `order`, and passes them to `Work.astro`. `Footer.astro` (BaseLayout이 렌더) is the dark bottom band that continues the `Contact` 밴드.
+- **Landing page** — `src/pages/index.astro` composes the section components in order: `Hero` (히어로 + 판독창 3칸) · `Thesis` · `Work` · `Skills` (STACK) · `Timeline` (LOG) · `Contact`. It loads projects via `getCollection('projects')`, sorts by `order`, and passes them to `Work.astro`. `Footer.astro` (BaseLayout이 렌더) is the dark bottom band that continues the `Contact` 밴드.
 
 - **Data-driven content (3 collections)** — All editable content lives in collections defined in `src/content.config.ts` (Zod-validated, so a bad/missing field fails the build):
   - `projects` — `glob` loader over `src/content/projects/*.md` (one file per project).
@@ -98,7 +98,7 @@ Token map (`src/styles/global.css` `:root`):
 - Content is Korean; preserve language and tone.
 - **Never run a markdown formatter over `src/content/projects/*.md`.** These files are not plain markdown: they carry Zod-validated YAML frontmatter and raw HTML/SVG that the detail page renders (`.detail-split`, `<figure>`, inline charts). A formatter treats both as prose — it promotes `title:` to a heading, drops the closing `---`, and rewrites frontmatter URLs as markdown links (all three fail the build), and it flattens SVG blocks into concatenated plain text (**this one passes the build silently** — the chart just disappears). `.vscode/settings.json` and `.prettierignore` disable it; if a chart goes missing, diff against the last commit and restore the `<figure>` block from there.
 - **Korean line breaking** — never let an 어절(word) split mid-character. The site sets `word-break:keep-all` globally on `body` (`global.css`), so in-site content breaks only at spaces; keep that. For multi-clause copy (안내 문구 등), break at meaning-unit boundaries (절·문장 단위) with an explicit `<br>` rather than relying on reflow — e.g. a sentence describing one action stays on one line. Standalone embedded pages (HF demo iframes) don't inherit `global.css`, so set `word-break:keep-all` on their text elements explicitly.
-- Placeholders to replace before real deployment: `https://github.com` links, `hello@example.com`, and the `OO대학교 OO학과` timeline entry are stubs; the dummy projects' `github` values are placeholders.
+- 연락처·링크·이력은 모두 실제 값이다 (`paraise@gmail.com` · `github.com/buzziru` · HF 스페이스). 스텁을 다시 넣지 않는다 — 링크를 바꿀 때는 `Contact.astro` / `Hero.astro` / 각 프로젝트 frontmatter 세 곳을 함께 본다.
 - Date strings live in the `N ENTRIES · LAST SYNC 2026.08` line of `Work.astro` and the `© 2026` line of `Footer.astro` — update them together.
 - **Inline SVG figures in `src/content/projects/*.md` use raw hex, not tokens** (markdown can't read CSS vars). They were remapped to the Instrument palette in the 2026.08 개편: `#0b6e4f` 신호 · `#5c605f` 보조 계열 · `#3d4144` 본문 · `#c4c1b8` 괘선 · `#101214` 잉크, 면은 `rgba(16,18,20,α)`. 새 도식도 이 값만 쓴다 — 보라 계열(`#5e6ad2`, `#ba9cff`)이나 `rgba(255,255,255,α)` 를 다시 넣지 않는다.
 - `legacy/index.html` is the pre-migration reference only; it is not part of the build. Delete it once the new site is confirmed.
